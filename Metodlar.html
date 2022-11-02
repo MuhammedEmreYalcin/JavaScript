@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html lang="tr-TR">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>	
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+
+var 	isim1	=	"	Emre	";
+let 	isim2	=	"Ali ";
+const 	isim3	= 	"Hakan ";
+var 	metin1  = 	"Javascript Dünayada en yaygın kullanılan Script Dilidir";
+var 	metin2  = 	"Google";	
+var 	sayi1 	= 	"2";
+var 	sayi2 	= 	5;
+var 	sayi3 	= 	10;
+var 	Toplam 	= 	sayi1 + sayi2;	
+
+document.write(Toplam +"<br/>");	
+	
+if (Toplam==15){
+	document.write("Toplam = " + Toplam + "<br/>");
+}else{
+	document.write("Toplam = " + Toplam + "<br/>");
+}	
+
+
+// Javascriptin ön Tanımlı Metodları
+document.write(typeof(Toplam)+"<br/>");				// Girilen değerin veri tipini gösterir (typeof());
+document.write(isim2.length + "<br/>");				// Karakter Sayısını gösterir (.length);	
+document.write(isim1.trim() + "<br/>"); 			// Başdaki ve Sondaki boşlukları temizler(.trim());
+document.write(isim3.slice(1,4) + "<br/>"); 		// Verilen parametreler aralığnda yeni içerik oluşturur ve parametreler ters yazılsa kabul etmez (.slice());
+document.write(isim3.substring(4,1) + "<br/>");		// Verilen parametreler aralığnda yeni içerik oluşturur ve parametreler ters yazılsa bile kabul eder (.substring());
+document.write(isim3.substr(1,4) + "<br/>");		// 1. Parametre başlıyacak karakteri 2.Parametre başladıkdan sonra kaç Karakter alacağını gösterir (.substr());
+document.write(isim1.concat(isim2,isim3)+"<br/>");	// girilen değişkenleri birleştirip yeni değişken üretir (.concat());
+document.write(isim1.repeat(5) + "<br/>");			// girilen parametre kadar o değişkeni tekrarlar (.repeat());
+document.write(sayi2.toString() + "<br/>");			// Değişken içeriğini Stringe çevirir (.toString());
+document.write(String(sayi2) + "<br/>");			// Değişken içeriğini mutlak olarak Stringe çevirir (String());
+document.write(Number(isim2) + "<br/>");			// Değişken içeriğini mutlak olarak Numbere çevirir (Number());	
+document.write(sayi1.valueOf() + "<br/>");			// Değişken değerini tam olarak aktarır (veriyi ve veritipini) (.valueof());
+document.write(isim3.indexOf("k") + "<br/>");		// Değişken içerisinde parametrik olarak girilen değerin ilk sağlayan indisini gösterir (.indexof());
+document.write(isim3.lastIndexOf("a") + "<br/>");	// Değişken içerisinde parametrik olarak girilen değerin son sağlayan indisini gösterir (.lastIndexof());
+document.write(isim3.search(/A/i) + "<br/>");	 	// index of la aynıdır sadece büyük küçük harf duyarlı değildir (.serach());
+document.write(isim3.includes("a") + "<br/>");		// Kendisine parametrik olarak girilen değeri kontrol ederek boolean veri tipi sonucu verir (.includes());
+document.write(isim3.startsWith("H") + "<br/>");	// Kendisine parametrik olarak girilen başlangıcdeğeri kontrol ederek bolean veri tipi sonucu verir (.startsWith());
+document.write(isim2.endsWith("i") + "<br/>");		// Kendisine parametrik olarak girilen sonuncu değeri kontrol ederek bolean veri tipi sonucu verir (.endsWith());
+document.write(metin1.match("Script") + "<br/>");	// Kendisine parametrik olarak girilen değeri kontrol ederek eşleşen değer geriye dönderir (.match());
+document.write(metin1.replace("Javascript","PHP"));	// Kendisine parametrik olarak girilen değeri diğer girilen değerle değiştirir (.replace());
+document.write(metin1.split(" ") + "<br/>");		// Kendisine parametrik olarak girilen değer doğrultusunda içeriği böler ve dizi oluşturur (.split());
+document.write(metin1.localeCompare(isim3)+"<br/>");// Kendisine parametrik olarak girilen değer karşılaştırılarak değer dönderir (-1=Birinci değişken ikinci değişken den önce gliyor. 0=Birinci değişken ikinci değişken ile eşit. 1=Birinci değişken ikinci değişkenden sonra gliyor)
+document.write(metin1.charAt(3) + "<br/>");			// Kendisine parametrik olarak girilen değer karşılığı olan karakteri bularak geriye döndürür (.charAt())
+document.write(metin1.charCodeAt(3) + "<br/>");		// Kendisine parametrik olarak girilen değer karşılığı olan karakterin Unicode değerini geriye döndürür
+document.write(String.fromCharCode(97) + "<br/>");	// Kendisine parametrik olarak girilen değerileri (Unicode) eşit olan karakter değerini geriye döndürür
+document.write(encodeURI(metin1) + "<br/>");		// Değişken içerisindeki metnin özel Karakterlerini UTF-8 Kodlamasına dönüstürür (encodeURI())	
+document.write(decodeURI(metin1) + "<br/>");		// Değişken içerisindeki UTF-8 Kodu normal hale dönüstürür (decodeURİ())
+document.write(encodeURIComponent(metin1)+"<br/>");	// encodeURI nin aynısı sadece daha gelişmiş hali
+document.write(decodeURI(metin1) + "<br/>");		// decodeURİ nin aynısı sadece daha gelişmiş hali
+document.write(escape(metin1) + "<br/>");			// Değişken içerisindeki metnin özel Karakterlerini Unicode Kodlamasına dönüstürür 		
+document.write(unescape(metin1) + "<br/>");			// Değişken içerisindeki Unicode Karakterlerini çözerek geriye döndürü
+document.write(metin1.toUpperCase() + "<br/>");		// Değişken içerisindeki metnin Tamamını Büyük harfe çevirir
+document.write(metin1.toLowerCase() + "<br/>");		// Değişken içerisindeki metnin Tamamını Küçük harfe çevirir
+document.write(metin1.toLocaleUpperCase()+"<br/>"); // Değişken içerisindeki metnin Tarayıcı Diline göre Büyük harfe çevirir (Türkce Karakterler için)
+document.write(metin1.toLocaleLowerCase()+"<br/>"); // Değişken içerisindeki metnin Tarayıcı Diline göre Küçük harfe çevirir (Türkce Karakterler için)	
+document.write("H"+sayi1.sub()+"O"+"<br/>"); 		// Değişken içerisindeki metni alt Simge yapar
+document.write("m"+sayi1.sup()+"<br/>"); 			// Değişken içerisindeki metni üst Simge yapar	
+document.write(metin1.big()+"<br/>"); 				// Değişken içerisindeki metni Büyük font yapar	(Boyutunu büyütür)
+document.write(metin1.small()+"<br/>"); 			// Değişken içerisindeki metni küçük font yapar	(Boyutunu küçültür)
+document.write(metin1.bold()+"<br/>"); 				// Değişken içerisindeki metni kalın font yapar	(Boyutunu kalınlaştırı)
+document.write(metin1.italics()+"<br/>"); 			// Değişken içerisindeki metni italic font yapar (Boyutunu kursiv yapar)
+document.write(metin1.strike()+"<br/>"); 			// Değişken içerisindeki metni üzeri çizili metin 
+document.write(metin1.fixed()+"<br/>"); 			// Değişken içerisindeki metni teşetype (daktilo) font yapar 
+document.write(metin1.fontcolor("red") + "<br/>");	// Kendisine parametrik olarak girilen metnin rengini değiştirir
+document.write(metin1.fontsize(5) + "<br/>");		// Kendisine parametrik olarak girilen metnin font boyutunu değiştirir
+document.write(metin1.anchor("xxx") + "<br/>");		// Değişkene çapa (bağlantı) tanımlaması yapar (<a>...</a>)
+document.write(metin2.link("http://www.google.com"))// Değişkene çapa (bağlantı) tanımlaması yapar ve aynı zamanda köprü değeri atar
+	
+</script>	
+</body>
+</html>
