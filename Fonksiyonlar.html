@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <title>Fonksiyonlar</title>
+</head>
+<body>
+<script type="text/javascript" language="JavaScript">
+
+/* Normal Fonksiyon Yapısı
+ function Deneme1(){
+    document.write("Merhaba");
+}
+Deneme1(); */
+
+
+/* Değişken içerisinde Fonksiyon
+var Deneme1 = function(){
+    document.write("Merhaba");
+}
+Deneme1(); */
+
+
+/* Fonksiyonda Return
+function Deneme1(){
+    var isim1 = "Hasan ";
+    var isim2 = "Ali";
+    return isim1 + isim2;
+}
+document.write(Deneme1()); */
+
+
+/*Fonksiyonu Otomatik Çalıştırma
+(function Deneme1(){
+    document.write("Otomatik Çalıştırma");
+})();*/
+
+
+/* Fonksiyonda Parametre gönderme
+function Deneme1(isim){
+    document.write("Merhaba " + isim +" Nasılsınız");
+}
+Deneme1("Emre");*/
+
+
+/*Otomatik Fonksiyonda Parametre gönderme
+
+(function Deneme1(isim){
+    document.write("Merhaba " + isim +" Nasılsınız");
+})("Emre");*/
+
+
+/* Fonksiyondan diğer Fonksiyona Değer gönderme
+function Parabirimi(birim, Tutar){
+    if(birim=="Türklirası"){
+        var kur = 1;
+    }else if(birim=="Dollar"){
+        var kur = 3;
+    }else if(birim=="Euro"){
+        var kur = 4;
+    }
+    return tutarhesapla(kur,Tutar);
+}
+
+function tutarhesapla(gelenkur,gelentutar){
+    var hesapyap = gelenkur * gelentutar;
+    document.write(hesapyap)
+}
+Parabirimi("Dollar",100);*/
+
+
+/* İç içe Fonksiyonlar
+function Deger(Deger1, Deger2){
+  function Test(Test1,Test2){
+        document.write(Test1 + "<br/>");
+        document.write(Test2 + "<br/>");
+  }
+  return Test(Deger1,Deger2);
+}
+Deger(2,3); */
+
+
+/*Kendi Kendini çağıran Fonksiyon
+function Tekrarla(Deger1){
+    if(Deger1<=10){
+        document.write("Emre " + "<br/>");
+        Deger1 += 1;
+        Tekrarla(Deger1)
+    }else{
+        return;
+    }
+}
+Tekrarla(1);*/
+
+
+/*Fonksiyonda arguments özelliği (Fonksiyona Parametre tanımlanmadan gelecek parametre değerlerinin alınması)
+function ornek(){
+    for(var baslangic = 0; baslangic<arguments.length; baslangic++){
+        document.write(arguments[baslangic] + "</br>");
+    }
+}
+ornek("Emre","Yalçın",22)*/
+
+
+//Fonksiyonda caller özelliği (Fonksiyonu çağıran diğer bir Fonksiyon referans alınarak tüm bilgilerin elde edilmesini sağlar)
+function esas(){
+    for(var baslangic = 0; baslangic<esas.caller.arguments.length; baslangic++){
+    document.write(diger.arguments[baslangic] + "</br>");
+    }
+}
+function diger(isim, soyisim){
+    esas();
+}
+
+diger("Emre","Yalçın");
+
+</script>
+</body>
+</html>

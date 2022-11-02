@@ -1,0 +1,1034 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr-TR">
+<head>
+    <meta hhtp-equiv="content-type" content="text/html;  charset=utf-8" />
+    <title>DOM</title>
+<style>
+.bir{
+    color:red;
+}
+.iki{
+    background-color:yellow;
+}
+.uc{
+    width:300px;
+    height:25px;
+    padding-top:5px;
+    text-align:center;
+    border:1px dotted black;
+}
+.deneme{
+    background-color:yellow;
+    width:150px;
+    height:100px;
+    border:1px solid black;
+    padding-top:25px;
+    padding-left:25px;
+    padding-right:25px;
+    padding-bottom:25px;
+    margin-top:100px;
+    margin-left:100px;
+}
+</style>
+</head> 
+<body>
+<iframe src="2Dosya.html" style="width:500px; height:500px";> </iframe>  
+</br>
+</br>
+</br>
+<button onclick="push()">Sil</button> 
+<button onclick="copy()">Konroll Et</button> </br></br></br>
+<ol id="birincilist">
+    <li id="first">Javascript</li>
+    <li id="second">Php</li>
+    <li id="third">Java</li>
+    <li id="fourth">Css</li>
+</ol>
+
+<ol id="ikincilist">
+    <li id="first">Photoshop</li>
+    <li id="second">Corel</li>
+    <li id="third">Paint</li>
+</ol>
+</br></br></br>
+<div id="birincip" target="_blank" class="deneme" >Muhammed Emre Yalçın</div> 
+</br></br></br>
+<div id="ornek3" class="bir iki uc" title="Emre Yalçın" lang="tr" tabindex="1" contentEditable="true" >Javascript Eğitim Seti</div> </br></br></br>
+<div id="sonuc3"></div> </br></br></br>
+
+
+<button onClick="ornek2()">Odaktan Çık</button> </br>
+<a id="b1" href="https://google.com.tr" target="_blank" accesskey="1">Google'a git</a> <span id="bir"></span> </br>
+<a id="b2" href="https://yandex.com.tr" target="_blank" accesskey="2">Yandex'e git</a> <span id="iki"></span> </br>
+<div id="birincikimlik" name="birinciisim">Php Eğitim Seti</div>
+<div id="ikincikimlik" name="ikinciisim">Javascript Eğitim Seti</div>
+<button id="" name="" class="" onClick="bas()">Node Sayısı</button> 
+<button onClick="ekle()">Ekle</button> 
+<button onClick="say()">Buton</button> 
+<div id="sayialani"></div>
+<div id="uzunluk"></div>
+<script type="text/javascript" language="javascript">
+
+//HTML Tagları:
+/*Css le baglanma linki
+<link type="text/css" rel="stylesheet" href="Css.css">
+
+<div> </div> Sayfada bir alan oluşturur
+<span> </span> Satır içi bir grup oluşturur
+
+/*
+<button onclick="Push()">Push Here</button> (SAyfada bir Buton Oluşturur)
+function Push(){
+    document.getElementById("ornek").innerHTML = "Hello User";
+}
+*/
+
+// getElementById() : Kendisine Parametre olarak verilen değer doğrultusunda Belge içerisindeki berlirtilen ID özelliğne / niteliğne sahip elemanın referansını elde etmek için kullanılır 
+/*var sonuc = document.getElementById("ornek"); // (Çıktı:[object HTMLDivElement])
+var sonuc = document.getElementById("ornek").innerHTML; // Yukarıdakı div Tagının içeriği (Emre Yalçın) sonuc değişkenine atandı (Çıktı:Emre Yalçın)
+var sonuc = document.getElementById("ornek").innerHTML = "Hasan Ali"; // Yukarıdakı div Tagının içeriği (Emre Yalçın) (Hasan Ali) içeriği ile değişti (Çıktı:Hasan Ali)
+*/
+
+// getElementsByName() : Kendisine Parametre olarak verilen değer doğrultusunda Belge içerisindeki berlirtilen name özelliğne / niteliğne sahip tüm elemanların referansını elde etmek için kullanılır 
+/* Örnek1:
+My favorite color is <span name="color">green</span>. Hasan's favorite color is <span name="color">red</span>. Ali's favorite color is <span name="color">yellow</span> </br>
+Favorite Colors: <span id="colors"></span>.
+------------------------------------------------------------------------------
+var Bilgi  = document.getElementsByName("color"); 
+var Colors = [];
+for(var i=0; i<Bilgi.length; i++){
+    var Sonuc = Bilgi[i].innerHTML;
+    Colors[i] = Sonuc;  
+}
+document.getElementById("colors").innerHTML = Colors;
+*/
+
+
+/* Örnek2
+<h3>İnterests:</h3>
+Shopping <input name="interests" type="checkbox" value="Shopping"/>
+Entertainment <input name="interests" type="checkbox" value="Entertainment"/>
+Cinema <input name="interests" type="checkbox" value="Cinema"/>
+İnternet <input name="interests" type="checkbox" value="İnternet"/> </br>
+<button onclick="ChAll()">Choose All</button>
+<button onclick="DeAll()">Delete All</button>
+------------------------------------------------------------------------------
+function ChAll(){
+    var Choose  = document.getElementsByName("interests"); 
+    for(var i=0; i<Choose.length; i++){
+    Choose[i].checked =true;
+    }
+}
+function DeAll(){
+    var Choose  = document.getElementsByName("interests"); 
+    for(var i=0; i<Choose.length; i++){
+    Choose[i].checked =false;
+    }
+}
+*/
+
+// getElementsByClassName() : Kendisine Parametre olarak verilen değer doğrultusunda Belge içerisindeki berlirtilen class (Sınıf)özelliğne / niteliğne sahip tüm elemanların referansını elde etmek için kullanılır 
+/* 
+div{border:1px solid black; margin:5px; padding:5px;}
+------------------------------------------------------------------------------
+<div class="bicimlendirme">Javascript Eğitim Seti</div>
+<div class="bicimlendirme">Html Eğitim Seti</div>
+<div class="bicimlendirme">Css Eğitim Seti</div>
+<div class="bicimlendirme">Php Eğitim Seti</div>
+<div class="bicimlendirme">Pyhton Eğitim Seti</div>
+<div class="bicimlendirme">Xml Eğitim Seti</div>
+------------------------------------------------------------------------------
+var sonuc  = document.getElementsByClassName("bicimlendirme"); 
+for(var i=0; i<sonuc.length; i++){
+    sonuc[i].style.backgroundColor = "#F1F1F1";
+}
+*/
+
+
+// doctype : Belge Döküman türü referansını elde etmek için kullanılır
+//document.write(document.doctype.name+"</br></br></br>");// html
+
+
+// documentElement : Html Tagının referansını element nesnesi halinde elde emtemek için kullanılır
+//document.write(document.documentElement.nodeName+"</br></br></br>");// HTML
+
+
+// implementation : Belge ile ilgili DOMimplementation arayüzünden türetilmiş bir DOMimplementation nesnesi eferansını boolean veri türünde elde etmek için kullanılır
+/*
+<div id="sonuc"></div>
+------------------------------------------------------------------------------
+var islem = document.implementation;
+document.getElementById("sonuc").innerHTML = islem.hasFeature("HTML");//true
+*/
+
+
+// body : Belge Belge içerisindeki Body Tagını (etiketinin) referansını elde etmek için kullanılır
+/*
+<button onClick="sonucSarı()">Sarı</Button>
+<button onClick="sonucKırmızı()">Kırmızı</Button>
+<button onClick="sonucMavi()">Mavi</Button>
+<button onClick="sonucSiyah()">Siyah</Button>
+------------------------------------------------------------------------------
+var sonuc = document.body.innerHTML;
+document.write(sonuc);
+function sonucSarı(){
+    document.body.style.backgroundColor="yellow";
+}
+function sonucKırmızı(){
+    document.body.style.backgroundColor="red";
+}
+function sonucMavi(){
+    document.body.style.backgroundColor="blue";
+}
+function sonucSiyah(){
+    document.body.style.backgroundColor="black";
+}
+*/
+
+
+// head : Belge içerisindeki Head Tagını (etiketinin) referansını elde etmek için kullanılır
+/*
+<head id="Deneme1">
+var sonuc = document.head.id;
+document.write(sonuc);//Deneme1
+*/
+
+
+// characterSet : Belgenin karakter kodlamasının referansını elde etmek için kullanılır
+/*
+var sonuc = document.characterSet;
+document.write(sonuc);//UTF-8
+*/
+
+
+// inputEncoding : Belgenin karakter kodlamasının referansını elde etmek için kullanılır
+/*
+var sonuc = document.characterSet;
+document.write(sonuc);//UTF-8
+*/
+
+
+// compatMode : Belgenin Browser (Tarayıcı) tarafından hangi modda çalıştırıldığının referansını elde etmek için kullanılır
+// Backcompat : Tuhaf / Rastlantı Modu  ---- CSS1Compat : Standart / normal Modu
+/*
+var sonuc = document.compatMode;
+document.write(sonuc);//CSS1Compat
+*/
+
+
+// documentURI : Belge sayfasını URI (Uniform Resource İndentifier) (nizami kaynak belirtici) adresi referansını elde etmek için kullanılır
+/*
+var sonuc = document.documentURI;
+document.write(sonuc);//file:///C:/Users/PC/Desktop/Emre/Javascript/Dosyalar/documentObjectModel/DOM.html
+*/
+
+
+// location : Belge sayfasını URL (Uniform Resource locator) (nizami kaynak bulucu) adresi referansını elde etmek ve ayarlamak için kullanılır
+/* Örnek1
+var sonuc = document.location;
+document.write(sonuc);//file:///C:/Users/PC/Desktop/Emre/Javascript/Dosyalar/documentObjectModel/DOM.html
+
+Örnek2 href ile Eklenilen Sayfa açılır
+//var sonuc = document.location.href = "http://www.google.com.tr"; 
+//document.write(sonuc);//Direk Googlın Kendi Sayfası açılır 
+
+Örnek3 Sayfada en aşşağıdayken Yukarı gitmeni sağlar
+<button onClick="Yukari()">Yukari Git</button>
+------------------------------------------------------------------------------
+function Yukari(){
+    document.location.href ="#top";  
+}
+*/
+
+
+// baseURI : Belgenin mutlak URL (Uniform Resource locator) (nizami kaynak bulucu) adresi referansını elde etmek için kullanılır
+/*
+var sonuc = document.baseURI
+document.write(sonuc); //file:///C:/Users/PC/Desktop/Emre/Javascript/Dosyalar/documentObjectModel/DOM.html#top
+*/
+
+/*
+// URL : Belgenin tam URL (Uniform Resource locator) (nizami kaynak bulucu) adresi referansını elde etmek için kullanılır
+var sonuc1 = document.URL;
+document.write(sonuc1+"</br></br></br>"); //file:///C:/Users/PC/Desktop/Emre/Javascript/Dosyalar/documentObjectModel/DOM.html#top
+
+
+// domain : Belgenin Domain (alan adı) referansını elde etmek için kullanılır
+var sonuc2 = document.domain;
+document.write(sonuc2+"</br></br></br>"); //biz localhost olduğumuzdan içeriği boş
+
+
+// lastModified : Belgenin en son güncelle Tarihi ve Saatinin referansını elde etmek için kullanılır
+var sonuc2 = document.lastModified;
+document.write(sonuc2+"</br></br></br>"); //09/20/2022 13:25:57
+
+
+// readyState : Belge içeriğini Browser (tarayıcı) tarafından yüklenme durumu değeri referansını elde etmek için kullanılır
+var sonuc2 = document.readyState;
+document.write(sonuc2+"</br></br></br>"); //loading veya complete
+
+
+// designMode : Belge çalışma anında düzenlene bilir olup olmadığını referansını elde etmek için kullanılır
+var sonuc2 = document.designMode;
+document.write(sonuc2+"</br></br></br>"); //off (Düzenlenemez) veya on (Düzenlenebilir)
+
+
+// hasFocus : Belge odağının olup olmadığı referansını elde etmek için kullanılır (Boolean veri Tipi)
+var sonuc2 = document.hasFocus();
+document.write(sonuc2+"</br></br></br>"); //true
+
+
+// activeElement : Belge içerisindeki seçili veya odaklanmış elemanın referansını elde etmek için kullanılır 
+/*
+İsim Soyisim:<input type="text">
+<button>Kaydet</button>
+------------------------------------------------------------------------------
+var sonuc2 = document.activeElement;
+document.write(sonuc2+"</br></br></br>"); //[object HTMLBodyElement]
+*/
+
+
+// abchors : Belge içerisindeki çapa tagına (etiketine) referansını elde etmek için kullanılır. ELemanların referanslarını birden fazla ise her bir eleman döngü ile elde edilebilir  
+/*
+<a id="bir name="Html" href="//https://tr.wikipedia.org/wiki/HTML" target="_blank">Html</a> </br>
+<a id="iki name="JQuery" href="//https://tr.wikipedia.org/wiki/JQUERY">JQuery</a> </br>
+<a id="uc name="Javascript" href="//https://tr.wikipedia.org/wiki/Javascript">Javascript</a> </br>
+<a id="dort name="Php" href="//https://tr.wikipedia.org/wiki/PHP">Php</a> </br>
+<a id="bes name="Css" href="//https://tr.wikipedia.org/wiki/CSS">Css</a> </br>
+------------------------------------------------------------------------------
+var sonuc2 = document.abchors();
+document.write(sonuc2+"</br></br></br>"); 
+*/
+
+
+// links :  Belge içerisindeki tüm linklerin referansını elde etmek için kullanılır. Referanslar birden fazla ise her bir eleman döngü ile elde edilebilir  
+/*
+<a href="http://www.javascript.com">Javascript Eğitim Seti</a> </br>
+<a href="http://www.css.com">CSS Eğitim Seti</a> </br>
+<a href="http://www.Php.com">Php Eğitim Seti</a> </br></br>
+<button id="islembutonu" onClick="bas()">Yukardaki Sayfaların linkerlini göster</button> </br>
+<span id="sonucalani"></span> </br></br></br></br>
+------------------------------------------------------------------------------
+function bas(){
+    var sonuc2 = document.getElementsByTagName("a");
+    var sonuclar =[];
+    for(var i=0; i<sonuc2.length; i++){
+        var icerik = document.links[i].href;
+        sonuclar[i] = icerik;
+    }
+    document.getElementById("sonucalani").innerHTML = sonuclar; 
+}
+*/
+
+
+// scripts :  Belge içerisindeki tüm script tagındakı elemanların referansını elde etmek için kullanılır. Referanslar birden fazla ise her bir eleman döngü ile elde edilebilir  
+var sonuc = document.scripts;
+document.write(sonuc+"</br>"); //[object HTMLCollection]
+document.write(sonuc.length+"</br></br></br>"); //1
+
+
+// embeds :  Belge içerisindeki tüm embed veya object tagındakı elemanların referansını elde etmek için kullanılır. Referanslar birden fazla ise her bir eleman döngü ile elde edilebilir  
+
+
+// forms :  Belge içerisindeki form tagındakı elemanların referansını elde etmek için kullanılır. Referanslar birden fazla ise her bir eleman döngü ile elde edilebilir 
+/* body Tag altına yazılır
+<form id="xxxx"></form>
+*/
+
+
+// images :  Belge içerisindeki tüm img tagına sahip elemanların referansını elde etmek için kullanılır. Referanslar birden fazla ise her bir eleman döngü ile elde edilebilir  
+/*
+<img src="img/js.png" width=250px> 
+<img src="img/css.png" width=250px> </br></br></br>
+------------------------------------------------------------------------------
+var sonuc = document.images;
+var dizi  =[];
+
+for(var i=0; i<sonuc.length; i++){
+    var deger = sonuc[i].src;
+    dizi     += deger+"</br>";
+}
+document.write(dizi);
+*/
+
+
+// plugins :  Browserdakı (Tarayıcıdaki) tüm eklentilerin referansını elde etmek için kullanılır. Referanslar birden fazla ise her bir eleman döngü ile elde edilebilir
+/*
+var deger = navigator.plugins;
+for(var i=0; i<deger.length; i++){
+    document.write("Plugin Adı: "+deger[i].name+"</br>");
+    document.write("Plugin Dosyaadı: "+deger[i].filename+"</br>");
+    document.write("Açıklama : "+deger[i].description+"</br></br>");
+}
+document.write(deger);//[object PluginArray]
+document.write(deger.length);//5 /Toplam plugins sayısı
+*/
+
+
+// createAttribute :  Belge içerisindeki istenilen bir elemana yeni Backcompatr özellik veya nitelik oluşturur ve oluşturduğu bu node'u (düğümü) bir node object olarak geriye döndürür
+// setAttributeNode :  createAttribute metodu ile oluşturulan özellik node'unu (düğümü) node objectine uyagular
+/*
+<style>
+.demo{color: red;}
+</style>
+------------------------------------------------------------------------------
+<h1>Javascript Eğitim Seti</h1>
+<button onClick="bas()">Uygula</button>
+------------------------------------------------------------------------------
+function bas(){
+    var deger     = document.getElementsByTagName("h1")[0];
+    var ozellik   = document.createAttribute("class");
+    ozellik.value = "demo";
+    deger.setAttributeNode(ozellik)
+}
+*/
+
+
+// createElement() :  Belge içerisindeki yeni bir Html eleman nodu (düğümü) ve oluşturduğu bu node'u (düğümü) bir node object olarak geriye döndürür
+// createTextNode() :  createElement metodu ile oluşturulan Html elemanına metin node'unu (düğümü) oluşturur ve bir node olarak geriye dödürür
+/*
+var deger     = document.createElement("BUTTON");
+var metin     = document.createTextNode("This is a Button");
+deger.appendChild(metin)
+document.body.appendChild(deger);
+
+
+// createComment() :  Belge içerisindeki yeni bir açıklama nodu (düğümü) ve oluşturduğu bu node'u (düğümü) bir node object olarak geriye döndürür
+var deger     = document.createComment("This is a Comment");
+document.body.appendChild(deger);
+
+
+// addEventListener() :  Belgeye event (olay) işaretleyicis / dinleyicisis eklemek için kullanılır. İşaretlenen/dinlenen (olay) belgede gerçekleştirişecek olan fonksiyon veyafonksiyonlar çalışır 
+
+document.addEventListener("click",ornek);
+function ornek(){
+    alert("Tıklama oldu");
+}
+
+// removeEventListener() :  Belgeye eklenmiş olan event (olay) işaretleyicis / dinleyicisis silmek için kullanılır. İşaretlenen/dinlenen (olay) belgede gerçekleştirişecek olan fonksiyon veyafonksiyonlar çalışır 
+/*
+function ornek(){
+    alert("Tıklama oldu");
+    document.removeEventListener("click",ornek);
+}
+*/
+
+// dir :  Belge içerisindeki metinlerin yazılış yönü referansını elde eltmek için kullanılır Ayrıca Belge içerisindeki metinlerin yazılış yönünün atamasını ayarlamak içinde kullanılır
+//ltr  : left to right    //rtl : right to left
+
+
+// open() :  Belge içerisindeniçerisinde yeni bir HTML çıktı akışı açmak için kullanılır  // Parametre: 1.Mimetype, 2.Geçmiş aktarımı
+// close() :  open() ile açılan HTML çıktı akışını kapatmak için kullanılır 
+/*
+function ornek(){
+    document.open("text/html","replace");
+    document.write("Burası yeni HTML akışı");
+    document.close();
+}
+
+
+// styleSheets :  Belge üzerinde etkisi olan tüm stil sayfalarının nesne referanslarını elde emtek için kullanılır  // Parametre: 1.Mimetype, 2.Geçmiş aktarımı
+var sonuc = document.styleSheets[0];
+document.write(sonuc);//[object CSSStyleSheet]
+
+
+// querySelector :  Css seçicileri ile belgedeki bir elemanın referansını elde emtek için kullanılır 
+/*
+function bas(){
+    document.querySelector("#metin4").style.fontSize = "50px";
+    document.querySelector("#metin4").style.color = "green";
+}
+*/
+
+
+// querySelectorAll :  Css seçicileri ile belgedeki tüm elemanların referansını elde emtek için kullanılır 
+/*
+function bas(){
+    var islem   = document.querySelectorAll("div");
+    var uzunluk = islem.length;
+
+    for(var i=0; i<uzunluk; i++){
+        islem[i].style.fontSize    = "35px";
+        islem[i].style.color       = "red";
+    }
+}
+*/
+
+// adoptNode :  Belge içerisine başka bir belgeden node (düğüm) eklemek için kullanılır.Eklenecek olan node un (düğümün) varsa tüm alt nodelarında (düğümlerinde) işleme dehil edlierek ilgili tüm nodlar diğer belgeden kaldırılır
+/*
+function bas(){
+    var cerceve = getElementsByTagName("IFRAME")[0];
+    var alan    = cerceve.contentWindow.document.getElementsByTagName("ID")[0]
+    var sonuc   = document.adoptNode(alan);
+    document.body.appendChild(sonuc)
+}
+*/
+
+
+// adoptNode :  Belge içerisine başka bir belgeden node (düğüm) eklemek için kullanılır.Eklenecek olan node un (düğümün) varsa tüm alt nodelarında (düğümlerinde) işleme dehil edilir
+/*
+function bas(){
+    var cerceve = getElementsByTagName("IFRAME")[0];
+    var alan    = cerceve.contentWindow.document.getElementsByTagName("ID")[0]
+    var sonuc   = document.import(alan);
+    document.body.appendChild(sonuc)
+}
+
+
+
+// normalize():  Belge içerisine boş text nodelarını (metin düğümlerini) kadlırarak bitişik düğüme katılmasını sağlar. Eklenecek olan node un (düğümün) varsa tüm alt nodelarında (düğümlerinde) işleme dehil edilir
+function ekle(){
+    var islem   = document.createTextNode("Yeni Düğüm ");
+    var sonuc   = document.body;
+    sonuc.appendChild(islem);
+    var islem   = document.getElementById("sayialani");
+    islem.innerHTML = sonuc.childNodes.length;
+}
+
+function bas(){
+    document.normalize();
+    var islem = document.body;
+    var sonuc = document.getElementById("sayialani");
+
+    sonuc.innerHTML = islem.childNodes.length;
+}
+
+
+
+Cookielerin (çerezlerin) yapısı:
+1. Cookie (çerez) adı
+2. Cookie (çerez) değeri
+3. Cookienin (çerezin) yaşam süresi
+4. Path (yol)
+
+Cookie (çerez) adı = Cookie (çerez) değeri ; Cookienin (çerezin) yaşam süresi ; Path (yol)
+
+var cerezadı     ="isimsoyisim";
+var cerezdegeri  ="Emre Yalcin";
+
+document.cookie  = cerezadı + "=" + cerezdegeri + ";";
+
+
+// DOM Attributes da length() Methodu:  Belge içerisindeki HTML elemanına eklenmiş olan özelliklerin sayısını elde etmek için kullanılır 
+var islem = document.getElementById("sayialani").attributes;
+document.write(islem + "</br></br></br>"); // [object NamedNodeMap]
+
+function say(){
+    var islem2 = document.getElementsByTagName("BUTTON")[0].attributes.length;
+    document.getElementById("uzunluk").innerHTML=islem2 //4
+}
+
+
+// DOM Attributes da name() Methodu:  Belge içerisindeki HTML elemanına eklenmiş olan özellik adı refernasını elde etmek için kullanılır: Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+var sonuc = document.getElementById("birincikimlik").attributes[0].name
+document.write(sonuc + "</br></br></br>"); //id
+
+
+// DOM Attributes da value() Methodu:  Belge içerisindeki HTML elemanına eklenmiş olan özellik değer refernasını elde etmek için kullanılır: Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+var sonuc   = document.getElementById("birincikimlik").attributes;
+var uzunluk = sonuc.length;
+var metin    ="";
+
+for(var i=0; i<uzunluk; i++){
+    var deger = sonuc[i].value;
+    metin += deger+"</br>";
+}
+    document.write(metin);
+
+
+// DOM Attributes da specified() Methodu:  Belge içerisindeki HTML elemanına herhangi bir özelliğin eklenip eklenmediği refernasını elde etmek için kullanılır: Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+var islem = document.getElementsByTagName("DIV")[0]
+var sonuc = islem.getAttributeNode("id").specified;
+document.write(sonuc + "</br></br></br>"); //true
+
+
+// DOM Attributes da getNamedItem() Methodu:  Belge içerisindeki HTML elemanına eklenmiş olan özellik nodu (düğümü) refernasını elde etmek için kullanılır:: Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+
+var islem = document.getElementsByTagName("DIV")[0]
+var sonuc = islem.attributes.getNamedItem("name").value;
+document.write(sonuc + "</br></br></br>"); //true
+
+
+
+// DOM Attributes da setNamedItem() Methodu:  Belge içerisindeki HTML elemanına eklenmiş olan özellik nodu (düğümü) ve değeri eklemek için kullanılır:: Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+var islem  = document.getElementsByTagName("DIV")[0]
+var ekle   = document.createAttribute("class")
+ekle.value = "deneme1"
+islem.attributes.setNamedItem(ekle);
+
+// eklendiğini aşşağıdaki metoda görebiliyoruz
+var sonuc   = document.getElementById("birincikimlik").attributes;
+var uzunluk = sonuc.length;
+var metin    ="";
+
+for(var i=0; i<uzunluk; i++){
+    var deger = sonuc[i].value;
+    metin += deger+"</br>";
+}
+document.write(metin+"</br></br></br>"); //birincikimlik, birinciisim, background-color:#FF0004, deneme1
+
+
+// DOM Attributes da removeNamedItem() Methodu:  Belge içerisindeki HTML elemanına eklenmiş olan özellik nodu (düğümü) silmek için kullanılır:: Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+var islem  = document.getElementsByTagName("DIV")[0]
+islem.attributes.removeNamedItem("class")//birincikimlik, birinciisim, background-color:#FF0004
+
+
+// DOM Attributes da Item() Methodu:  Belge içerisindeki HTML elemanına eklenmiş olan özellik nodu (düğümü) referansını elde etmek için kullanılır:: Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+var islem  = document.getElementsByTagName("DIV")[0]
+var sonuc  = islem.attributes.item(0).name;
+document.write(sonuc)//style
+
+
+// DOM Attributes da style() Methodu:  Belge içerisindeki HTML elemanına css (Cascading Style Sheets) özellikleri ve değerleri eklemek veya referansını elde etmek için kullanılır:: Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+document.getElementById("ikincikimlik").style.backgroundColor = "red";
+document.getElementById("birincikimlik").style.color = "blue";
+document.getElementById("birincikimlik").style.padding = "10px";
+
+
+// DOM Attributes da accessKey() Methodu:  Belge içerisindeki herhangi  bir HTML elemanına atanmış olan accesKey değerini elde emtek veya ayarlamak için kullanılır : Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+//accessKey tuşularını elde etmek
+var islem1 = document.getElementById("b1").accessKey;
+var islem2 = document.getElementById("b2").accessKey;
+document.getElementById("bir").innerHTML = "Kısayol Tuşu: "+islem1; //1
+document.getElementById("iki").innerHTML = "Kısayol Tuşu: "+islem2; //2
+
+////accessKey tuşularını değiştirmek
+var islem1 = document.getElementById("b1").accessKey = "g"; 
+var islem2 = document.getElementById("b2").accessKey = "y";
+document.getElementById("bir").innerHTML = "Kısayol Tuşu: "+islem1; //g
+document.getElementById("iki").innerHTML = "Kısayol Tuşu: "+islem2; //y
+
+
+// DOM Attributes da focus() Methodu:  Belge içerisindeki herhangi  bir HTML elemanına odaklanmak için kullanılır : Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+function ornek(){
+    document.getElementById("b2").focus();
+}
+
+
+// DOM Attributes da blur() Methodu:  Belge içerisindeki odaklanılmıi herhangi  bir HTML elemanının odağından çıkmak için kullanılır : Html eleman içerisindeki özellik sayısı bir den fazla ise her bir özellik sayısı döngü ile elde edilebilir
+function ornek2(){
+    document.getElementById("b2").blur();
+}
+
+
+// DOM Attributes da classList Methodu:  Belge içerisindeki herhangi  bir HTML elemanının atanmış olan class Listesi isimlerinin elde etmek veya ayarlamak için kullanılır :
+
+item        : sınıf seçicisinin adını elde eder
+length      : sınıf seçicisinin sayısını elde eder
+add         : sınıf seçicisinin ekler
+remove      : sınıf seçicisinin siler
+toggle      : sınıf seçicisinin ekler veya kaldırır (sadece tek bir sınıf seçicisi yazılabilir )
+contains    : sınıf seçicisinin arar (true veya false değeri atar)
+
+
+function ornek1(){
+    var deger = document.getElementById("alan").classList;
+    document.getElementById("sonuc").innerHTML =deger; //bir iki uc
+}
+
+function ornek1(){
+    var deger = document.getElementById("alan").classList.item(1);
+    document.getElementById("sonuc").innerHTML =deger; //iki 
+}
+
+function ornek1(){
+    var deger = document.getElementById("alan").classList.length;
+    document.getElementById("sonuc").innerHTML =deger; //3 
+}
+
+function ornek1(){
+    var deger = document.getElementById("alan").classList.add("bir", "iki", "uc");
+}
+
+function ornek1(){
+    var deger = document.getElementById("alan").classList.remove("uc");
+}
+
+function ornek1(){
+    var deger = document.getElementById("alan").classList.toggle("uc"); 
+}
+
+function ornek1(){
+    var deger = document.getElementById("alan").classList.contains("uc"); 
+    document.getElementById("sonuc").innerHTML =deger; 
+}
+
+
+// DOM Attributes da tagName() Methodu:  Belge içerisindeki herhangi  bir HTML elemanının tag yani etiket adını elşde emtek için kullanılır
+    var name = document.getElementById("birincikimlik").tagName;
+    document.write(name); //DIV
+
+
+// DOM Attributes da id Methodu:  Belge içerisindeki herhangi  bir HTML elemanının id değerini elde etmek veya ayarlamak için kullanılır
+var name = document.getElementsByTagName("DIV")[0].id;
+document.write(name); //ornek3
+
+
+// DOM Attributes da title Methodu:  Belge içerisindeki herhangi  bir HTML elemanının title değerini elde etmek veya ayarlamak için kullanılır
+var name = document.getElementsByTagName("DIV")[0].title;
+document.write(name); //Emre Yalçın
+
+
+// DOM Attributes da lang Methodu:  Belge içerisindeki herhangi  bir HTML elemanının lang (dil) değerini elde etmek veya ayarlamak için kullanılır
+var name = document.getElementsByTagName("DIV")[0].lang;
+document.write(name); //tr
+
+
+// DOM Attributes da tabIndex Methodu:  Belge içerisindeki herhangi  bir HTML elemanının tab index değerini elde etmek veya ayarlamak için kullanılır
+var name = document.getElementsByTagName("DIV")[0].tabIndex;
+document.write(name); //1
+
+
+// DOM Attributes da contentEditable Methodu:  Belge içerisindeki herhangi  bir HTML elemanının contentEditable değerini elde etmek veya ayarlamak için kullanılır
+var name = document.getElementsByTagName("DIV")[0].contentEditable;
+document.write(name); //true
+
+
+// DOM Attributes da isContentEditable Methodu:  Belge içerisindeki herhangi  bir HTML elemanının contentEditable (düzenlenebilir) olup olmadığını kontroll eder
+var name = document.getElementsByTagName("DIV")[0].isContentEditable;
+document.write(name); //true
+
+
+// DOM Attributes da className Methodu:  Belge içerisindeki herhangi  bir HTML elemanının class değerini elde etmek veya ayarlamak için kullanılır
+var name = document.getElementsByTagName("DIV")[0].className;
+document.write(name); //bir iki uc
+*/
+
+// DOM Attributes da nodeType Methodu:  Belge içerisindeki herhangi  bir nodun (düğümün) türünü elde etmek için kullanılır
+/*
+1  : ELEMENT_NODE (eleman Düğümü)
+2  : ATRİBUTE_NODE (özellik Düğümü)
+3  : TEXT_NODE (Metin Düğümü)
+4  : CDATA_SECTION_NODE (Cdata Kesit Düğümü)
+5  : ENTITY_REFERANCE_NODE (Varlık Referansı Düğümü)
+6  : ENTITY_NODE (Varlık Düğümü)
+7  : PROCESSING_INSTRUCTION_NODE (IŞLEM YÖNERGESİ DÜĞMÜ)
+8  : COMMENT_NODE (AÇIKLAMA DÜĞÜMÜ)
+9  : DOCUMENT_NODE (DOKÜMAN / BELGE DÜĞÜMÜ)
+10 : DOCUMENT_TYPE_NODE (DOKÜMAN / BELGE TÜRÜ DÜĞÜMÜ)
+11 : DOCUMENT_FARGMENT_NODE (DOKÜMAN / BELGE PARÇASI)
+12 : NOTATION_NODE (GÖSTERİM DÜĞÜMÜ)
+
+var name = document.getElementsByTagName("DIV")[0].nodeType;
+document.write(name); //1 (ELEMENT_NODE (eleman Düğümü))
+
+
+// DOM Attributes da nodeName Methodu: Belge içerisindeki herhangi  bir nodun (düğümün) adını elde etmek için kullanılır
+var name = document.getElementsByTagName("DIV")[0].nodeName;
+document.write(name); //DIV
+
+
+// DOM Attributes da nodeValue Methodu: Belge içerisindeki herhangi  bir nodun (düğümün) değerini (içeriğini) elde etmek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").childNodes[0].nodeValue;
+    document.getElementById("sonuc3").innerHTML = name;
+}
+
+
+// DOM Attributes da childElementCount Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği alt elemanlarının sayısını elde etmek için kullanılır
+function push(){
+    var name = document.getElementById("ornek3").childElementCount;
+    document.getElementById("sonuc3").innerHTML = name; //0
+}
+
+
+// DOM Attributes da hasChildNodes Methodu: Belge içerisindeki herhangi  bir HTML elemanının alt nodelarının olup olmadığını kontroll ederek sonucu geri dödürür
+function push(){
+    var name = document.getElementById("ornek3").hasChildNodes;
+    document.getElementById("sonuc3").innerHTML = name; //function hasChildNodes() { [native code] }
+}
+
+
+// DOM Attributes da children Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği alt elemanları elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").children;
+    var name2 = document.getElementById("birincip").children[0].tagName;
+    document.getElementById("sonuc3").innerHTML = name+"</br>"+"Tagname: "+name2; //[object HTMLCollection] DIV
+}
+
+
+// DOM Attributes da childNodes Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği alt Nodeları (düğümü) elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").childNodes;
+    document.getElementById("sonuc3").innerHTML = name; //[object NodeList]
+}
+
+
+// DOM Attributes da firstElementChild Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği ilk elemanı elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").firstElementChild;
+    var name2 = document.getElementById("birincip").firstElementChild.nodeName;
+    document.getElementById("sonuc3").innerHTML = name + " "+name2; //[object HTMLDivElement] DIV
+}
+
+
+// DOM Attributes da firstChild Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği ilk alt nodu (düğümü) elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").firstChild;
+    var name2 = document.getElementById("birincip").firstChild.nodeName;
+    document.getElementById("sonuc3").innerHTML = name + " "+name2; //[object Text] #text
+}
+
+
+// DOM Attributes da firstElementChild Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği son elemanı elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").lastElementChild;
+    var name2 = document.getElementById("birincip").lastElementChild.nodeName;
+    document.getElementById("sonuc3").innerHTML = name + " "+name2; //[object HTMLDivElement] DIV
+}
+
+
+// DOM Attributes da firstChild Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği son alt nodu (düğümü) elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").lastChild;
+    var name2 = document.getElementById("birincip").lastChild.nodeName;
+    document.getElementById("sonuc3").innerHTML = name + " "+name2; //[object Text] #text
+}
+
+
+// DOM Attributes da nextElementSibling Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerisindeki aynı seviyede (kardeş olan) elemandan belirtilecek olan elemandan sonra gelen ilk elen elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").nextElementSibling;
+    var name2 = document.getElementById("birincip").nextElementSibling.innerHTML;
+    document.getElementById("sonuc3").innerHTML = name + " "+name2; //[object HTMLBRElement]
+}
+
+
+// DOM Attributes da nextSibling Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerisindeki aynı seviyede (kardeş olan) nodlardan belirtilecek olan nodlardan (düğümlerden) sonra gelen ilk elen elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").nextSibling;
+    document.getElementById("sonuc3").innerHTML = name; //[object Text]
+}
+
+
+// DOM Attributes da previousElementSibling Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerisindeki aynı seviyede (kardeş olan) elemandan belirtilecek olan elemandan önce gelen ilk elen elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincikimlik").previousElementSibling;
+    document.getElementById("sonuc3").innerHTML = name; //[object HTMLBRElement]
+}
+
+
+// DOM Attributes da previousSibling Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerisindeki aynı seviyede (kardeş olan) nodlardan belirtilecek olan nodlardan (düğümlerden) önce gelen ilk elen elde emtek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").previousSibling;
+    document.getElementById("sonuc3").innerHTML = name; //[object Text]
+}
+
+
+// DOM Attributes da offsetParent Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerisindeki mutlak olarak konumlandırıldığı ilk elemanın referans nesnesini elde etmek için kullanılır
+function push(){
+    var name = document.getElementById("birincip").offsetParent;
+    document.getElementById("sonuc3").innerHTML = name; //[object HTMLBodyElement]
+}
+
+
+// DOM Attributes da contains() Methodu: Belge içerisindeki herhangi  bir nodun başka bir düğümün alt düğüm olup olmadığını kontrol ederek sonucu boolean veri tipinde sonucu geri döndürür
+ function push(){
+    var deger = document.getElementById("birincikimlik"); 
+    var name  = document.getElementById("ikincikimlik").contains(deger);
+    document.getElementById("sonuc3").innerHTML = name; //false
+ }   
+
+
+// DOM Attributes da textContent() Methodu: Belge içerisindeki herhangi  bir nodun text nodlarını değerini elde detmek veya ayarlamak için kullanılır
+function push(){
+   var deger = document.getElementById("birincip").textContent; 
+   document.getElementById("sonuc3").innerHTML = deger; //Muhammed Emre Yalçın Hello
+}  
+
+
+// DOM Attributes da compareDocumentPosition() Methodu: Belge içerisindeki bulunan nodların birbirlerine göre kobnum değerlerini elde etmek için kullanılır 
+// 2 : Belirtilen ilk düğüm belirtilen ikinci düğümden sonra
+// 4 : Belirtilen ilk düğüm belirtilen ikinci düğümden önce
+ function push(){
+    var ilkdugum    = document.getElementById("birincikimlik"); 
+    var ikincidugum = document.getElementById("ikincikimlik"); 
+    var islem       = ilkdugum.compareDocumentPosition(ikincidugum)
+    document.getElementById("sonuc3").innerHTML = islem; //4
+ }  
+
+
+// DOM Attributes da parentElement Methodu: Belge içerisindeki herhangi  bir HTML elemanının bir üst elemanı elde etmek için kullanılır
+function push(){
+    var name = document.getElementById("birincikimlik").parentElement;
+    document.getElementById("sonuc3").innerHTML = name; //[object HTMLBodyElement]
+}
+
+
+// DOM Attributes da parentNode Methodu: Belge içerisindeki herhangi  bir düğümün bir üst düğümünü elde etmek için kullanılır
+function push(){
+    var name = document.getElementById("birincikimlik").parentNode;
+    document.getElementById("sonuc3").innerHTML = name; //[object HTMLBodyElement]
+}
+
+
+// DOM Attributes da appendChild() Methodu: Bir Nodu (Düğümü) Belge içerisinde belirtilecek olan herhangi bir eleman içerisine en sonda olmak üzere eklemek için kullanılır
+function push(){
+    var eleman = document.createElement("LI");
+    var icerik = document.createTextNode("XML");
+    eleman.appendChild(icerik);
+    document.getElementById("birincilist").appendChild("eleman");
+}
+
+
+ // DOM Attributes da removeChild() Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği nodu silmek için kullanılır
+function push(){  
+    var islem = document.getElementById("birincilist");
+    islem.removeChild(document.getElementById("second"))
+}
+
+
+// DOM Attributes da replaceChild() Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği nodu değiştirmek için kullanılır
+function push(){  
+    document.getElementById("first").innerHTML = "Java";
+}
+
+
+ // DOM Attributes da cloneNode() Methodu: Belge içerisindeki herhangi  bir HTML elemanının içerdiği nodu kopyalamk için kullanılır
+function copy(){  
+    var copynode = document.getElementById("birincilist").childNodes[1];
+    var copy     = copynode.cloneNode(true);
+    document.getElementById("ikincilist").appendChild(copy);
+}
+
+
+  // DOM Attributes da insertBefore() Methodu: Bir nodu Belge içerisindeki belirtilecek olan herhangi  bir nodun önüne eklemek için kullanılır
+function copy(){  
+    var newnode  = document.createElement("LI");
+    var newtext  = document.createTextNode("HTML");
+    newnode.appendChild(newtext);
+
+    var deger    = document.getElementById("birincilist");
+    var place    = deger.childNodes[0];
+    deger.insertBefore(newnode, place);
+}
+
+
+// DOM Attributes da hasAttribute() Methodu: Belge içerisindeki herhangi bir HTML Elemanın belirtilen özelliğe sahip olup olmaaadığını kontroll eder boolean tipi geri döndürür
+function copy(){  
+    var deger    = document.getElementById("ornek3").hasAttribute("title");
+    document.getElementById("sonuc3").innerHTML = deger;  // true
+}
+
+
+// DOM Attributes da hasAttributes() Methodu: Belge içerisindeki herhangi bir HTML Elemanın herhangi bir özellike sahip olup olmaadığını kontroll eder boolean tipi geri döndürür
+function copy(){  
+    var deger    = document.getElementById("ornek3").hasAttributes();
+    document.getElementById("sonuc3").innerHTML = deger;  // true
+}
+
+
+// DOM Attributes da getAttribute() Methodu: Belge içerisindeki herhangi HTML Elemanın belirtilen özelliğini elde etmek için kullanılır
+function copy(){  
+    var deger1    = document.getElementById("ornek3").getAttribute("title");
+    var deger2    = document.getElementById("ornek3").getAttribute("class");
+    document.getElementById("sonuc3").innerHTML = "Tittle: "+deger1+"</br>"+"ClassName: "+deger2;  // Tittle: Emre Yalçın ClassName: bir iki uc
+}
+
+
+// DOM Attributes da getAttributeNode() Methodu: Belge içerisindeki herhangi HTML Elemanın belirtilen özellik nodunu elde etmek veya ayarlamak için kullanılır
+function copy(){  
+    var deger1    = document.getElementById("ornek3").getAttributeNode("title");
+    var deger2    = document.getElementById("ornek3").getAttributeNode("title").value;
+    document.getElementById("sonuc3").innerHTML = "TittleNodu: "+deger1+"</br>"+"TittleNodun Değeri: "+deger2;  // TittleNodu: [object Attr] TittleNodun Değeri: Emre Yalçın
+}
+
+
+// DOM Attributes da getAttribute() Methodu: Belge içerisindeki herhangi HTML Elemanın belirtilen özelliği ve değerini eklemek için kullanılır
+function copy(){  
+    var deger1    = document.getElementById("birincip").setAttribute("href", "https://google.com.tr");
+    var deger1    = document.getElementById("birincip").setAttribute("style", "color:red");
+}
+
+
+// DOM Attributes da getAttribute() Methodu: Belge içerisindeki herhangi HTML Elemanına createAttribute ile oluşturlan özellik Nodunu ve değerini node nesnesine uygulamak için kullanılır
+function copy(){  
+    var baglan    = document.getElementById("birincip");
+    var ozellik   = document.createAttribute("href");
+    ozellik.value = "https://www.google.com";
+    baglan.setAttributeNode(ozellik);
+}
+
+
+// DOM Attributes da removeAttribute() Methodu: Belge içerisindeki herhangi HTML Elemanınn belirtilen özelliğini kaldırmak için kullanılır 
+function copy(){  
+    var baglan    = document.getElementById("birincip").removeAttribute("style");
+}
+
+
+// DOM Attributes da removeAttributeNode() Methodu: Belge içerisindeki herhangi HTML Elemanıa getAttrbibute Node ile belirtilmiş özellik nodunu node objectinde kaldırmak için kullanılır 
+function copy(){  
+    var baglan           = document.getElementById("birincip")
+    var kaldırılancak    = document.getElementById("birincip").getAttributeNode("style");
+    baglan.removeAttributeNode(kaldırılancak);
+}
+
+
+// DOM Attributes da clientLeft Methodu: Belge içerisindeki herhangi HTML Elemanın sol kenarlık genişliği değerini elde etmek için kullanılır 
+// DOM Attributes da ClientTop Methodu: Belge içerisindeki herhangi HTML Elemanın üst kenarlık yüksekliği değerini elde etmek için kullanılır 
+var solkenar      = document.getElementById("birincip").clientLeft;
+var ustkenar      = document.getElementById("birincip").clientTop;
+document.getElementById("sonuc3").innerHTML = "solkenarlık genişliği: " + solkenar + "</br>" + "üstkenarlık genişliği: " + ustkenar;
+
+
+// DOM Attributes da clientWidth Methodu: Belge içerisindeki herhangi HTML Elemanın içerik genişliği değerini elde etmek için kullanılır 
+// DOM Attributes da ClientHeight Methodu: Belge içerisindeki herhangi HTML Elemanın içerik yüksekliği değerini elde etmek için kullanılır 
+/*
+hesaplama :
+Genişlik  : padding-left + genişlik + paddingright
+Yükseklik : padding-top + yükseklil + paddingbottom
+*/
+/*
+var genislik      = document.getElementById("birincip").clientWidth;
+var yukseklik      = document.getElementById("birincip").clientHeight;
+document.getElementById("sonuc3").innerHTML = "Elemanın içerik genişliği: " + genislik + "</br>" + "Elemanın içerik yüksekliği : " + yukseklik;
+
+
+// DOM Attributes da offsetLeft Methodu: Belge içerisindeki herhangi HTML Elemanın sol üst löşesi ile browser penceresinin sol üst köşesi arasındaki yatay uzaklık farkı değerini elde etmek için kullanılır 
+// DOM Attributes da offsetTop Methodu: Belge içerisindeki herhangi HTML Elemanın sol üst löşesi ile browser penceresinin sol üst köşesi arasındaki dikey uzaklık farkı değerini elde etmek için kullanılır 
+var yatay      = document.getElementById("birincip").offsetLeft;
+var dikey      = document.getElementById("birincip").offsetTop;
+document.getElementById("sonuc3").innerHTML = "Yatay uzaklık farkı: " + yatay + "</br>" + "Dikey uzaklık farkı : " + dikey;
+
+
+// DOM Attributes da offsetWidth Methodu: Belge içerisindeki herhangi HTML Elemanın genişlik değerini elde etmek için kullanılır 
+// DOM Attributes da offsetHeight Methodu: Belge içerisindeki herhangi HTML Elemanın yükseklik değerini elde etmek için kullanılır 
+/*
+hesaplama :
+Genişlik  : border-left + padding-left + genişlik + padding-right + border-right
+Yükseklik : border-top + padding-top + yükseklik + padding-bottom + border-bottom
+*/
+/*
+var genislik      = document.getElementById("birincip").offsetWidth;
+var yukseklik     = document.getElementById("birincip").offsetHeight;
+document.getElementById("sonuc3").innerHTML = "Genişlik Değeri: " + genislik + "</br>" + "Yükseklik Değeri : " + yukseklik;
+
+
+// DOM Attributes da scrollLeft Methodu: Belge içerisindeki herhangi HTML Elemanın yatay kaydırılma genişliği pixel değerini elde etmek için kullanılır
+// DOM Attributes da scrollTop Methodu: Belge içerisindeki herhangi HTML Elemanın dikey kaydırılma genişliği pixel değerini elde etmek için kullanılır
+/*
+hesaplama :
+yatay  : margin-left + border-left + padding-left + genişlik + padding-right + border-right + margin-right
+dikey  : margin-top + border-left + padding-top + yükseklik + padding-bottom + border-bottom + margin-bottom
+*/
+/*
+var yatay      = document.getElementById("birincip").scrollLeft;
+var dikey      = document.getElementById("birincip").scrollTop;
+document.getElementById("sonuc3").innerHTML = "Yatay uzaklık farkı: " + yatay + "</br>" + "Dikey uzaklık farkı : " + dikey;
+
+
+// DOM Attributes da scrollWidth Methodu: Belge içerisindeki herhangi HTML Elemanın yatay kaydırılma genişliği değerini elde etmek için kullanılır
+// DOM Attributes da scrollHeight Methodu: Belge içerisindeki herhangi HTML Elemanın dikey kaydırılma yüksekliiği değerini elde etmek için kullanılır
+/*
+hesaplama :
+genişlik  : padding-left + genişlik + padding-right 
+yükseklik : padding-top + yükseklik + padding-bottom
+*/
+
+var genislik      = document.getElementById("birincip").scrollWidth;
+var yukseklik     = document.getElementById("birincip").scrollHeight;
+document.getElementById("sonuc3").innerHTML = "Yatay kaydırılma Genişliği: " + genislik + "</br>" + "Dikey Kaydırılma Yüksekliiği : " + yukseklik;
+</script>
+</body>
+</html>

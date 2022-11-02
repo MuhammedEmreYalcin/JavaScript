@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr-TR">
+<head>
+    <meta http-equiv="content-type" content="text/html charset=utf-8" />
+    <title>Diziler</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+
+// Dizi yapısı
+var isimler = ["Emre", "Ali", "Hakan", "Serkan", "Erkan"];
+var isimler = new Array ("Emre", "Ali", "Hakan", "Serkan", "Erkan"); // Nesnesel Dizi
+var sonuc   = isimler;                                               // Bir Diziye başka değer aktarma
+document.write(isimler + "<br/>");                                   // Bütün Diziyi yazdırır
+document.write(isimler[1] + "<br/>");                                // Dizinin 1. İndisini yazar
+document.write(sonuc + "<br/>"+ "<br/>"+ "<br/>");                                     
+
+
+// Dizilere sonradan değer atama
+var gunler = [];
+gunler[0]  = "Pazartesi"; 
+gunler[1]  = "Salı"; 
+gunler[2]  = "Çarşamba"; 
+gunler[3]  = "Perşembe"; 
+gunler[4]  = "Cuma"; 
+gunler[5]  = "Cumartesi"; 
+gunler[6]  = "Pazar";
+document.write(gunler + "<br/>");
+document.write(gunler[3] + "<br/>"+"<br/>"+"<br/>"); 
+
+
+// Dizilerde sonradan indis değerini değiştirme
+var Araclar = new Array ("Araba", "Otobüs", "Motor", "Uçak");
+document.write(Araclar + "<br/>");                                   // Çıktı: Araba,Otobüs,Motor,Uçak
+document.write(Araclar[2] + "<br/>");                                // Çıktı: Motor
+Araclar[2]  = "Bisiklet";                                            // İkinci İndis değeri artık Motor yerine bisiklet
+document.write(Araclar + "<br/>");                                   // Çıktı: Araba,Otobüs,Bisiklet,Uçak
+document.write(Araclar[2] + "<br/>"+"<br/>"+"<br/>");                // Çıktı: Bisiklet
+
+
+// İç içe diziler
+var isimler1 = ["Emre", "Ali", "Hakan",["Fatma","Ayşe","Hatice"], "Serkan", "Erkan"];
+document.write(isimler1 + "<br/>");                                  // Çıktı: Emre,Ali,Hakan,Fatma,Ayşe,Hatice,Serkan,Erkan
+document.write(isimler1[0] + "<br/>");                               // Çıktı: Emre
+document.write(isimler1[1] + "<br/>");                               // Çıktı: Ali
+document.write(isimler1[2] + "<br/>");                               // Çıktı: Hakan
+document.write(isimler1[3] + "<br/>");                               // Çıktı: Fatma,Ayşe,Hatice
+document.write(isimler1[3][0] + "<br/>");                            // Çıktı: Fatma
+document.write(isimler1[3][1] + "<br/>");                            // Çıktı: Ayşe
+document.write(isimler1[3][2] + "<br/>");                            // Çıktı: Hatice
+document.write(isimler1[4] + "<br/>");                               // Çıktı: Serkan
+document.write(isimler1[5] + "<br/>"+"<br/>"+"<br/>");               // Çıktı: Erkan
+
+
+// Çok Boyutlu diziler
+var isimler1 = ["Emre", "Ali", "Hakan"];
+var Araclar  = ["Araba", "Otobüs", "Uçak"];
+var sonuc    = [isimler1, Araclar];
+document.write(sonuc + "<br/>");                                     // Çıktı: Emre,Ali,Hakan,Araba,Otobüs,Uçak
+document.write(sonuc[0] + "<br/>");                                  // Çıktı: Emre,Ali,Hakan
+document.write(sonuc[1] + "<br/>");                                  // Çıktı: Araba,Otobüs,Uçak
+document.write(sonuc[0][0] + "<br/>");                               // Çıktı: Emre
+document.write(sonuc[0][1] + "<br/>");                               // Çıktı: Ali
+document.write(sonuc[0][2] + "<br/>");                               // Çıktı: Hakan
+document.write(sonuc[1][0] + "<br/>");                               // Çıktı: Araba
+document.write(sonuc[1][1] + "<br/>");                               // Çıktı: Otobüs
+document.write(sonuc[1][2] + "<br/>"+"<br/>"+"<br/>");               // Çıktı: Uçak
+
+  
+// Değişken içeriğini Dizi olup olmadığını kontrol eder (isArray Boolean tipi geri gönderir)
+var isimler1 = "Emre Ali Hakan";
+var isimler2 = ["Emre", "Ali", "Hakan"];
+var Araclar1 = new Array ("Araba", "Otobüs");
+var isimler3 = [];
+var Araclar2 = new Array ();
+document.write(Array.isArray(isimler1) + "<br/>");                   // Çıktı: false
+document.write(Array.isArray(isimler2) + "<br/>");                   // Çıktı: true
+document.write(Array.isArray(Araclar1) + "<br/>");                   // Çıktı: true
+document.write(Array.isArray(isimler3) + "<br/>");                   // Çıktı: true
+document.write(Array.isArray(Araclar2) + "<br/><br/><br/>");         // Çıktı: true
+
+
+// For in Döngüsüyle Dizileri yazdırma
+var isimler1 = ["Emre ", "Ali ", "Hakan "];
+var sonuc;
+for (sonuc in isimler1){
+    document.write(isimler1[sonuc]+ "<br/>")
+}
+    document.write("<br/><br/><br/>")
+
+
+// İç içe Döngülerde For in Döngüsü
+var isimler1 = ["Emre", "Ali", "Hakan",["Fatma","Ayşe","Hatice"], "Serkan", "Erkan"];
+var sonuc;
+for (sonuc in isimler1){
+    if(Array.isArray(isimler1[sonuc])){
+        var controll;
+        for(controll in isimler1[sonuc]){
+            document.write(isimler1[sonuc][controll]+"<br/>");
+        }   
+    }else{
+        document.write(isimler1[sonuc]);  
+    }
+}                                    
+
+
+</script>                 
+</body>
+</html>

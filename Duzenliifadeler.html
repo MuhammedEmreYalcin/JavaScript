@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr-TR">
+<head>
+    <meta http-equiv""content-type content"text/html charset=utf-8" />
+    <title></title>
+</head>
+<body>
+<script type"text/javascript" language="javascript">
+// Metodlar
+//1.Metod: Değişken = new RegExp("Desen");
+//1.Metod: Değişken = new RegExp("Desen","Ayarlar");
+
+//2.Metod: Değişken = /Desen/;
+//2.Metod: Değişken = /Desen/Ayarlar;
+
+
+// match (Kendisine parametre olarak verilen düzenli ifade doğrultusunda değişken içeriğini kontroll eder ve eşleşmesi durumunda yeni bir dizi oluşturur)
+var metin  = "Merhaba Emre nasılsın?";
+var ifade1 = new RegExp("Emre");
+var ifade2 = /Emre/
+var sonuc  = metin.match(ifade2);
+document.write(sonuc+"<br/><br/><br/>");
+
+
+// G Ayarı (DÜzenli ifade dahiline kontroll edilecek olan değişken içeriğinin tamamını kontroll edilmesini sağlar )
+var metin  = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var ifade1 = new RegExp("Emre");
+var ifade2 = /Emre/g
+var sonuc  = metin.match(ifade2);
+document.write(sonuc+"<br/><br/><br/>");
+
+
+// global (DÜzenli ifade içerisinde g ayarın kullanı kullanılmadığını kontroll ederek boolean veri tipi sonucu geri döndürür )
+var metin        = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var ifade1       = new RegExp("Emre");
+var ifade2       = /Emre/g
+var sonuc        = metin.match(ifade2);
+var kontroll     = ifade2.global;
+document.write(sonuc+"<br/>");
+document.write(kontroll+"<br/><br/><br/>");
+
+
+// I Ayarı (DÜzenli ifade dahiline kontroll edilecek olan değişken içeriğinin büyük küçük harf ayrımı olmaksızın kontroll edilmesini sağlar )
+var metin  = "Merhaba emre nasılsın? Senin adın emre miydi?";
+var ifade1 = new RegExp("Emre","gi");
+var ifade2 = /Emre/gi
+var sonuc  = metin.match(ifade1);
+document.write(sonuc+"<br/><br/><br/>");
+
+
+// ignore case (DÜzenli ifade içerisinde i ayarın kullanı kullanılmadığını kontroll ederek boolean veri tipi sonucu geri döndürür )
+var metin        = "Merhaba emre nasılsın? Senin adın EMRE miydi?";
+var ifade1       = new RegExp("Emre","ig");
+var ifade2       = /Emre/gi
+var sonuc        = metin.match(ifade1);
+var kontroll     = ifade1.ignoreCase;
+document.write(sonuc+"<br/>");
+document.write(kontroll+"<br/><br/><br/>");
+
+
+// M Ayarı (DÜzenli ifade dahiline kontroll edilecek olan değişken içeriğinin birden fazla Satır varsa hepsinin kontroll edilmesini sağlar )
+var metin  = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade1 = new RegExp("Emre","gim");
+var ifade2 = /Emre/g
+var sonuc  = metin.match(ifade1);
+document.write(sonuc+"<br/><br/><br/>");
+
+
+// multiline (DÜzenli ifade içerisinde m ayarın kullanı kullanılmadığını kontroll ederek boolean veri tipi sonucu geri döndürür )
+var metin        = "Merhaba emre nasılsın? \n Senin adın EMRE miydi?";
+var ifade1       = new RegExp("Emre","igm");
+var ifade2       = /Emre/gim
+var sonuc        = metin.match(ifade1);
+var kontroll     = ifade1.multiline;
+document.write(sonuc+"<br/>");
+document.write(kontroll+"<br/><br/><br/>");
+
+
+// test() (Kendisine parametre olarak verilen değişken içeriğinde düzenli ifade ile aranan değer eşleşmesini kontroll ederek boolean veri tipi geri döndürür)
+var metin  = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade1 = new RegExp("Hasan","gim");
+var ifade2 = /Emre/g
+var sonuc  = ifade1.test(metin);
+document.write(sonuc+"<br/><br/><br/>");
+
+
+// input(değişken içeriğinde düzenli ifade ile aranan değerin eşleşmesi durumunda eşleşmeyi sağlayan değişken içeriğinin tüm değerinin geri döndürür)
+var metin1  = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade10 = new RegExp("Emre");
+var ifade20 = /Emre/;
+var kontrol= ifade20.test(metin1);
+if(kontrol==true){
+    var sonuc2  = RegExp.input;
+    document.write(sonuc2+"<br/><br/><br/>");
+}else{
+    document.write("Herhangi bir Sonuc bulunamadı"+"<br/><br/><br/>");
+}
+
+
+// source (DÜzenli ifade içerisinde kullanılan Desen değerini geri döndürür)
+var metin            = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade            = new RegExp("Emre");
+var ifade2           = /Emre/;
+var kullanılanıfade  = ifade.source;
+document.write(kullanılanıfade+"<br/><br/><br/>")
+
+
+// search (Kendisine parametre olarak verilen düzenli ifade doğrultusunda değişken içeriğini kontroll eder ve ilk eşleşmeyı sağlayan değişken içeriğinin indis değerini geriye döndürür)
+var metin            = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade            = new RegExp("Emre","g");
+var ifade2           = /Emre/g;
+var sonuc            = metin.search(ifade2);
+document.write(sonuc+"<br/><br/><br/>") //8
+
+
+// lastIndex (değişken içeriğinde düzenli ifade ile aranan değerin eşleşmesi durumunda ilk eşleşmeyi sağlayan değişken içeriğinin bir sonraki indis değerini geri döndürür)
+var metin            = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade            = new RegExp("Emre","g");
+var ifade2           = /Emre/g;
+while (ifade.test(metin)==true){
+    var sonuc            = ifade.lastIndex;
+    document.write(sonuc+"<br/><br/><br/>") //12
+}
+
+
+// lastMatch (değişken içeriğinde düzenli ifade ile aranan değerin eşleşmesi durumunda son eşleşmeyi sağlayan değişken içeriğinin değerini geri döndürür)
+var metin            = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade            = new RegExp("Emre","g");
+var ifade2           = /Emre/g;
+ifade.test(metin)
+var sonuc            = RegExp.lastMatch;
+document.write(sonuc+"<br/><br/><br/>") 
+
+
+// leftContext (değişken içeriğinde düzenli ifade ile aranan değerin eşleşmesi durumunda eşleşmeyi sağlayan değişken değerin solunda kalan içeriğinin değerini geri döndürür)
+var metin            = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade            = new RegExp("Senin","g");
+var ifade2           = /Emre/g;
+ifade.test(metin)
+var sonuc            = RegExp.leftContext;
+document.write(sonuc+"<br/><br/><br/>") //Merhaba Emre nasılsın? 
+
+
+// rightContext (değişken içeriğinde düzenli ifade ile aranan değerin eşleşmesi durumunda eşleşmeyi sağlayan değişken değerin sağında kalan içeriğinin değerini geri döndürür)
+var metin            = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade            = new RegExp("Senin","g");
+var ifade2           = /Emre/g;
+ifade.test(metin)
+var sonuc            = RegExp.rightContext; //adın Emre miydi?
+document.write(sonuc+"<br/><br/><br/>")
+
+
+// replace (Kendisine parametre olarak verilen düzenli ifade doğrultusunda değişken içeriğini kontroll eder ve aranan değerin eşleşmeyi sağlayan değerlerin değişimini sağlayarak yeni bir içerik oluşturur)
+var metin            = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade            = new RegExp("Emre","g");
+var ifade2           = /Emre/g;
+var sonuc            = metin.replace(ifade, "Hasan"); 
+document.write(sonuc+"<br/><br/><br/>")//Merhaba Hasan nasılsın? Senin adın Hasan miydi?
+
+
+// split (Kendisine parametre olarak verilen düzenli ifade doğrultusunda değişken içeriğini kontroll eder ve aranan değerin eşleşmeyi sağlayan değerleri bölümleyerek yeni bir dizi oluşturur)
+var metin            = "Merhaba Emre nasılsın?\n Senin adın Emre miydi?";
+var ifade            = new RegExp(" ","g");
+var ifade2           = /Emre/g;
+var sonuc            = metin.split(ifade); 
+document.write(sonuc+"<br/><br/><br/>")//Merhaba,Emre,nasılsın? ,Senin,adın,Emre,miydi?
+
+
+// exec (Kendisine parametre olarak verilen değişken içeriğini düzenli ifade ile aranan değerin eşleşmesi durumunda eşleşmeyi sağlayan değişken içeriği değerinden yeni bir dizi oluşturarak, oluşturduğu dizi değerini geriye döndürür)
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var ifade            = new RegExp("Emre","gi");
+var ifade2           = /Emre/g;
+var sonuc            = ifade.exec(metin);
+document.write(sonuc+"<br/><br/><br/>")//Emre
+
+
+// toString (düzenli ifade içeriğini String (metin) veri türüne çevirir ve değerini geri döndürür)
+var ifade            = new RegExp("Emre","gi");
+var ifade2           = /Emre/g;
+var sonuc            = ifade.toString();
+document.write(sonuc+"<br/><br/><br/>")// /Emre/gi
+
+
+// şapka (^) konum belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter diziliminin başlangıcı ile düzenli eşleşme arama için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var metin2           = "Emre nasılsın? Senin adın Emre miydi?";
+var ifade            = new RegExp("^Emre","i");
+var sonuc            = ifade.test(metin); 
+var sonuc2           = ifade.test(metin2); 
+document.write(sonuc+"<br/>")//false
+document.write(sonuc2+"<br/><br/><br/>")//true
+
+
+// Dolar ($) konum belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter diziliminin sonu ile düzenli ifade arasında bir eşleşme arama için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var metin2           = "Emre nasılsın? Senin adın Emre";
+var ifade            = new RegExp("Emre$","i");
+var sonuc            = ifade.test(metin); 
+var sonuc2           = ifade.test(metin2); 
+document.write(sonuc+"<br/>")//false
+document.write(sonuc2+"<br/><br/><br/>")//true
+
+
+// küçük b (\b) konum belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini düzenli ifadeye uygun olabilecek metin parçalarını, karakter dizilimi içerisinde kelimelerin başında yada sonunda aramak için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var metin2           = "xEmre nasılsın? Senin adın xEmre";
+var ifade            = new RegExp("\\bEmre","i");
+var sonuc            = metin.search(ifade); 
+var sonuc2           = metin2.search(ifade); 
+document.write(sonuc+"<br/>")//8
+document.write(sonuc2+"<br/><br/><br/>")//-1
+
+
+// büyük B (\B) konum belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini düzenli ifadeye uygun olabilecek metin parçalarını, karakter dizilimi içerisinde kelimelerin içerisinde aramak için kullanılır) 
+var metin            = "Merhaba Cemre nasılsın? Senin adın Emre miydi?";
+var metin2           = "Emre nasılsın? Senin adın Emre";
+var ifade            = new RegExp("\\BEmre","i");
+var sonuc            = metin.search(ifade); 
+var sonuc2           = metin2.search(ifade); 
+document.write(sonuc+"<br/>")//9
+document.write(sonuc2+"<br/><br/><br/>")//-1
+
+
+// Soru işareti (?=) konum belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter dizilimi içerisindekş belirtilen bir referans değerin önünde düzenli ifade ile eşleşebilecek değerleri aramak için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var metin2           = "Emre nasılsın? Senin adın Emre";
+var ifade            = new RegExp("Emre(?= nasılsın)","i");
+var sonuc            = metin.search(ifade); 
+var sonuc2           = metin2.search(ifade); 
+document.write(sonuc+"<br/>")//8
+document.write(sonuc2+"<br/><br/><br/>")//0
+
+
+// Soru işareti ünlem (?!) konum belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter dizilimi içerisindeki belirtilen bir referans değeri ile takip edilmeyen değerleri düzenli ifade ile eşleşebilecek değerleri aramak için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var metin2           = "Emre nasılsın? Senin adın Emre";
+var ifade            = new RegExp("Emre(?! nasılsın)","i");
+var sonuc            = metin.search(ifade); 
+var sonuc2           = metin2.search(ifade); 
+document.write(sonuc+"<br/>")//34
+document.write(sonuc2+"<br/><br/><br/>")//26
+
+
+// {x} nicelik belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter diziliminde bulunan değerin x defa tekrarlanmış olması gerektiğini berlirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var metin2           = "Emre nasılsın? Senin adın Emre";
+var ifade            = new RegExp("Emre{1}","i");
+var ifade2           = new RegExp("Emre{3}","i");
+var sonuc            = ifade.test(metin); 
+var sonuc2           = ifade2.test(metin); 
+document.write(sonuc+"<br/>")//true
+document.write(sonuc2+"<br/><br/><br/>")//false
+
+
+// {x,} nicelik belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter diziliminde bulunan değerin x defa tekrarlanmış olması gerektiğini berlirtmek için kullanılır) 
+var metin            = "Merhaba Emreeeeee nasılsın? Senin adın Emre miydi?";
+var metin2           = "Emreeeeee nasılsın? Senin adın Emre";
+var ifade            = new RegExp("e{2}","ig");
+var ifade2           = new RegExp("e{2,}","ig");
+var sonuc            = metin.match(ifade);
+var sonuc2           = metin2.match(ifade2);
+document.write(sonuc+"<br/>")//ee,ee,ee
+document.write(sonuc2+"<br/><br/><br/>")//eeeeee
+
+
+// {x,y} nicelik belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter diziliminde bulunan değerin en az x defa en fazla y defa tekrarlanmış olması gerektiğini berlirtmek için kullanılır) 
+var metin            = "Merhaba Emreeeeee nasılsın? Senin adın Emre miydi?";
+var metin2           = "Emreeeeee nasılsın? Senin adın Emre";
+var ifade            = new RegExp("e{2}","ig");
+var ifade2           = new RegExp("e{2,5}","ig");
+var sonuc            = metin.match(ifade);
+var sonuc2           = metin2.match(ifade2);
+document.write(sonuc+"<br/>")//ee,ee,ee
+document.write(sonuc2+"<br/><br/><br/>")//eeeee
+
+
+// + nicelik belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter diziliminde bulunan değerin bir defa veya daha fazla tekrarlanmış olması gerektiğini berlirtmek için kullanılır) 
+var metin            = "Merhaba Emreeeeee nasılsın? Senin adın Emre miydi?";
+var ifade            = new RegExp("e+","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//e,E,eeeeee,e,E,e
+
+
+// ? nicelik belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter diziliminde bulunan değerin 0 defa veya 1 tekrarlanmış olması gerektiğini berlirtmek için kullanılır) 
+var metin            = "Merhaba Emreeeeee nasılsın? Senin adın Emreeee miydi?";
+var ifade            = new RegExp("Emre?","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//Emre,Emre
+
+
+// * nicelik belirleyicisi (Düzenli ifade dahilinde kontrol edilecek olan değişken içeriğini karakter diziliminde bulunan değerin 0 defa veya daha fazla tekrarlanmış olması gerektiğini berlirtmek için kullanılır) 
+var metin            = "Merhaba Emreeeeee nasılsın? Senin adın Emreeeee miydi?";
+var ifade            = new RegExp("Emre*","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//Emreeeeee,Emreeeee
+
+
+// () parantez belirleyicisi (Düzenli ifadelerde grup tanımlamak için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var ifade            = new RegExp("(Emre|adın)","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//Emre,adın,Emre
+
+
+// \ belirleyicisi (Düzenli ifadelerde ardından gelen karakterin özel bir karakter olup olmadığını belirtir) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var ifade            = new RegExp("\\S","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//M,e,r,h,a,b,a,E,m,r,e,n,a,s,ı,l,s,ı,n,?,S,e,n,i,n,a,d,ı,n,E,m,r,e,m,i,y,d,i,?
+
+
+// (?:x) belirleyicisi (Düzenli ifadelerde alt grup oluşturmak için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var ifade            = new RegExp("(?:em)","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//Em,Em
+
+
+// [abc] belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, belirtilen karakterlerden birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin adın Emre miydi?";
+var ifade            = new RegExp("[Merhaba]","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//M,e,r,h,a,b,a,E,m,r,e,a,e,a,E,m,r,e,m
+
+
+// [a-z] belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, belirtilen karakterlerin aralığnda herhangi birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin 25 yaşında mısın?";
+var ifade            = new RegExp("[0-9]","ig");//[0123456789]
+var ifade2            = new RegExp("[a-z]","ig");//[abc......xyz]
+var sonuc            = metin.match(ifade);
+var sonuc2            = metin.match(ifade2);
+document.write(sonuc+"<br/><br/><br/>")//2,5
+document.write(sonuc2+"<br/><br/><br/>")//M,e,r,h,a,b,a,E,m,r,e,n,a,s,l,s,n,S,e,n,i,n,y,a,n,d,a,m,s,n
+
+
+// [^abc] belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, belirtilen karakterlerin dışındaki herhangi birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin 25 yaşında mısın?";
+var ifade            = new RegExp("[^25]","ig");//[0123456789]
+var ifade2            = new RegExp("[^abch]","ig");//[abc......xyz]
+var sonuc            = metin.match(ifade);
+var sonuc2            = metin.match(ifade2);
+document.write(sonuc+"<br/><br/><br/>")//M,e,r,h,a,b,a, ,E,m,r,e, ,n,a,s,ı,l,s,ı,n,?, ,S,e,n,i,n, , ,y,a,ş,ı,n,d,a, ,m,ı,s,ı,n,?
+document.write(sonuc2+"<br/><br/><br/>")//M,e,r, ,E,m,r,e, ,n,s,ı,l,s,ı,n,?, ,S,e,n,i,n, ,2,5, ,y,ş,ı,n,d, ,m,ı,s,ı,n,?
+
+
+// [^a-z] belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, belirtilen karakterlerin aralığnda dışındaki herhangi birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin 25 yaşında mısın?";
+var ifade            = new RegExp("[^0-9]","ig");//[0123456789]
+var ifade2            = new RegExp("[^a-z]","ig");//[abc......xyz]
+var sonuc            = metin.match(ifade);
+var sonuc2            = metin.match(ifade2);
+document.write(sonuc+"<br/><br/><br/>")//M,e,r,h,a,b,a, ,E,m,r,e, ,n,a,s,ı,l,s,ı,n,?, ,S,e,n,i,n, , ,y,a,ş,ı,n,d,a, ,m,ı,s,ı,n,?
+document.write(sonuc2+"<br/><br/><br/>")//, ,ı,ı,?, , ,2,5, ,ş,ı, ,ı,ı,?
+
+
+// (x|y) belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, belirtilen x yada y karakterlerin herhangi birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin 25 yaşında mısın?";
+var ifade            = new RegExp("(e|ı)","ig");//[0123456789]
+var ifade2            = new RegExp("(2|5)","ig");//[abc......xyz]
+var sonuc            = metin.match(ifade);
+var sonuc2            = metin.match(ifade2);
+document.write(sonuc+"<br/><br/><br/>")//e,E,e,ı,ı,e,ı,ı,ı
+document.write(sonuc2+"<br/><br/><br/>")//2,5
+
+
+// . belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, yeni satır karakteri hariç herhangi birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin 25 yaşında mısın?";
+var ifade            = new RegExp("e.r","ig");//e bir karakter ve r yı arayacak
+var ifade2            = new RegExp("e.+n","ig");//e bir veya birden fazla karakter ve en son r yı arayacak
+var sonuc            = metin.match(ifade);
+var sonuc2            = metin.match(ifade2);
+document.write(sonuc+"<br/><br/><br/>")//Emr
+document.write(sonuc2+"<br/><br/><br/>")//erhaba Emre nasılsın? Senin 25 yaşında mısın
+
+
+// \w belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, harf rakam veya _ (alt çizgi) herhangi birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin 25 yaşında mısın?";
+var ifade            = new RegExp("\\w","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//M,e,r,h,a,b,a,E,m,r,e,n,a,s,l,s,n,S,e,n,i,n,2,5,y,a,n,d,a,m,s,n
+
+
+// \W belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, harf rakam veya _ (alt çizgi) dışındaki herhangi birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin 25 yaşında mısın?";
+var ifade            = new RegExp("\\W","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//, ,ı,ı,?, , , ,ş,ı, ,ı,ı,?
+
+
+// \d belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, sadece rakamlar ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Senin 25 yaşında mısın?";
+var ifade            = new RegExp("\\d","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//2,5
+
+
+// \D belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin rakamlar dışındaki herhangi birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Sen 25 yaşında mısın?";
+var ifade            = new RegExp("\\D","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//M,e,r,h,a,b,a, ,E,m,r,e, ,n,a,s,ı,l,s,ı,n,?, ,S,e,n, , ,y,a,ş,ı,n,d,a, ,m,ı,s,ı,n,?
+
+
+// \s belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, sadece boşluk karakterleri ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Sen 25 yaşında mısın?";
+var ifade            = new RegExp("\\s","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//, , , , ,
+
+
+// \S belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, boşluk karakteri dışındaki herhangi birisi ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Sen 25 yaşında mısın?";
+var ifade            = new RegExp("\\S","ig");
+var sonuc            = metin.match(ifade);
+document.write(sonuc+"<br/><br/><br/>")//M,e,r,h,a,b,a,E,m,r,e,n,a,s,ı,l,s,ı,n,?,S,e,n,2,5,y,a,ş,ı,n,d,a,m,ı,s,ı,n,?
+
+
+// \0 belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, sadece null (boş) karakteri ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Sen 25 yaşında mısın?";
+var metin2           = "Merhaba Emre nasılsın? Sen \u0000 yaşında mısın?";
+var ifade            = new RegExp("\\0","ig");
+var sonuc            = ifade.test(metin);
+var sonuc2           = ifade.test(metin2);
+document.write(sonuc+"<br/>")//false (Yukarıdakı metınde null değeri yoktur)
+document.write(sonuc2+"<br/><br/><br/>")//true (Yukarıdakı metınde null değeri vardır)
+
+
+// \f belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, sadece form besleme karakteri ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın? Sen 25 yaşında mısın?";
+var metin2           = "Merhaba Emre nasılsın? Sen \u000C yaşında mısın?";
+var ifade            = new RegExp("\\f","ig");
+var sonuc            = ifade.test(metin);
+var sonuc2           = ifade.test(metin2);
+document.write(sonuc+"<br/>")//false (Yukarıdakı metınde form besleme karakteri yoktur)
+document.write(sonuc2+"<br/><br/><br/>")//true (Yukarıdakı metın2de form besleme karakteri vardır)
+
+
+// \n belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, sadece yeni satır karakterleri ile eşleşmesi gerektiğini belirtmek için kullanılır) 
+var metin            = "Merhaba Emre nasılsın?\n Sen 25 yaşında mısın?";
+var ifade            = new RegExp("\\n","ig");
+var sonuc            = ifade.test(metin);
+document.write(sonuc+"<br/><br/><br/>")//true
+
+
+// \r belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, sadece paragraf sonu karakterleri ile eşleşmesi gerektiğini belirtmek için kullanılır (16 bit yazılım şekli \u000D)) 
+var metin            = "Merhaba Emre nasılsın?\r Sen 25 yaşında mısın?";
+var ifade            = new RegExp("\\r","ig");
+var sonuc            = ifade.test(metin);
+document.write(sonuc+"<br/><br/><br/>")//true
+
+
+// \t belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, sadece yatay sekme (tab) karakterleri ile eşleşmesi gerektiğini belirtmek için kullanılır (16 bit yazılım şekli \u0009)) 
+var metin            = "Merhaba Emre nasılsın? Sen \u0009 25 yaşında mısın?";
+var ifade            = new RegExp("\\t","ig");
+var sonuc            = ifade.test(metin);
+document.write(sonuc+"<br/><br/><br/>")//true
+
+
+// \XXX (000-371) belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, oktal (8 li taban sistemi) ASCII karşılığı olan karakteri ile eşleşmesi gerektiğini belirtmek için kullanılır
+var metin            = "Merhaba Emre nasılsın? Sen 25 yaşında mısın?";
+var ifade            = new RegExp("\\153","ig"); //(8 li taban sisteminde k harfine denk geliyor)
+var sonuc            = ifade.test(metin);
+document.write(sonuc+"<br/><br/><br/>")//false
+
+
+// \xXX (x00-xFF) belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, hexadecimal (16 li taban sistemi) ASCII karşılığı olan karakteri ile eşleşmesi gerektiğini belirtmek için kullanılır 
+var metin            = "Merhaba Emre nasılsın? Sen 25 yaşında mısın?";
+var ifade            = new RegExp("\\x61","ig"); //(16 li taban sisteminde a harfine denk geliyor)
+var sonuc            = ifade.test(metin);
+document.write(sonuc+"<br/><br/><br/>")//true
+
+
+// \uXXXX (u0000-uFFFF) belirleyicisi (Düzenli ifade dahilinde kontroll edilecek olan değişken içeriği karakter diziliminde bulunan değerin, 16bitlik unicode formatında karşılığı olan karkteri ile eşleşmesi gerektiğini belirtmek için kullanılır 
+var metin            = "Merhaba Emre nasılsın? Sen \u000B 25 yaşında mısın?";
+var ifade            = new RegExp("\\u0061","ig"); //(16 li unicode sisteminde a harfine denk geliyor)
+var sonuc            = ifade.test(metin);
+document.write(sonuc+"<br/><br/><br/>")//true
+
+
+</script>
+</body>
+</html>

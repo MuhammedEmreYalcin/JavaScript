@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr_TR">
+<head>
+    <meta http-equiv"content-type" content"text/html charset=utf-8" />
+    <title>Matematiksel Islemlerin Metrodları</title>
+</head>
+<body>
+<script type"text/javascript" language="javascript">
+// Max Value (Atanabilecek en büyük sayı değerinin geri döndürür(1.7976931348623157e+308))
+var enB = Number.MAX_VALUE;
+document.write(enB + "<br/><br/><br/>");
+
+
+// Min Value (Atanabilecek en küçük negatif sayı değerinin geri döndürür(5e-324))
+var enK = Number.MIN_VALUE;
+document.write(enK + "<br/><br/><br/>");
+
+
+// Positive infinity (Atanabilecek en Büyük Positive Sayı değerinden Büyük Sayılarda sonsuzluk değerinin geri döndürür)
+var enB = Number.MAX_VALUE;
+document.write(enB + "<br/>");
+document.write(enB*2 + "<br/><br/><br/>");  // Çıktı: Infinity
+
+
+// Negative infinity (Atanabilecek en Küçük Negative Sayı değerinden Küçük Sayılarda sonsuzluk değerinin geri döndürür)
+var Sayi = (-Number.MAX_VALUE)*2;
+document.write(Sayi + "<br/><br/><br/>");  // Çıktı: -Infinity
+
+
+// NaN İfadesi (Değerin Sayı olmamsı durumda geriye döner (Not a number)
+var Sayi1 = "Emre";
+var Sayi2 = 8;
+Sonuc = Sayi1*Sayi2
+document.write(Sonuc + "<br/><br/><br/>");  // Çıktı: NaN
+
+
+// E (Euler Sayısı Değerinini geriye dödürür(2.718281828459045))
+var Sayi1 = Math.E;
+document.write(Sayi1 + "<br/><br/><br/>");  // Çıktı: 2.718281828459045
+
+
+// LN2 (2 Sayısının Doğal Logaritması değerini geriye dönderir(0.6931471805599453))
+var Sayi1 = Math.LN2;
+document.write(Sayi1 + "<br/><br/><br/>");  // Çıktı: 0.6931471805599453
+
+
+// LN10 (10 Sayısının Doğal Logaritması değerini geriye dönderir(2.302585092994046))
+var Sayi1 = Math.LN10;
+document.write(Sayi1 + "<br/><br/><br/>");  // Çıktı: 2.302585092994046
+
+
+// LOG2E (Euler Sayısının 2li Tabanına göre Doğal Logaritması değerini geriye dönderir(1.4426950408889634))
+var Sayi1 = Math.LOG2E;
+document.write(Sayi1 + "<br/><br/><br/>");  // Çıktı: 1.4426950408889634
+
+
+// LOG10E (Euler Sayısının 10lu Tabanına göre Doğal Logaritması değerini geriye dönderir(0.4342944819032518))
+var Sayi1 = Math.LOG10E;
+document.write(Sayi1 + "<br/><br/><br/>");                  // Çıktı: 0.4342944819032518
+
+
+// Pİ (Pi Sayısının değerini geriye dönderir(3.141592653589793))
+var Sayi1 = Math.PI;
+document.write(Sayi1 + "<br/><br/><br/>");                  // Çıktı: 3.141592653589793
+
+
+// SQRT1_2 (0,5 Sayısının Karekök değerini geriye dönderir(0.7071067811865476))
+var Sayi1 = Math.SQRT1_2;
+document.write(Sayi1 + "<br/><br/><br/>");                  // Çıktı: 0.7071067811865476
+
+
+// SQRT2 (2 Sayısının Karekök değerini geriye dönderir(1.4142135623730951))
+var Sayi1 = Math.SQRT2;
+document.write(Sayi1 + "<br/><br/><br/>");                  // Çıktı: 1.4142135623730951
+
+
+// isNaN (Kendisine parametrik olarak verilen değerin NaN olup olmadığını kontroll eder boolean veri türünü geriye dödürür)
+var Deger1 = 20;
+var Deger2 = "Merhaba";
+var Deger3 = NaN;
+document.write(Number.isNaN(Deger1) + "<br/");             // Çıktı: false
+document.write(Number.isNaN(Deger2) + "<br/>");            // Çıktı: false
+document.write(Number.isNaN(Deger3) + "<br/><br/><br/>");  // Çıktı: true
+document.write(isNaN(Deger1) + "<br/");                    // Çıktı: false
+document.write(isNaN(Deger2) + "<br/>");                   // Çıktı: true
+document.write(isNaN(Deger3) + "<br/><br/><br/>");         // Çıktı: true
+
+
+// isFinite (Kendisine parametrik olarak verilen değerin en büyük positif sayı ile en küçük negatif sayı aralığnda olup olmadığını kontroll eder boolean veri türünü geriye dödürür)
+var Deger1 = 20;
+var Deger2 = 100;
+document.write(isFinite(Deger1) + "<br/");                 // Çıktı: true
+document.write(isFinite(Deger2) + "<br/><br/><br/>");      // Çıktı: true
+
+
+// isInteger (Kendisine parametrik olarak verilen değerin number (tam Sayı) olup olmadığını kontroll eder boolean veri türünü geriye dödürür)
+var Deger1 = 20;
+var Deger2 = "Hasan";
+var Deger3 = 10.55;
+var sonucbir = Number.isInteger(Deger1);
+var sonuciki = Number.isInteger(Deger2);
+var sonucuc = Number.isInteger(Deger3);
+document.write("Girilen Sayı Tam Sayımı: "+sonucbir+"<br/");// Çıktı: true    
+document.write("Girilen Sayı Tam Sayımı: "+sonuciki+"<br/");// Çıktı: false 
+document.write("Girilen Sayı Tam Sayımı: "+sonucuc+"<br/><br/><br/>"); // Çıktı: false   
+
+
+// isSafeInteger (Kendisine parametrik olarak verilen değerin Güvenli bir number (tam Sayı) olup olmadığını kontroll eder boolean veri türünü geriye dödürür)
+var Deger1      = 20;
+var Deger2      = "Hasan";
+var Deger3      = 10.55;
+var sonucbir    = Number.isSafeInteger(Deger1);
+var sonuciki    = Number.isSafeInteger(Deger2);
+var sonucuc     = Number.isSafeInteger(Deger3);
+document.write("Girilen Sayı Tam Sayımı: "+sonucbir+"<br/");// Çıktı: true    
+document.write("Girilen Sayı Tam Sayımı: "+sonuciki+"<br/");// Çıktı: false 
+document.write("Girilen Sayı Tam Sayımı: "+sonucuc+"<br/><br/><br/>"); // Çıktı: false
+
+
+// toFixed (Kendisine parametrik olarak verilen değerin ondalık hanesinde kaç basamak olacağını belirleyerek yeni bir içerik oluşturur ve geriye dödürür)
+var Deger1      = 20.12345;
+var Deger2      = 123.123456789
+var Deger3      = 10.55;
+var sonucbir    = Deger1.toFixed(2);
+var sonuciki    = Deger2.toFixed(5);
+var sonucuc     = Deger3.toFixed(0);
+document.write(sonucbir+"<br/"); //20.12
+document.write(sonuciki+"<br/"); //123.12346
+document.write(sonucuc+"<br/><br/><br/>"); //11
+
+
+// toPrecision (Kendisine parametrik olarak verilen değerin kaç basamak olacağını belirleyerek yeni bir içerik oluşturur ve geriye dödürür)
+var Sayi5      = 20.12345;
+document.write(Sayi5.toPrecision(6)+"<br/><br/><br/>"); //20.1234
+
+
+// toExponential (Kendisine parametrik olarak verilen değerin ondalık hanesinde kaç basamak olacağını belirleyerek kalan değeri üstel hale getirerek yeni bir içerik oluşturur ve geriye dödürür)
+var Sayi6      = 20.12345;
+document.write(Sayi6.toExponential(3)+"<br/><br/><br/>"); //2.012e+1
+
+
+// parseInt (Kendisine parametrik olarak verilen değer doğrultusunda içeriği tam Sayıya çevirir ve yeni bir içerik oluşturur ve geriye dödürür)
+var Sayi6      = 20.12345;
+document.write(parseInt(Sayi6)+"<br/><br/><br/>"); //20
+
+
+// parseFloat (Kendisine parametrik olarak verilen değer doğrultusunda içeriği ondalık Sayıya çevirir ve yeni bir içerik oluşturur ve geriye dödürür)
+var Sayi7      = 20.12345;
+var Sayi8      = "45 Kere yap";
+document.write(parseFloat(Sayi7)+"<br/>"); //20.12345
+document.write(parseFloat(Sayi8)+"<br/><br/><br/>"); //45
+
+
+// toString (değişken içeriğini String veri tipine çevirir ve veriyi geriye dödürür)
+var Sayi7      = 20.12345;
+var Sayi8      = 22.589;
+var sonuc7     = typeof Sayi7
+var sonuc8     = typeof Sayi8
+document.write(sonuc7+"<br/>"); //number
+document.write(typeof Sayi7.toString()+"<br/><br/>"); //String
+document.write(sonuc8+"<br/>"); //number
+document.write(typeof Sayi8.toString()+"<br/><br/><br/>"); //String
+
+
+// String (değişken içeriğini mutlak olarak String veri tipine çevirir ve veriyi geriye dödürür)
+var Sayi7      = 20.12345;
+var Sayi8      = Boolean(0);
+var sonuc7     = typeof Sayi7
+var sonuc8     = typeof Sayi8
+document.write(sonuc7+"<br/>"); //number
+document.write(typeof String(Sayi7)+"<br/>"); //String
+document.write(sonuc8+"<br/>"); //Boolean
+document.write(typeof String(Sayi8)+"<br/><br/><br/>"); //String
+
+
+// String (değişken içeriğini mutlak olarak number veri tipine çevirir ve veriyi geriye dödürür)
+var Sayi7      = "Hasan";
+var Sayi8      = Boolean(0);
+var sonuc7     = typeof Sayi7
+var sonuc8     = typeof Sayi8
+document.write(sonuc7+"<br/>"); //String
+document.write(typeof Number(Sayi7)+"<br/>"); //Number
+document.write(sonuc8+"<br/>"); //Boolean
+document.write(typeof Number(Sayi8)+"<br/><br/><br/>"); //Number
+
+
+// valueOf (değişken içeriğini tam anlamıyla aktarımını sağlar veriyi geriye dödürür)
+var Sayi7      = "Hasan";
+var Sayi8      = 2;
+var sonuc7     = typeof Sayi7
+var sonuc8     = typeof Sayi8
+document.write(sonuc7+"<br/>"); //String
+document.write(typeof Sayi7.valueOf()+"<br/>"); //String
+document.write(sonuc8+"<br/>"); //Number
+document.write(typeof Sayi8.valueOf(Sayi8)+"<br/><br/><br/>"); //Number
+
+
+// ceil (Kendisine parametrik olarak verilen değer yukarı yuvarlayarak değeri geriye dödürür)
+var Sayi8      = 2.14;
+var Sayi9      = 10.89654;
+document.write(Math.ceil(Sayi8)+"<br/>"); //3
+document.write(Math.ceil(Sayi9)+"<br/><br/><br/>"); //11
+
+
+// floor (Kendisine parametrik olarak verilen ondalıklı değer aşşağa yuvarlayarak değeri geriye dödürür)
+var Sayi8      = 2.14;
+var Sayi9      = 10.89654;
+document.write(Math.floor(Sayi8)+"<br/>"); //2
+document.write(Math.floor(Sayi9)+"<br/><br/><br/>"); //10
+
+
+// round (Kendisine parametrik olarak verilen ondalıklı değeri kendisine en yakın olan aşşağa veya yukarıya yuvarlayarak değeri geriye dödürür)
+var Sayi8      = 2.14;
+var Sayi9      = 10.89654;
+document.write(Math.round(Sayi8)+"<br/>"); //2
+document.write(Math.round(Sayi9)+"<br/><br/><br/>"); //11
+
+
+// trunc (Kendisine parametrik olarak verilen ondalıklı değerinin ondalık kısmı kaldırarak tam sayı değerini geriye dödürür)
+var Sayi8      = 2.14;
+var Sayi9      = 10.89654;
+document.write(Math.trunc(Sayi8)+"<br/>"); //2
+document.write(Math.trunc(Sayi9)+"<br/><br/><br/>"); //10
+
+
+// random (0 ile 1 arasında rastgele bir sayı üreterek ürettiği sayıyı geriye dödürür)
+var Sayi8      = Math.trunc(Math.random()*10);
+var Sayi9      = Math.random();
+document.write(Sayi8+"<br/>"); //8 sayılar her program çalıştığnda değişecektir
+document.write(Sayi9+"<br/><br/><br/>"); //0.9135841959511353
+
+
+// sign (Kendisine parametrik olarak verilen herhngi bir sayı değerinin işaretinin bularak sonucu geriye dödürür)
+var Sayi8      = 54;
+var Sayi9      = -23;
+var Sayi10     = 0;
+var Sayi11     = "Hasan";
+document.write(Math.sign(Sayi8)+"<br/>"); //1
+document.write(Math.sign(Sayi9)+"<br/>"); //-1
+document.write(Math.sign(Sayi10)+"<br/>"); //0
+document.write(Math.sign(Sayi11)+"<br/><br/><br/>"); //NaN
+
+
+// min (Kendisine parametrik olarak verilen sayı değerinin en küçüğnü bularak sonucu geriye dödürür)
+var Sayi8      = 54;
+var Sayi9      = 23;
+var Sayi10     = 20;
+var Sayi11     = 19;
+document.write(Math.min(Sayi8, Sayi9, Sayi10, Sayi11)+"<br/><br/><br/>"); //19
+
+
+// max (Kendisine parametrik olarak verilen sayı değerinin en büyüğünü bularak sonucu geriye dödürür)
+var Sayi8      = 540;
+var Sayi9      = 23;
+var Sayi10     = 20;
+var Sayi11     = 19;
+document.write(Math.max(Sayi8, Sayi9, Sayi10, Sayi11)+"<br/><br/><br/>"); //540
+
+
+// abs (Kendisine parametrik olarak verilen herhangi sayı değerinin mutlak değerini bularak sonucu geriye dödürür)
+var Sayi1      = 299;
+var Sayi2      = -50;
+document.write(Math.abs(Sayi1)+"<br/>"); //299
+document.write(Math.abs(Sayi2)+"<br/><br/><br/>"); //50
+
+
+// sqrt (Kendisine parametrik olarak verilen herhangi sayı değerinin kare kökünü bularak sonucu geriye dödürür)
+var Sayi1      = 25;
+var Sayi2      = 625;
+document.write(Math.sqrt(Sayi1)+"<br/>"); //5
+document.write(Math.sqrt(Sayi2)+"<br/><br/><br/>"); //25
+
+
+// cbrt (Kendisine parametrik olarak verilen herhangi sayı değerinin küb kökünü bularak sonucu geriye dödürür)
+var Sayi1      = 8;
+var Sayi2      = 27;
+document.write(Math.cbrt(Sayi1)+"<br/>"); //2
+document.write(Math.cbrt(Sayi2)+"<br/><br/><br/>"); //3
+
+
+// sin (Kendisine parametrik olarak verilen herhangi sayı değerinin sinusunu bularak sonucu geriye dödürür)
+var Sayi1      = 1;
+var Sayi2      = 27;
+document.write(Math.sin(Sayi1)+"<br/>"); //0.8414709848078965
+document.write(Math.sin(Sayi2)+"<br/><br/><br/>"); //0.956375928404503
+
+
+// sinh (Kendisine parametrik olarak verilen herhangi sayı değerinin hiperbolik sinusunu bularak sonucu geriye dödürür)
+var Sayi1      = 1;
+var Sayi2      = 3;
+document.write(Math.sinh(Sayi1)+"<br/>"); //1.1752011936438014
+document.write(Math.sinh(Sayi2)+"<br/><br/><br/>"); //10.017874927409903
+
+
+// asin (Kendisine parametrik olarak verilen -1 ile 1 arasındaki sayı değerinin ark sinusunu radyan cinsinden bularak sonucu geriye dödürür)
+var Sayi1      = 0.5;
+var Sayi2      = -0.8;
+document.write(Math.asin(Sayi1)+"<br/>"); //0.5235987755982989
+document.write(Math.asin(Sayi2)+"<br/><br/><br/>"); //-0.9272952180016123
+
+
+// asinh (Kendisine parametrik olarak verilen herhangi bir sayı değerinin hiperbolik ark sinusunu bularak sonucu geriye dödürür)
+var Sayi1      = 1;
+var Sayi2      = -0.8;
+document.write(Math.asinh(Sayi1)+"<br/>"); //0.881373587019543
+document.write(Math.asinh(Sayi2)+"<br/><br/><br/>"); //-0.732668256045411
+
+
+// cos (Kendisine parametrik olarak verilen herhangi sayı değerinin cosinusunu bularak sonucu geriye dödürür)
+var Sayi1      = 1;
+var Sayi2      = 27;
+document.write(Math.cos(Sayi1)+"<br/>"); //0.5403023058681398
+document.write(Math.cos(Sayi2)+"<br/><br/><br/>"); //-0.2921388087338362
+
+
+// cosh (Kendisine parametrik olarak verilen herhangi sayı değerinin hiperbolik cosinusunu bularak sonucu geriye dödürür)
+var Sayi1      = 1;
+var Sayi2      = 3;
+document.write(Math.cosh(Sayi1)+"<br/>"); //1.5430806348152437
+document.write(Math.cosh(Sayi2)+"<br/><br/><br/>"); //10.067661995777765
+
+
+// acos (Kendisine parametrik olarak verilen -1 ile 1 arasındaki sayı değerinin ark cos radyan cinsinden bularak sonucu geriye dödürür)
+var Sayi1      = 0.5;
+var Sayi2      = -0.8;
+document.write(Math.acos(Sayi1)+"<br/>"); //1.0471975511965979
+document.write(Math.acos(Sayi2)+"<br/><br/><br/>"); //2.498091544796509
+
+
+// acosh (Kendisine parametrik olarak verilen herhangi bir sayı değerinin hiperbolik ark cosınusu bularak sonucu geriye dödürür)
+var Sayi1      = 1;
+var Sayi2      = 3;
+document.write(Math.acosh(Sayi1)+"<br/>"); //0
+document.write(Math.acosh(Sayi2)+"<br/><br/><br/>"); //1.7627471740390859
+
+
+// tan (Kendisine parametrik olarak verilen herhangi sayı değerinin tanjantını bularak sonucu geriye dödürür)
+var Sayi1      = 1;
+var Sayi2      = 27;
+document.write(Math.tan(Sayi1)+"<br/>"); //1.5574077246549023
+document.write(Math.tan(Sayi2)+"<br/><br/><br/>"); //-3.273703800428119
+
+
+// tanh (Kendisine parametrik olarak verilen herhangi sayı değerinin hiperbolik tanjantını bularak sonucu geriye dödürür)
+var Sayi1      = 1;
+var Sayi2      = 3;
+document.write(Math.tanh(Sayi1)+"<br/>"); //0.7615941559557649
+document.write(Math.tanh(Sayi2)+"<br/><br/><br/>"); //0.9950547536867305
+
+
+// atan (Kendisine parametrik olarak verilen -1 ile 1 arasındaki sayı değerinin ark tanjantını radyan cinsinden bularak sonucu geriye dödürür)
+var Sayi1      = 0.5;
+var Sayi2      = -0.8;
+document.write(Math.atan(Sayi1)+"<br/>"); //0.4636476090008061
+document.write(Math.atan(Sayi2)+"<br/><br/><br/>"); //0.6747409422235527
+
+
+// atanh (Kendisine parametrik olarak verilen herhangi bir sayı değerinin hiperbolik ark tanjantını bularak sonucu geriye dödürür)
+var Sayi1      = 0.5;
+var Sayi2      = 0;
+document.write(Math.atanh(Sayi1)+"<br/>"); //0.5493061443340548
+document.write(Math.atanh(Sayi2)+"<br/><br/><br/>"); //0
+
+
+// atan2 (Kendisine parametrik olarak verilen değerinin ark tanjantını radyan cinsinden bularak sonucu geriye dödürür)
+var Sayi1      = 8;
+var Sayi2      = 4;
+document.write(Math.atan2(Sayi1,Sayi2)+"<br/><br/><br/>"); //1.1071487177940904
+
+
+// exp (Kendisine parametrik olarak verilen değerinin euler sayısı üssünü bularak sonucu geriye dödürür)
+var Sayi1      = 8;
+document.write(Math.exp(Sayi1)+"<br/><br/><br/>"); //2980.9579870417283
+
+
+// expm1 (Kendisine parametrik olarak verilen değerinin euler sayısı üssünü bularak bir eksilterek sonucu geriye dödürür)
+var Sayi1      = 8;
+document.write(Math.expm1(Sayi1)+"<br/><br/><br/>"); //2979.9579870417283
+
+
+// log (Kendisine parametrik olarak verilen değerinin doğal Logaritmasını bularak sonucu geriye dödürür)
+var Sayi1      = 2;
+document.write(Math.log(Sayi1)+"<br/><br/><br/>"); //0.6931471805599453
+</script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr-TR">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>TarihveSaat</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+
+// Date() (Kullanıldığı değişken içerisine Tarih ve Saat bilgilerini depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+document.write(date +"</br>"); //Bugünün Saat ve Tarih (Tue Sep 13 2022 11:43:59 GMT+0300 (GMT+03:00))
+var date2 = new Date(2023,5,28, 21,08,51); 
+document.write(date2+"</br>"); //Etki edilmiş Saat ve Tarih (Wed Jun 28 2023 21:08:51 GMT+0300 (GMT+03:00))
+var date3 = new Date("June 28, 2023 21:08:51"); 
+document.write(date3+"</br></br></br>"); //Etki edilmiş Saat ve Tarih (Başka yazılım şekli) (Wed Jun 28 2023 21:08:51 GMT+0300 (GMT+03:00))
+
+
+// getFullYear() (Kullanıldığı değişken içerisine yıl bilgisini 1000-9999 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var year  = date.getFullYear();
+document.write(year+"</br></br></br>"); //2022
+
+
+// getMonth() (Kullanıldığı değişken içerisine yılın ay bilgisini 0-11 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var month = date.getMonth();
+document.write(month+"</br></br></br>"); //8
+
+
+// getDate() (Kullanıldığı değişken içerisine ayın gün bilgisini 1-31 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var day   = date.getDate();
+document.write(day+"</br></br></br>"); //13
+
+
+// getDay() (Kullanıldığı değişken içerisine haftanın gün bilgisini 0-6 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir)(Haftanın ilk günü Pazar olarak alınır ve 0 dır)
+var date  = new Date();
+var day   = date.getDay();
+document.write(day+"</br></br></br>"); //2
+
+
+// getHours() (Kullanıldığı değişken içerisine günün saat bilgisini 0-23 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var time   = date.getHours();
+document.write(time+"</br></br></br>"); //12
+
+
+// getMinutes() (Kullanıldığı değişken içerisine saatın dakıka bilgisini 0-59 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var time   = date.getMinutes();
+document.write(time+"</br></br></br>"); //22
+
+
+// getSeconds() (Kullanıldığı değişken içerisine dakikanın sanıye bilgisini 0-59 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var seconds   = date.getSeconds();
+document.write(seconds+"</br></br></br>"); //37
+
+
+// getMilliSeconds() (Kullanıldığı değişken içerisine saniyenin milisaniye bilgisini 0-999 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var miliseconds   = date.getMilliseconds();
+document.write(miliseconds+"</br></br></br>"); //710 
+
+
+// getUTCFullYear() (Kullanıldığı değişken içerisine evrensel zaman dilimine ait yıl bilgisini 1000-9999 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var year  = date.getUTCFullYear();
+document.write(year+"</br></br></br>"); //2022
+
+
+// getUTCMonth() (Kullanıldığı değişken içerisine evrensel zaman dilimine ait yılın ay bilgisini 0-11 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var month = date.getUTCMonth();
+document.write(month+"</br></br></br>"); //8
+
+
+// getUTCDate() (Kullanıldığı değişken içerisine evrensel zaman dilimine ait ayın gün bilgisini 1-31 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var day   = date.getUTCDate();
+document.write(day+"</br></br></br>"); //13
+
+
+// getUTCDay() (Kullanıldığı değişken içerisine evrensel zaman dilimine ait haftanın gün bilgisini 0-6 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir)(Haftanın ilk günü Pazar olarak alınır ve 0 dır)
+var date  = new Date();
+var day   = date.getUTCDay();
+document.write(day+"</br></br></br>"); //2
+
+
+// getUTCHours() (Kullanıldığı değişken içerisine evrensel zaman dilimine ait günün saat bilgisini 0-23 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var time   = date.getUTCHours();
+document.write(time+"</br></br></br>"); //9
+
+
+// getUTCMinutes() (Kullanıldığı değişken içerisine evrensel zaman dilimine ait saatın dakıka bilgisini 0-59 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var time   = date.getUTCMinutes();
+document.write(time+"</br></br></br>"); //37
+
+
+// getUTCSeconds() (Kullanıldığı değişken içerisine evrensel zaman dilimine ait dakikanın sanıye bilgisini 0-59 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var seconds   = date.getUTCSeconds();
+document.write(seconds+"</br></br></br>"); //24
+
+
+// getUTCMilliSeconds() (Kullanıldığı değişken içerisine evrensel zaman dilimine ait saniyenin milisaniye bilgisini 0-999 arasında depolayarak, depoladığı değeri geriye dödürür. (Tarihe etki edilebilir))
+var date  = new Date();
+var miliseconds   = date.getUTCMilliseconds();
+document.write(miliseconds+"</br></br></br>"); //710 
+
+
+// setFullYear() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine yıl bilgisini 1000-9999 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setFullYear(3058);
+document.write(date+"</br></br></br>"); //Mon Sep 13 3058 12:47:43 GMT+0300 (GMT+03:00)
+
+
+// setMonth() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine yılın ay bilgisini 0-11 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setMonth(6);
+document.write(date+"</br></br></br>"); //Wed Jul 13 2022 12:50:53 GMT+0300 (GMT+03:00)
+
+
+// setDate() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine ayın gün bilgisini 1-31 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setDate(28);
+document.write(date+"</br></br></br>"); //Wed Sep 28 2022 12:53:12 GMT+0300 (GMT+03:00)
+
+
+// setHours() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine günün saat bilgisini 0-23 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setHours(21);
+document.write(date+"</br></br></br>"); //Tue Sep 13 2022 21:56:16 GMT+0300 (GMT+03:00)
+
+
+// setMinutes() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine saatın dakıka bilgisini 0-59 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setMinutes(59);
+document.write(date+"</br></br></br>"); //Tue Sep 13 2022 12:59:41 GMT+0300 (GMT+03:00)
+
+
+// setSeconds() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine dakikanın sanıye bilgisini 0-59 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setSeconds(13);
+document.write(date+"</br></br></br>"); //Tue Sep 13 2022 12:59:13 GMT+0300 (GMT+03:00)
+
+
+// setMilliSeconds() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine saniyenin milisaniye bilgisini 0-999 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setMilliseconds(999);
+document.write(date+"</br></br></br>"); //Tue Sep 13 2022 13:00:14 GMT+0300 (GMT+03:00)
+ 
+
+// setUTCFullYear() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine evrensel zaman dilimine ait yıl bilgisini 1000-9999 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setUTCFullYear(3058);
+document.write(date+"</br></br></br>"); //Mon Sep 13 3058 12:47:43 GMT+0300 (GMT+03:00)
+
+
+// setUTCMonth() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine evrensel zaman dilimine ait yılın ay bilgisini 0-11 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setUTCMonth(6);
+document.write(date+"</br></br></br>"); //Wed Jul 13 2022 13:13:22 GMT+0300 (GMT+03:00)
+
+
+// setUTCDate() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine evrensel zaman dilimine ait ayın gün bilgisini 1-31 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setUTCDate(28);
+document.write(date+"</br></br></br>"); //Wed Sep 28 2022 13:15:29 GMT+0300 (GMT+03:00)
+
+
+// setUTCHours() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine evrensel zaman dilimine ait günün saat bilgisini 0-23 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setUTCHours(21);
+document.write(date+"</br></br></br>"); //Wed Sep 14 2022 00:16:30 GMT+0300 (GMT+03:00)
+
+
+// setUTCMinutes() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine evrensel zaman dilimine ait saatın dakıka bilgisini 0-59 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setUTCMinutes(59);
+document.write(date+"</br></br></br>"); //Tue Sep 13 2022 13:59:32 GMT+0300 (GMT+03:00)
+
+
+// setUTCSeconds() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine evrensel zaman dilimine ait dakikanın sanıye bilgisini 0-59 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setUTCSeconds(13);
+document.write(date+"</br></br></br>"); //Tue Sep 13 2022 13:21:13 GMT+0300 (GMT+03:00)
+
+
+// setUTCMilliSeconds() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine evrensel zaman dilimine ait saniyenin milisaniye bilgisini 0-999 arasında depolayarak, depoladığı değeri geriye dödürür. (Çoklu ayarlama işlemi yapılabilir))
+var date  = new Date();
+date.setUTCMilliseconds(999);
+document.write(date+"</br></br></br>"); //Tue Sep 13 2022 13:22:27 GMT+0300 (GMT+03:00)
+
+
+// getTime() (Kullanıldığı değişken içerisine tarihin zaman damgası bilgisini depolayarak, depoladığı değeri geriye dödürür. (başlangıç tarih: 1 Ocak 1970))
+var date  = new Date();
+var time = date.getTime();
+document.write(time+"</br></br></br>"); //1663065579240
+
+
+// setTime() (Kendisine parametre olarak belirtilmiş değer doğrultusunda Kullanıldığı değişken içerisine zaman damgasına ait tarih bilgisini depolayarak, depoladığı değeri geriye dödürür. (Başlangıç tarih: 1 Ocak 1970))
+var date  = new Date();
+date.setTime(1663065824012);
+document.write(date+"</br></br></br>"); //Tue Sep 13 2022 13:43:44 GMT+0300 (GMT+03:00)
+
+
+// now() (Kullanıldığı değişken içerisine evrensel zaman dilimine ait tarihin zaman damgası bilgisini depolayarak, depoladığı değeri geriye dödürür.. (Başlangıç tarih: 1 Ocak 1970))
+var date  = Date.now();
+document.write(date+"</br></br></br>"); //1663066059384
+
+
+// UTC() (Kendisine parametre olarak belirtilmiş değer doğrultusunda, Kullanıldığı değişken içerisine evrensel zaman dilimine ait tarihin zaman damgası bilgisini depolayarak depoladığı değeri geriye dödürür.. (Başlangıç tarih: 1 Ocak 1970))
+var date  = Date.UTC(2010,5,28);
+document.write(date+"</br></br></br>"); //1277683200000
+
+
+// parse() (Kendisine parametre olarak belirtilmiş değer doğrultusunda, Kullanıldığı değişken içerisine tarihin zaman damgası başlangıcı ile arasnındakı zamanan farkı bilgisini depolayarak depoladığı değeri geriye dödürür.. (Başlangıç tarih: 1 Ocak 1970))
+var difference  = Date.parse("July 28, 2010");
+document.write(difference+"</br></br></br>"); //1280264400000
+
+// getTimezoneOffset() (Kullanıldığı değişken içerisine yerel zamanan ile 0 zamanan dilimi arasnındakı zamanan farkı bilgisini dakika olarak depolayarak depoladığı değeri geriye dödürür.. (GMT : Greenwich ortalama zamanı))
+var date        = new Date();
+var difference  = date.getTimezoneOffset();
+document.write(difference+"</br></br></br>"); //-180
+
+
+// toString() (Kullanıldığı değişken içerisine atanmış olan tarih ve Saat bilgilerini alarak String veri tipinde düz bir metne dönüştürerek, dönüştürdüğü değeri geri döndürür)
+var date        = new Date();
+var typ         = typeof date;
+document.write(typ+"</br>"); //object
+var metin       = date.toString();
+var typ2        = typeof metin;
+document.write(typ2+"</br></br></br>"); //string
+
+
+// toLocaleString() (Kullanıldığı değişken içerisine atanmış olan tarih ve Saat bilgilerini tarayıcı diline göre alarak  String veri tipinde düz bir metne dönüştürerek, dönüştürdüğü değeri geri döndürür)
+var date        = new Date();
+document.write(typeof date+"</br>"); //object
+document.write(date+"</br>"); //Wed Sep 14 2022 11:43:50 GMT+0300 (GMT+03:00)
+var metin       = date.toLocaleString();
+document.write(typeof metin+"</br>"); //string
+document.write(metin+"</br></br></br>"); //14.09.2022 11:43:23
+
+
+// toUTCString() (Kullanıldığı değişken içerisine atanmış olan tarih ve Saat bilgilerini evrensel zaman dilimine alarak  String veri tipinde düz bir metne dönüştürerek, dönüştürdüğü değeri geri döndürür)
+var date        = new Date();
+document.write(typeof date+"</br>"); //object
+document.write(date+"</br>"); //Wed Sep 14 2022 11:43:50 GMT+0300 (GMT+03:00)
+var metin       = date.toUTCString();
+document.write(typeof metin+"</br>"); //string
+document.write(metin+"</br></br></br>"); //Wed, 14 Sep 2022 08:47:16 GMT
+
+
+// toISOString() (Kullanıldığı değişken içerisine atanmış olan tarih ve Saat bilgilerini ISO Standartını kullanarak String veri tipinde düz bir metne dönüştürerek, dönüştürdüğü değeri geri döndürür)
+var date        = new Date();
+document.write(typeof date+"</br>"); //object
+document.write(date+"</br>"); //Wed Sep 14 2022 11:43:50 GMT+0300 (GMT+03:00)
+var metin       = date.toISOString();
+document.write(typeof metin+"</br>"); //string
+document.write(metin+"</br></br></br>"); //2022-09-14T08:51:59.526Z
+
+
+// toJSON() (Kullanıldığı değişken içerisine atanmış olan tarih ve Saat bilgilerini JSON formatı kullanarak String veri tipinde düz bir metne dönüştürerek, dönüştürdüğü değeri geri döndürür)
+var date        = new Date();
+document.write(typeof date+"</br>"); //object
+document.write(date+"</br>"); //Wed Sep 14 2022 11:43:50 GMT+0300 (GMT+03:00)
+var metin       = date.toJSON();
+document.write(typeof metin+"</br>"); //string
+document.write(metin+"</br></br></br>"); //2022-09-14T08:51:59.526Z
+
+
+// toDateString() (Kullanıldığı değişken içerisine atanmış olan tarih ve Saat bilgilerini sadece tarih kısmını alarak String veri tipinde düz bir metne dönüştürerek, dönüştürdüğü değeri geri döndürür)
+var date        = new Date();
+document.write(typeof date+"</br>"); //object
+document.write(date+"</br>"); //Wed Sep 14 2022 11:43:50 GMT+0300 (GMT+03:00)
+var metin       = date.toDateString();
+document.write(typeof metin+"</br>"); //string
+document.write(metin+"</br></br></br>"); //Wed Sep 14 2022
+
+
+// toLocaleDateString() (Kullanıldığı değişken içerisine atanmış olan tarih ve Saat bilgilerini tarayıcı diline göre sadece tarih kısmını alarak String veri tipinde düz bir metne dönüştürerek, dönüştürdüğü değeri geri döndürür)
+var date        = new Date();
+document.write(typeof date+"</br>"); //object
+document.write(date+"</br>"); //Wed Sep 14 2022 11:43:50 GMT+0300 (GMT+03:00)
+var metin       = date.toLocaleDateString();
+document.write(typeof metin+"</br>"); //string
+document.write(metin+"</br></br></br>"); //14.09.2022
+
+
+// toDateString() (Kullanıldığı değişken içerisine atanmış olan tarih ve Saat bilgilerini sadece saat kısmını alarak String veri tipinde düz bir metne dönüştürerek, dönüştürdüğü değeri geri döndürür)
+var date        = new Date();
+document.write(typeof date+"</br>"); //object
+document.write(date+"</br>"); //Wed Sep 14 2022 11:43:50 GMT+0300 (GMT+03:00)
+var metin       = date.toTimeString();
+document.write(typeof metin+"</br>"); //string
+document.write(metin+"</br></br></br>"); //12:09:20 GMT+0300 (GMT+03:00)
+
+
+// toLocaleTimeString() (Kullanıldığı değişken içerisine atanmış olan tarih ve Saat bilgilerini tarayıcı diline göre sadece saat kısmını alarak String veri tipinde düz bir metne dönüştürerek, dönüştürdüğü değeri geri döndürür)
+var date        = new Date();
+document.write(typeof date+"</br>"); //object
+document.write(date+"</br>"); //Wed Sep 14 2022 11:43:50 GMT+0300 (GMT+03:00)
+var metin       = date.toLocaleTimeString();
+document.write(typeof metin+"</br>"); //string
+document.write(metin+"</br></br></br>"); //12:10:17
+
+
+// valueof() (üzerinde çalışılan değişken değerinin tam anlamıyla aktarımını sağlayarak yeni bir içerik olulturur ve oluşturduğu, değeri geri döndürür)
+var date        = new Date();
+document.write(typeof date+"</br>"); //object
+document.write(date+"</br>"); //Wed Sep 14 2022 11:43:50 GMT+0300 (GMT+03:00)
+var metin       = date.valueOf();
+document.write(typeof metin+"</br>"); //number
+document.write(metin+"</br></br></br>"); //1663147432188
+
+</script>
+</body>
+</html>

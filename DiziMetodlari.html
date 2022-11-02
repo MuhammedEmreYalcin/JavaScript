@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr-TR">
+<head>
+    <meta http-equiv"content-type" content"text/html charset=utf-8" />
+    <title>DiziMetodlari</title>
+</head>
+<body>
+<script type"text/javascript" language="javascript">
+
+// length metodu (Dizi içeriğnin eleman Sayısını veya karakter sayısını geri dödürür)
+var İsimler = ["Emre", "Hakan", "Ali", "Ömer"];
+document.write ("Dizinin Eleman Sayısı: "+İsimler.length +"<br/>");
+document.write ("Dizinin Elemanın Karakter Sayısı: "+İsimler[1].length +"<br/><br/><br/>");
+
+
+// delete metodu (Dizi içerinde belirtilen indise ait elemanın silinmesini sağlar)
+var İsimler1 = ["Emre", "Hakan", "Ali", "Ömer"];
+delete İsimler1 [3]
+document.write (İsimler1 +"<br/><br/><br/>");
+
+
+// pop metodu (Dizi içerisindeki en son elemanı siler ve sildiği eleman değerini geri dönderir)
+var İsimler2 = ["Emre", "Hakan", "Ali", "Ömer"];
+document.write ("Dizinin orjinal hali: "+İsimler2 +"<br/>")
+document.write ("Diziden silinen eleman: "+İsimler2.pop() +"<br/>")
+document.write ("Dizinin son hali: "+İsimler2 +"<br/><br/><br/>")
+
+
+// shift metodu (Dizi içerisindeki ilk elemanı siler ve sildiği eleman değerini geri dönderir)
+var İsimler3 = ["Emre", "Hakan", "Ali", "Ömer"];
+document.write ("Dizinin orjinal hali: "+İsimler3 +"<br/>")
+document.write ("Diziden silinen eleman: "+İsimler3.shift() +"<br/>")
+document.write ("Dizinin son hali: "+İsimler3 +"<br/><br/><br/>")
+
+
+// push metodu (Dizi sonuna eleman eklenmesini sağlar)
+var İsimler4 = ["Emre", "Hakan", "Ali", "Ömer"];
+document.write ("Dizinin orjinal hali: "+İsimler4 +"<br/>")
+document.write ("Dizinin yeni eleman Sayısı: "+İsimler4.push("Hasan") +"<br/>")
+document.write ("Dizinin son hali: "+İsimler4 +"<br/><br/><br/>")
+
+
+// unshift metodu (Dizinin başına eleman eklenmesini sağlar)
+var İsimler5 = ["Emre", "Hakan", "Ali", "Ömer"];
+document.write ("Dizinin orjinal hali: "+İsimler5 +"<br/>")
+document.write ("Dizinin yeni eleman Sayısı: "+İsimler5.unshift("Burak") +"<br/>")
+document.write ("Dizinin son hali: "+İsimler5 +"<br/><br/><br/>")
+
+
+// splice metodu (Diziye eleman eklenmesini ve silinmesini sağlar)
+var İsimler6 = ["Emre", "Hakan", "Ali", "Ömer"];
+document.write ("Dizinin orjinal hali: "+İsimler6 +"<br/>")
+document.write ("Diziden silinen elemanlar: "+İsimler6.splice(1,2) +"<br/>")
+document.write ("Diziye eklenen elemanlar: "+İsimler6.splice(1,0,"Barış","Salih") +"<br/>")
+document.write ("Dizinin son hali: "+İsimler6 +"<br/><br/><br/>")
+
+
+// slice metodu (Kendisine verilecek olan parametereler ile tanımlanmış dizi aralığnda bulunan değerleri kopyalıyarak yeni bir dizi oluşturur)
+var İsimler7 = ["Emre", "Hakan", "Ali", "Ömer"];
+document.write ("Dizinin orjinal hali: "+İsimler7 +"<br/>")
+var yenidizi = İsimler7.slice(2,4)
+document.write ("Yeni oluşan dizi: "+yenidizi +"<br/><br/><br/>")
+
+
+// copyWithin metodu (Kendisine verilecek olan parametereler ile tanımlanmış dizi aralığnda bulunan değerleri kopyalıyarak parametreler doğrultusunda dizi elemanlarını değiştirir)
+var İsimler8 = ["Emre", "Hakan", "Ali", "Ömer"];
+document.write ("Dizinin orjinal hali: "+İsimler8 +"<br/>")
+document.write ("Dizinin güncelleşmiş hali "+İsimler8.copyWithin(1,2,3) +"<br/><br/><br/>")
+
+
+// fill metodu (Kendisine verilecek olan parametereler ile tanımlanmış dizi aralığnda bulunan değeri parametreler ile belirtilmiş olan değer doğrultusunda dizi elemanlarını değiştirir)
+var İsimler9 = ["Emre", "Hakan", "Ali", "Ömer"];
+document.write ("Dizinin orjinal hali: "+İsimler9 +"<br/>")
+document.write ("Dizinin güncelleşmiş hali "+İsimler9.fill("Hasan",1,4) +"<br/><br/><br/>")
+
+
+// concat metodu (Üzerinde çalıişılan diziye parametrik olarak verilecek olan elemanları diziyi dahil ederek yeni bir dizi oluşturur)
+var Meyveler = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir"];
+document.write ("Dizinin orjinal hali: "+Meyveler +"<br/>")
+document.write ("Dizinin güncelleşmiş hali "+Meyveler.concat("Üzüm","Çilek") +"<br/><br/><br/>")
+
+
+// join metodu (Dizideki elemanların arasına kendisine parametre olarak verilen değeri ayraç olarak kullanarak string veri türünde düz bir metin oluşturur)
+var Meyveler1 = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir"];
+document.write ("Dizinin orjinal hali: "+Meyveler1 +"<br/>");
+document.write ("Dizinin veri tipi: "+typeof(Meyveler1)+"<br/>");
+var Meyvelerr1 = Meyveler1.join();
+document.write ("Dizinin güncelleşmiş hali "+Meyvelerr1 +"<br/>");
+document.write ("Dizinin veri tipi: "+ typeof(Meyvelerr1)+"<br/><br/><br/>");
+
+
+// toString metodu (Dizideki tüm elemanları içeren string veri türünde düz bir metin oluşturur)
+var Meyveler2 = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir"];
+document.write ("Dizinin orjinal hali: "+Meyveler2 +"<br/>");
+document.write ("Dizinin veri tipi: "+typeof(Meyveler2)+"<br/>");
+var Meyvelerr2 = Meyveler2.toString();
+document.write ("Dizinin güncelleşmiş hali "+Meyvelerr2 +"<br/>");
+document.write ("Dizinin veri tipi: "+ typeof(Meyvelerr2)+"<br/><br/><br/>");
+
+
+// valueOf metodu (Üzerinde çalıişılan dizi değerinin tam anlamıyla aktarımını sağlayarak yeni bir dizi oluşturur ve geri dödürür)
+var Meyveler3 = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir"];
+document.write ("Dizinin orjinal hali: "+Meyveler3 +"<br/>");
+var Meyvelerr3 = Meyveler3.valueOf();
+document.write ("Dizinin aktarılmış hali "+Meyvelerr3 +"<br/><br/><br/>");
+
+
+// indexOf (Dizi içersinde parametrik olarak verilen değeri arar ve ilk eşleşmeyi sağlayan eleman indis değerini geriye döndürür)
+var Meyveler4 = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir"];
+document.write ("Dizinin orjinal hali: "+Meyveler4 +"<br/>");
+var Meyvelerr4 = Meyveler4.indexOf("Kiraz");
+document.write ("Aranan elemanın İndisi: "+Meyvelerr4 +"<br/><br/><br/>");
+
+
+// lastİndexOf (Dizi içersinde parametrik olarak verilen değeri arar ve son eşleşmeyi sağlayan eleman indis değerini geriye döndürür)
+var Meyveler5 = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir","Kiraz"];
+document.write ("Dizinin orjinal hali: "+Meyveler5 +"<br/>");
+var Meyvelerr5 = Meyveler5.lastIndexOf("Kiraz");
+document.write ("Aranan elemanın İndisi: "+Meyvelerr5 +"<br/><br/><br/>");
+
+
+// find (Dizi içersinde parametrik olarak verilen fonksiyonu arar ve son eşleşmeyi sağlayan eleman indis değerini geriye döndürür)
+function deneme(eleman,sira,referans){
+    return sira == 3;
+}
+var Meyveler6 = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir","Kiraz"];
+document.write ("Dizinin orjinal hali: "+Meyveler6 +"<br/>");
+var Meyvelerr6 = Meyveler6.find(deneme);
+document.write ("Aranan eleman : "+Meyvelerr6 +"<br/><br/><br/>");
+
+
+// findIndex (Kendisinde parametrik olarak verilen fonksiyonun dizideki her eleman üzerine tek tek olmak üzere çalıştırır ve verilen değeri ara. İlk eşleşmeyi sğlayan dizi elemanının İndis değerini geri çevirir)
+function deneme1(eleman,sira,referans){
+    return eleman == "İncir";
+}
+var Meyveler7 = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir","Kiraz"];
+document.write ("Dizinin orjinal hali: "+Meyveler7 +"<br/>");
+var Meyvelerr7 = Meyveler7.findIndex(deneme1);
+document.write ("Aranan elemanın İndisi: "+Meyvelerr7 +"<br/><br/><br/>");
+
+
+// reduce (Kendisinde parametrik olarak verilen fonksiyonu dizideki her eleman üzerine soldan sağa olmak üzere tek tek çalıştırır ve tek bir değer oluşturarak oluştuduğu değeri geri çevirir)
+function deneme2(toplam,eleman,sira,referans){
+    return toplam+eleman;
+}
+var Sayilar = [10,20,30,40,50,100];
+document.write ("Dizinin orjinal hali: "+Sayilar +"<br/>");
+var Sayilarr = Sayilar.reduce(deneme2);
+document.write ("Elemanların Toplamı: "+Sayilarr +"<br/><br/><br/>");
+
+
+// reduceRight (Kendisinde parametrik olarak verilen fonksiyonu dizideki her eleman üzerine sağdan sola olmak üzere tek tek çalıştırır ve tek bir değer oluşturarak oluştuduğu değeri geri çevirir)
+function deneme3(toplam,eleman,sira,referans){
+    return toplam+eleman;
+}
+var Sayilar1 = [10,20,30,40,50,100];
+document.write ("Dizinin orjinal hali: "+Sayilar1 +"<br/>");
+var Sayilarr1 = Sayilar1.reduceRight(deneme3);
+document.write ("Elemanların Toplamı: "+Sayilarr1 +"<br/><br/><br/>");
+
+
+// reverse (dizideki sıralamyı terse çevirerek yeni bir dizi oluşturur )
+var Meyveler8 = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir","Kiraz"];
+document.write ("Dizinin orjinal hali: "+Meyveler8 +"<br/>");
+var Meyvelerr8 = Meyveler8.reverse();
+document.write ("Dizinin yeni hali:" +Meyvelerr8 +"<br/><br/><br/>");
+
+
+// sort (Dizi içeriğinin sıralanmasını sağlar (Unicode kod olarak çalışır))
+function sirala(eleman1,eleman2){
+    return eleman1-eleman2;
+}
+function siralaa(a, b){
+    var alfabe = "AaBbCcÇçDdEeFfGgĞğHhIıİiJjKkLlMmNnOoÖöPpQqRrSsŞşTtUuÜüVvWwXxYyZz";
+ /*   if(a.length==0 || b.length==0){
+        return a.length-b.length;
+        }else{
+        var bir = alfabe.indexOf(a[0]);
+        var iki = alfabe.indexOf(b[0]);
+            if (bir!==iki){
+                return bir-iki;
+            }else{
+                return siralaa(a.slice[1], b.slice[1]);
+            }
+    }*/
+}
+var Meyveler9 = ["Elma", "Kiraz", "Armut", "Muz", "Portakal", "İncir","Kiraz"];
+var Sayilar2 = [10,5,20,30,40,5.3,11];
+//document.write ("Dizinin orjinal hali: "+Meyveler9 +"<br/>");
+//document.write ("Dizinin Küçükden büyüğe saralanmış hali:" +Meyveler9.sort(siralaa) +"<br/>");
+document.write ("Dizinin orjinal hali: "+Sayilar2 +"<br/>");
+document.write ("Dizinin Küçükden büyüğe saralanmış hali:" +Sayilar2.sort(sirala) +"<br/><br/><br/>");
+
+
+// some (Kendisine parametre olarak belirtilen fonksiyon true değeri döndürenekadar dizi elemanlar üzere sıra ile gezer )
+function denem4(eleman3,sira1,referans1){
+     sonuc = eleman3;
+     return eleman3%5==0;
+}
+var sonuc = 0;
+var Sayilar3 = [10,5,20,30,40,5.3,11];
+document.write ("Dizinin orjinal hali: "+Sayilar3 +"<br/>");
+var Sayilar3 = Sayilar3.some(denem4);
+document.write ("Aranan ilk true değer: "+ sonuc +"<br/><br/><br/>");
+
+
+// every (Kendisine parametre olarak belirtilen fonksiyon false değeri döndürenekadar dizi elemanlar üzere sıra ile gezer )
+function denem5(eleman4,sira2,referans2){
+     sonuc = eleman4;
+     return eleman4%5==0;
+}
+var sonuc;
+var Sayilar4 = [10,5,20,30,40,5.3,11];
+document.write ("Dizinin orjinal hali: "+Sayilar4 +"<br/>");
+var Sayilar4 = Sayilar4.every(denem5);
+document.write ("Aranan ilk false değer: "+ sonuc +"<br/><br/><br/>");
+
+
+// filter (Kendisine parametre olarak belirtilen fonksiyon true değeri döndüren dizi elemanlar kopyalayarak yeni bir dizi oluşturur )
+function denem6(eleman5,sira3,referans3){
+     return eleman5%2!==0;
+}
+var sonuc;
+var Sayilar5 = [10,5,20,30,40,5.3,11];
+document.write ("Dizinin orjinal hali: "+Sayilar5 +"<br/>");
+var Sayilarr5 = Sayilar5.filter(denem6);
+document.write ("Dizini içindeki tek sayılar: "+ Sayilarr5 +"<br/><br/><br/>");
+
+
+// map (Kendisine parametre olarak belirtilen fonksiyon tüm dizi elemanlar üzerine çalıştırır ve dizileri kopyalayarak yeni bir dizi oluşturur )
+function denem7(eleman6,sira4,referans4){
+     return eleman6*2;
+}
+var sonuc;
+var Sayilar6 = [10,5,20,30,40,5.3,11];
+document.write ("Dizinin orjinal hali: "+Sayilar5 +"<br/>");
+var Sayilarr6 = Sayilar5.map(denem7);
+document.write ("Dizinin yeni hali: "+ Sayilarr6 +"<br/><br/><br/>");
+
+
+// avarge (number veri türü içerikli dizinin her elemanı üzerinde tek tek çalışır ve tüm elemanların ortalamasını bulur)
+Array.prototype.avarage = function(){
+    var Toplam = 0;
+    for(var i=0; i<this.length; i++){
+         Toplam += this[i];
+    }
+    var sonuc = Toplam/this.length;
+    return sonuc;
+}
+var Sayilar7 = [10,20,30,40,10];
+document.write ("Dizinin orjinal hali: "+Sayilar7 +"<br/>");
+var Sayilarr7 = Sayilar7.avarage();
+document.write ("Dizinin ortalamsı: "+ Sayilarr7 +"<br/><br/><br/>");
+
+
+// shuffle (Dizinin tüm elemanlarını karıştırarak yeni bir dizi oluşturur)
+Array.prototype.shuffle = function(){
+    var elemansayisi = this.length;
+    while(--elemansayisi>0){
+        var rastgelesayi     = Math.floor(Math.random()*(elemansayisi+1));
+        var gecicideger      = this[rastgelesayi];
+        this[rastgelesayi]   = this[elemansayisi];
+        this[elemansayisi]   = gecicideger;
+        return this;
+    }
+}
+var Sayilar8 = [10,20,30,40,10];
+document.write ("Dizinin orjinal hali: "+Sayilar8 +"<br/>");
+var Sayilarr8 = Sayilar8.shuffle();
+document.write ("Dizinin karişmış hali: "+ Sayilarr8 +"<br/><br/><br/>");
+</script>
+</body>
+</html>

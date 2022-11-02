@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr-TR">
+<head>
+    <meta http-eqiv="content-type" content="text/html; charset=utf-8" />
+    <title>Nesneler</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+// Nesnelerin yapısı
+var information         = {firstname:"Emre", lastname:"Yalcin", age:22}; 
+var firstname           = information.firstname;
+var lastname            = information.lastname;
+var age                 = information.age;
+document.write(" Hello, My name is: "+firstname+" "+lastname+" and i am "+age+" years old"+"</br></br></br>"); // Hello, My name is: Emre Yalcin and i am 22 years old
+
+
+// Nesnelerin diğer yapısı
+var information2        = new Object(); 
+information2.name       ="Emre";
+information2.lname      ="Yalcin";
+information2.Age        =22;
+document.write("My name is: "+information2.name +" "+information2.lname+" and i am "+information2.Age+" years old"+"</br></br></br>"); // My name is: Emre Yalcin and i am 22 years old
+
+
+// Nesnelerin diğer yapısı
+var information3        = new Object(); 
+information3["name"]    ="Emre";
+information3["lname"]   ="Yalcin";
+information3["Age"]     =22;
+document.write("My name is: "+information3.name +" "+information3.lname+" and i am "+information3.Age+" years old"+"</br></br></br>"); // My name is: Emre Yalcin and i am 22 years old
+
+
+// Fonksiyon şeklinde Nesne tanımlama
+function person(){
+    this.name           ="Emre";
+    this.lname          ="Yalcin";
+    this.Age            =22;
+}
+var information         = new person();
+document.write("Name: "+information.name +"</br>"+"Lastname: "+information.lname+"</br>"+"Age: "+information.Age+"</br></br></br>"); // Name: Emre, Lastname: Yalcin, Age: 22
+
+
+// Bir ifadeyle bir den fazla nesne tanımlama  
+var information         = {firstname:"Emre", lastname:"Yalcin", age:22}, colors ={firstcolor:"blue", secondcolor:"red", thirdcolor:"yellow"}; 
+document.write("My name is: "+information.firstname +" "+information.lastname+" and i am "+information.age+" years old"+"</br>"); // My name is: Emre Yalcin and i am 22 years old
+document.write("My favorite colors are: "+colors.firstcolor+","+colors.secondcolor+","+colors.thirdcolor+"</br></br></br>"); // My favorite colors are: blue,red,yellow
+
+
+// Bir nesneyi başka bir değişkene aktarma
+var information         = {firstname:"Emre", lastname:"Yalcin", age:22}; 
+var sample              = information
+document.write("My name is: "+sample.firstname +" "+sample.lastname+" and i am "+sample.age+" years old"+"</br></br></br>"); // My name is: Emre Yalcin and i am 22 years old
+
+
+// Nesneyi önceden tanımlayarak özellik ve değerleri sonradan belirtmek
+var information         = {}; 
+information.name        = "Emre";
+information.lastname    = "Yalcin";
+information.age         = 22;
+document.write("Name: "+information.name +"</br>"+"Lastname: "+information.lastname+"</br></br></br>"+"Age: "+information.age+"</br></br></br>");//Name: Emre,Lastname: Yalcin,Age: 22
+
+
+// Nesne içeriğini değiştirmek
+var information         = {firstname:"Emre", lastname:"Yalcin", age:22};
+document.write("Name: "+information.firstname +"</br>"+"Lastname: "+information.lastname+"</br>"+"Age: "+information.age+"</br></br>");//Name: Emre,Lastname: Yalcin,Age: 22
+information.age         = 23;
+document.write("Name: "+information.firstname +"</br>"+"Lastname: "+information.lastname+"</br>"+"Age: "+information.age+"</br></br></br>");//Name: Emre,Lastname: Yalcin,Age: 23
+
+
+// Nesne içeriğini fonksiyon tanımlama
+var information         = {
+    firstname:"Emre", 
+    lastname:"Yalcin", 
+    age:22, 
+    warning:function(){
+        document.write("I am a function"+"</br></br></br>");
+    }
+};
+information.warning();
+
+
+// Nesne içeriğini fonksiyon nesnein özellik değerlerine fonksiyon içerisinde ulaşma
+var information         = {
+    firstname:"Emre", 
+    lastname:"Yalcin", 
+    age:22, 
+    warning:function(){
+        firstname = information.firstname;
+        lastname  = information.lastname;
+        document.write("Name: "+firstname+"</br>"+"Lastname: "+lastname+"</br></br></br>");
+    }
+};
+information.warning();
+
+
+// Nesne içeriğini fonksiyon, fonksiyon içerisinde de özellik ve değer tanımlama ve çağırma
+var information         = {
+    firstname:"Emre", 
+    lastname:"Yalcin",  
+    warning:function(){
+        this.age        = 22;
+        this.profession = "Computer Engineer"
+    }
+};
+information.warning();
+var age                 = information.age;
+var profession          = information.profession;
+document.write("Name: "+information.firstname +"</br>"+"Lastname: "+information.lastname+"</br>"+"Age: "+age+"</br>"+"Profession: "+profession+"</br></br></br>");//Name: Emre,Lastname: Yalcin,Age: 22,Profession: Computer Engineer
+
+
+// Nesne içeriğini fonksiyonda return ifadesi kullanımı
+var information         = {
+      
+    warning:function(){
+        var firstname  ="Emre";
+        var lastname   ="Yalcin";
+        return firstname+" "+lastname;
+    }
+};
+var name = information.warning();
+document.write("Name: "+name+"</br></br></br>");//Name: Emre Yalcin
+
+
+// Nesnenin kapsama alanı
+var information         = {
+        firstname:"Emre",
+        lastname :"Yalcin",
+        age      :22,
+        detail   :function(){
+            var massage    = "Hello";
+            document.write(massage+"</br>");
+        }
+};
+var information2         = {
+        firstname:"Hasan",
+        lastname :"Ali",
+        age      :29,
+        detail   :function(){
+            var massage = "Hi";
+            document.write(massage+"</br>");
+        }
+};
+information.detail();//Hello 
+document.write("Name: "+information.firstname +"</br>"+"Lastname: "+information.lastname+"</br>"+"Age: "+information.age+"</br></br>");//Name: Emre,Lastname: Yalcin,Age: 23
+information2.detail();//Hi 
+document.write("Name: "+information2.firstname +"</br>"+"Lastname: "+information2.lastname+"</br>"+"Age: "+information2.age+"</br></br></br>");//Name: Hasan,Lastname: Ali,Age: 29
+
+
+// Nesne içeriğine fonksiyona parametre  tanımlama ve fonksiyonu çağırma
+var information         = {
+      
+    warning:function(firstname,lastname,age){
+        var firstname  =firstname;
+        var lastname   =lastname;
+        var age        =age;
+        var text       ="My name is: "+firstname +" "+lastname+" and i am "+age+" years old";
+        return text;
+    }
+};
+text = information.warning("Emre","Yalcin",22);
+document.write(text + "</br>"); //My name is: Emre Yalcin and i am 22 years old
+text = information.warning("Hasan","Ali",38);
+document.write(text+"</br></br></br>"); //My name is: Hasan Ali and i am 38 years old 
+
+
+// Nesne içerisinde bulunan fonksiyona varsayılan parametre  tanımlama ve fonksiyonu çağırma
+var information         = { 
+    warning:function(firstname="Emre",lastname="Yalcin",age=22){
+        var firstname  =firstname;
+        var lastname   =lastname;
+        var age        =age;
+        var text       ="My name is: "+firstname +" "+lastname+" and i am "+age+" years old";
+        return text;
+    }
+};
+text = information.warning();
+document.write(text + "</br>"); //My name is: Emre Yalcin and i am 22 years old
+text = information.warning("Hasan","Ali",38);
+document.write(text+"</br></br></br>"); //My name is: Hasan Ali and i am 38 years old
+
+
+// Nesnelerde for in döngüsü
+var information         = { 
+        Firstname  :"Emre ",
+        Lastname   :"Yalcin ",
+        Age        :22
+    };
+for(var i in information){
+    document.write(i+": "+information[i]+"</br>"); //Firstname: Emre Lastname: Yalcin Age: 22
+
+}
+document.write("</br></br></br>");
+
+
+// iç içe çok boyutlu Nesneler
+var information         = { 
+        Firstname       :"Emre ",
+        Lastname        :"Yalcin ",
+        Detail          :{
+            State       :"İstanbul",
+            Age         :22,
+            Languages   :{
+                Firstl  :"Javascript",
+                Secondl :"Java"
+            }
+        }
+    };
+document.write("Firstname: "+information.Firstname+"</br>");
+document.write("Lastname: "+information.Lastname+"</br>");
+document.write("State: "+information.Detail.State+"</br>");
+document.write("Age: "+information.Detail.Age+"</br>");
+document.write("Firstl: "+information.Detail.Languages.Firstl+"</br>");
+document.write("Secondl: "+information.Detail.Languages.Secondl+"</br></br></br>");
+
+
+// Nesnelerde Delete metodu
+var information         = { 
+        Firstname       :"Emre ",
+        Lastname        :"Yalcin ",
+        Age             :22
+    };
+document.write("Firstname: "+information.Firstname+"</br>");//Firstname: Emre
+document.write("Lastname: "+information.Lastname+"</br>");//Lastname: Yalcin
+document.write("Age: "+information.Age+"</br>");//Age: 22
+delete information.Lastname;
+document.write("Lastname: "+information.Lastname+"</br>");//Lastname: undefined
+information.Lastname = "Yal";
+document.write("Lastname: "+information.Lastname+"</br></br></br>");//Lastname: Lastname: Yal
+
+
+// Nesnelerde Prototype özelliği
+function person(name,lname,Age){
+    this.name           =name;
+    this.lname          =lname;
+    this.Age            =Age;
+} 
+person.prototype.end    =function(){
+    return  "Name:"+this.name+ " Lastname:"+this.lname+ " Age:"+this.Age;  
+}
+var information         = new person("Emre", "Yalçın", 22);
+var write = information.end();
+document.write(write+"</br></br></br>"); //Name:Emre Lastname:Yalçın Age:22
+
+
+// Nesnelerde Prototype özelliği __proto__(Bir nesnenin prototype nesnesini elde edtmek için kullanılır ve protytpe besbesi içerisindeki özelliklere ulaşarak değeri geriye dödürür)
+function person(name,lname,Age){
+    this.name           =name;
+    this.lname          =lname;
+    this.Age            =Age;
+} 
+person.prototype.end    =function(massage){
+    this.massage        =massage;  
+}
+var information         = new person("Emre", "Yalçın", 22);
+information.__proto__.end("Hi");
+document.write(information.name+"</br>"); //Emre
+document.write(information.lname+"</br>"); //Yalçın
+document.write(information.Age+"</br>"); //22
+document.write(information.massage+"</br></br></br>"); //Hi
+
+
+// Nesnelerde hasOwnProperty()(Bir nesnenin parametrik olarak girilen özelliğin kullanıp kullanılmadığını kontroll ederek Boolean veri tipi geri dödürür)
+var person = {
+    name :"Emre",
+    lname:"Yalcin",
+};
+document.write(person.hasOwnProperty("name")+"</br>"); //true
+document.write(person.hasOwnProperty("lname")+"</br>"); //true
+document.write(person.hasOwnProperty("Age")+"</br></br></br>"); //false
+
+
+// Nesnelerde propertyIsEnumarable()(Bir nesnenin parametrik olarak girilen özelliğin kullanıp kullanılmadığını kontroll ederek Boolean veri tipi geri dödürür)
+var person = {
+    name :"Emre",
+    lname:"Yalcin",
+};
+document.write(person.propertyIsEnumerable("name")+"</br>"); //true
+document.write(person.propertyIsEnumerable("lname")+"</br>"); //true
+document.write(person.propertyIsEnumerable("Age")+"</br></br></br>"); //false
+
+
+// Nesnelerde isPrototypeOf()(parametrik olarak girilen nesne prototype zincirinde bir constructer()yapıcı metot bulunup bulunmadığını kontroll ederek Boolean veri tipi geri dödürür)
+function person1(){
+    name:"Emre"
+};
+var end = new person1();
+prototypee = person1.prototype.isPrototypeOf(end);
+document.write(prototypee+"</br></br></br>"); //true
+
+
+// Nesnelerde instanceof()(Bir nesneni constructerını(yapıcı metot) kontroll ederek Boolean veri tipi geri dödürür)
+function person2(){
+    name:"Emre"
+};
+function person5(){
+    name:"Emre"
+};
+var end  = new person2();
+var type = end instanceof (person2);
+var type2 = end instanceof (person5);
+document.write(type+"</br>"); //true
+document.write(type2+"</br></br></br>"); //false
+
+
+// Nesnelerde watch() (nesneni belirtilen bir özelliği değiştiğinde çalıştırılacak olan herhangi bir işlev eklemek için kullanılır)
+/*
+var info = {
+    name:"Emre"
+};
+
+info.watch("name", function(özellikad,eskiad,yeniad){
+    var özellikadi = özellikad;
+    var eskiadi = eskiad;
+    var yeniadi = yeniad;
+    var message = özellikadi+" "+eskiadi+" "+yeniadi;
+    document.write(message+"</br></br></br>"); //true
+});
+info.name = "Hasan";
+
+
+
+// Nesnelerde unwatch() (nesneni belirtilen bir özelliği değiştiğinde eklenmiş olan herhangi bir işlev kaldırmak için kullanılır)
+var info = {
+    name:"Emre"
+};
+
+info.watch("name", function(özellikad,eskiad,yeniad){
+    var özellikadi   = özellikad;
+    var eskiadi      = eskiad;
+    var yeniadi      = yeniad;
+    var message      = özellikadi+" "+eskiadi+" "+yeniadi;
+    document.write(message+"</br></br></br>"); //true
+});
+info.unwatch("name");
+info.name = "Hasan";
+*/
+
+
+// Nesnelerde toString() (nesnenin karakter dizesi olarak temsil edilen halinin değerinin geriye dödürür. Nesne prototype özelliği kullanılarak değer ataması yapılır)
+function islem(){
+    this.isim = "Emre Yalcin";
+}
+islem.prototype.toString = function(){
+    document.write(this.isim);
+}
+var info  = new islem();
+var sonuc = islem.toString();
+
+
+// Nesnelerde toLocaleString() (nesnenin tarayıcı diline göre karakter dizesi olarak temsil edilen halinin değerinin geriye dödürür. Nesne prototype özelliği kullanılarak değer ataması yapılır)
+var deger = 1500;
+var sonuc = deger.toLocaleString("ja-JP", {style:"currency", currency:"JPY"});
+var sonuc2 = deger.toLocaleString("tr-TR", {style:"currency", currency:"TRY"});
+document.write(sonuc+"</br>");
+document.write(sonuc2+"</br></br></br>");
+
+
+// Nesnelerde toSource() (nesnenin kaynak kodunu temsil eden halini değerini geriye dödürür)
+/*var person = {
+    name :"Emre",
+    lname:"Yalcin",
+    yas:22
+};
+var sonuc = person.toSource();
+document.write(sonuc+"</br>");
+*/
+
+
+// Nesnelerde valueOf() (nesnenin temel değerini elde emtek için kullanılır)
+function islem(sayi){
+    this.sayi=sayi;
+}
+
+islem.prototype.valueOf = function(){
+    return this.sayi;
+}
+
+var nesne = new islem(50);
+var sonuc = islem.valueOf();
+document.write(sonuc+"</br>");
+</script>
+</body>
+</html>
