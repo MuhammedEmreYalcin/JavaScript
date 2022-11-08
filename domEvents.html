@@ -1,0 +1,603 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr-TR">
+<head>
+    <meta hhtp-equiv="content-type" content="text/html;  charset=utf-8"/>
+    <title>Dom Events</title>
+</head>
+<style>
+.mousealan{
+	background-color:#F1F1F1;
+    margin:0;
+	padding:0;
+	width:100%;
+	height:500px;
+	border:1px solid black;
+	text-align: center;
+}
+
+.sonucalan{
+	background-color:#F1F1F1;
+    margin:0;
+	margin-top:5px;
+	padding:5px;
+	width:100%;
+	border:1px solid black;
+	text-align: center;
+}
+
+.sonucalan2{
+	background-color:#F1F1F1;
+    margin:0;
+	margin-top:5px;
+	padding:5px;
+	width:100%;
+	border:1px solid black;
+	text-align: center;
+}
+
+
+.sonucalan3{
+	background-color:#F1F1F1;
+    margin:0;
+	margin-top:5px;
+	padding:5px;
+	width:100%;
+	border:1px solid black;
+	text-align: center;
+}
+</style>
+
+<body onload="ornek4()" onunload="ornek5()" onbeforeunload="return ornek6()" onhashchange="ornek8()" onpageshow="ornek9()" onpagehide="ornek10()" ononline="ornek11()" onoffline="ornek12()" onresize="ornek13()" onscroll="ornek14()" onbeforeprint="ornek37()" onafterprint="ornek38()">
+<button onclick="push()">Tıkla</button> 
+</br>
+</br>
+<button ondblclick="push2()">Cift Tıkla</button> </br></br>
+<button oncontextmenu="push4()">Sag tus ile Tıkla</button> </br>
+<div id="yaz"></div> </br>
+<div id="kimlik" onmousedown="push3()">Buraya Tıklayınız</div> </br>
+<div id="alan" onmouseover="push5()">Yazinin rengini degistirmek icin Mouse ile yazinin uzerine gelin</div> </br>
+<div id="kimlik2" onmouseout="push6()">Yazinin rengini degistirmek icin Mouse ile yazinin ustunden ayrılın</div> </br>
+<div id="kimlik3" onmouseenter="push7()" onmouseleave="push8()"style="background-color:#F1F1F1; border:1px solid black; margin:10px; padding:10px; width:250px; height:250px;"><span id="kimlik3.1">Bu Alana Mouse ile geliniz</span></div> </br>
+<div id="kimlik4" onmousemove="push9()" style="background-color:#E3E5E5; border:1px solid black; margin:10px; padding:10px; padding-top:120px; width:280px; height:130px; text-align:center">0</div> </br>
+<div id="kimlik5" onmouseup="push10()">Javascript Egitim Seti</div> </br>
+<div id="kimlik6" onwheel="push11()">Javascript Egitim Seti - Emre Yalcin</div> </br>
+<div id="kimlik7" onmousedown="push12()">Bu alanda herhangi bir Mousun tusa basınız</div> </br>
+<div id="kimlik8" onmousedown="push13()">Bu alanda herhangi bir Mousun tusa basınız</div> </br>
+<div id="kimlik9" onmousedown="push14()">Mousun tusuna basınız</div> </br>
+<div id="kimlik10" class="mousealan" onmousemove="push15()"ondragenter="ornek33()">Mousu burada gezdiriniz</div> </br>
+<div id="yaz2" class="sonucalan">Mousun Kordinatı: (X)<span id="yaz2.1"></span>(Y)<span id="yaz2.2"></span>   </div> </br>
+<div id="yaz3" class="sonucalan2">Mousun Kordinatı: (X)<span id="yaz3.1"></span>(Y)<span id="yaz3.2"></span>   </div> </br>
+<div id="yaz4" class="sonucalan3" >Mousun Kordinatı: (X)<span id="yaz4.1"></span>(Y)<span id="yaz4.2"></span>   </div> </br>
+<input type="text" onkeydown="ornek()" placeholder="Bir Tusa Basın"> </br>
+<textarea onkeypress="ornek2()"></textarea></br>
+<input type="text" onkeypress="ornek3()" placeholder="Bir Tusa Basin"></br>
+<button onclick="ornek7()">Hash Degerini degistirmek için Tiklayiniz</button> </br>
+<div id="yaz5"></div></br>
+<details ontoggle="ornek15()">
+<summary>Burası açılır Kapanır alan</summary>
+<div>Javascript</div>
+<div>PHP</div>
+<div>Java</div>
+</details></br>
+<input type="text" placeholder="Adınız Soyadınız" onfocus="ornek16(this)" onblur="ornek17(this)" onfocusin="ornek18(this)" onfocusout="ornek19(this)"></input></br>
+Renk Seciniz
+<select id="yaz6" onchange="ornek20()" oninput="ornek21()">
+    <option>Kırmızı</option>
+    <option>Mavi</option>
+    <option>Sarı</option>
+</select></br>
+<form action="#" method="get" onreset="ornek25()" onselect="ornek26()" oncopy="ornek27()" oncut="ornek28()" onpaste="ornek29()">
+İsim Soyisim <input id="adsoyad" type="text" onvalid="ornek22()" required>
+<input type="submit" value="Gönder" onsubmit="ornek24()"></br>
+Arama Alanı <input type="search" onsearch="ornek23()">
+<input type="reset">
+</form></br>
+<div draggable="true" ondrag="ornek30()" ondragstart="ornek31()" ondragend="ornek32()" ondragleave="ornek34()" ondragover="ornek35()" ondrop="ornek36()">JavaScript</div>
+<div id="yaz7"></div></br>
+<button onclick="ornek39(event)">Tikla</button></br>
+<a href="http://www.google.com.tr" onclick="ornek40(event)">Google git</a>
+
+
+<script type="text/javascript" language="JavaScript">
+//onclick : Belge içerisindeki herhangi bir elemana mouse ile sol tıklandığnda belirtilecek olan fonksiyon çalışır
+function push(){
+    var deger = "Tiklama islemi gerceklesti"
+	document.getElementById("yaz").innerHTML = deger;
+}
+
+
+//ondblclick : Belge içerisindeki herhangi bir elemana mouse ile çift sol tıklandığnda belirtilecek olan fonksiyon çalışır
+function push2(){
+    var deger = "Cift Tiklama oldu"
+	document.getElementById("yaz").innerHTML = deger;
+}
+
+
+//onmousedown : Belge içerisindeki herhangi bir elemana mouse ile sol veya sağ tıklandığnda belirtilecek olan fonksiyon çalışır
+function push3(){
+	document.getElementById("kimlik").style.backgroundColor = "yellow";
+}
+
+
+//oncontextmenu : Belge içerisindeki herhangi bir elemana mouse ile sağ tıklandığnda belirtilecek olan fonksiyon çalışır
+function push4(){
+    var deger = "Sag Tiklama oldu"
+	document.getElementById("yaz").innerHTML = deger;
+}
+
+
+//onmouseover : Belge içerisindeki herhangi bir elemana mouse ile üzerine gelindiğinde belirtilecek olan fonksiyon çalışır
+function push5(){
+	document.getElementById("alan").style.color = "red";
+}
+
+
+//onmouseout : Belge içerisindeki herhangi bir elemana mouse ile üzerinden gidildiğinde belirtilecek olan fonksiyon çalışır
+function push6(){
+	document.getElementById("kimlik2").style.color = "blue";
+}
+
+
+//onmouseenter : Belge içerisindeki herhangi bir elemana mouse ile kapsama alanına giriş yapıldığnda belirtilecek olan fonksiyon çalışır
+function push7(){
+	document.getElementById("kimlik3.1").innerHTML = "Alanin Kapsama Alanina gelindi";
+}
+
+
+//onmouseleave : Belge içerisindeki herhangi bir elemana mouse ile kapsama alanından çıkış yapıldığnda belirtilecek olan fonksiyon çalışır
+function push8(){
+	document.getElementById("kimlik3.1").innerHTML = "Alanin Kapsama Alanindan cikildi";
+}
+
+
+//onmousemove : Belge içerisindeki herhangi bir elemana mouse ile kapsama alanında gezildiğinde belirtilecek olan fonksiyon çalışır
+var sayi = 0;
+function push9(){
+	document.getElementById("kimlik4").innerHTML = sayi+=1;
+}
+
+
+//onmouseup : Belge içerisindeki herhangi bir elemana mouse ile sol basılı duran tıklama bırkıldığnda belirtilecek olan fonksiyon çalışır
+function push10(){
+	alert("Tiklama Birakildi");
+}
+
+
+//onmousewheel & onwheel: Belge içerisindeki herhangi bir eleman üzerindenken mousun tekerleği yukarı veya aşşağı yuvarlandığnda belirtilecek olan fonksiyon çalışır
+function push11(){
+	document.getElementById("kimlik6").style.fontSize ="30px";
+}
+
+
+//button: Belge içerisindeki mouse ile tıklama eventi gerçekleştiğinde hangi tuşuna basıldığı değerini geriye döndürür
+/*
+0: Sol tuş
+1: Orta tuş veya tekerlek
+2: Sağ Tuş
+*/
+function push12(){
+	document.getElementById("yaz").innerHTML = event.button;
+}
+
+
+//buttons: Belge içerisindeki mouse ile tıklama eventi gerçekleştiğinde hangi tuşuna veya tuşlarına basıldığı değerini geriye döndürür
+/*
+1: Sol tuş
+2: Sağ Tuş
+4: Orta tuş veya tekerlek
+8: 4. Tuş
+16: 5. Tuş
+*/
+function push13(){
+	document.getElementById("yaz").innerHTML = event.buttons;
+}
+
+
+//screenX: Belge içerisindeki herhangi bir mouse eventı gerçekleşdiğinde bilgisayar ekranına göre. Mousun yatay Koordinatın değerini geriye döndürür
+//screenY: Belge içerisindeki herhangi bir mouse eventı gerçekleşdiğinde bilgisayar ekranına göre. Mousun dikey Koordinatın değerini geriye döndürür
+function push15(){
+	document.getElementById("yaz2.1").innerHTML = event.screenX;
+	document.getElementById("yaz2.2").innerHTML = event.screenY;
+}
+
+
+//clientX: Belge içerisindeki herhangi bir mouse eventı gerçekleşdiğinde browser pencersine göre. Mousun yatay Koordinatın değerini geriye döndürür
+//clientY: Belge içerisindeki herhangi bir mouse eventı gerçekleşdiğinde browser pencersine göre. Mousun dikey Koordinatın değerini geriye döndürür
+function push15(){
+	document.getElementById("yaz3.1").innerHTML = event.clientX;
+	document.getElementById("yaz3.2").innerHTML = event.clientY;
+}
+
+
+//pageX: Belge içerisindeki herhangi bir mouse eventı gerçekleşdiğinde browser penceresine (sayfaya) göre. Mousun yatay Koordinatın değerini geriye döndürür
+//pageY: Belge içerisindeki herhangi bir mouse eventı gerçekleşdiğinde browser penceresine (sayfaya) göre. Mousun dikey Koordinatın değerini geriye döndürür
+function push15(){
+	document.getElementById("yaz4.1").innerHTML = event.pageX;
+	document.getElementById("yaz4.2").innerHTML = event.pageY;
+}
+
+
+//onkeydown: Belge içerisindeki herhangi bir eleman üzerine Klavyeden herhangi bir tuşa basıldığnda belirtilecek olan Fonksiyon çalışır
+function ornek(){
+	alert("Klavyeden Bir Tusa basildi");
+}
+
+
+//onkeypress: Belge içerisindeki herhangi bir eleman üzerine Klavyeden herhangi bir tuşa basıldığnda belirtilecek olan Fonksiyon çalışır
+function ornek2(){
+	document.getElementById("yaz5").innerHTML = "Klavyeden Bir Tusa basildi";
+}
+
+
+//onkeyup: Belge içerisindeki herhangi bir eleman üzerine Klavyeden basılı duran bir tuş bırakıldığnda belirtilecek olan Fonksiyon çalışır
+function ornek3(){
+	document.getElementById("yaz5").innerHTML = "Tus Basilarak Birakildi";
+}
+
+
+//key: Belge içerisindeki onkeypress, onkeydown veya onkeyup eventi gerçekleştiğinde Klavyeden basılan tuşun değerini geriye döndürür
+function ornek3(){
+	var basilantus = event.key;
+	document.getElementById("yaz5").innerHTML = "Basilan Son Tus: "+ basilantus;
+}
+
+
+//charCode: Belge içerisindeki onkeypress eventi gerçekleştiğinde Klavyeden basılan tuşun unicode değerini geriye döndürür
+function ornek3(){
+	var unicode = event.charCode;
+	document.getElementById("yaz5").innerHTML += unicode + " ";
+}
+
+
+//keyCode: Belge içerisindeki onkeypress, onkeydown veya onkeyup eventi gerçekleştiğinde Klavyeden basılan tuşun unicode değerini geriye döndürür
+function ornek3(){
+	var unicode = event.keyCode;
+	document.getElementById("yaz5").innerHTML += unicode + " ";
+}
+
+
+//which: Belge içerisindeki onkeypress, onkeydown veya onkeyup eventi gerçekleştiğinde Klavyeden basılan tuşun unicode değerini geriye döndürür
+function ornek3(){
+	var unicode = event.which;
+	document.getElementById("yaz5").innerHTML += unicode + " ";
+}
+
+
+//location: Belge içerisindeki onkeypress, onkeydown veya onkeyup eventi gerçekleştiğinde ilgi Tuşun Klaydeki Lokasyon (Konum) bilgisi değerini geriye döndürür
+/*
+0: Standart Tuşlar
+1: Sol Tuşlar
+2: Sağ Tuşlar
+3: NumPad Tuşları
+*/
+function ornek3(){
+	var lokasyon = event.location;
+	document.getElementById("yaz5").innerHTML += lokasyon + " ";
+}
+
+
+//altKey: Belge içerisindeki herhangi bir event tetiklenirken alt tuşuna basılıp basılmasığını kontroll ederke Boolean veri Türünde sonucu geriye döndürür
+function ornek3(){
+	var alttus = event.altKey;
+	document.getElementById("yaz5").innerHTML += alttus + " ";
+}
+
+
+//ctrlKey: Belge içerisindeki herhangi bir event tetiklenirken ctrl tuşuna basılıp basılmasığını kontroll ederke Boolean veri Türünde sonucu geriye döndürür
+function ornek3(){
+	var ctrltus = event.ctrlKey;
+	document.getElementById("yaz5").innerHTML += ctrltus + " ";
+}
+
+
+//ctrlKey: Belge içerisindeki herhangi bir event tetiklenirken shift tuşuna basılıp basılmasığını kontroll ederke Boolean veri Türünde sonucu geriye döndürür
+function ornek3(){
+	var shifttus = event.shiftKey;
+	document.getElementById("yaz5").innerHTML += shifttus + " ";
+}
+
+
+//metaKey: Belge içerisindeki herhangi bir event tetiklenirken pencere tuşuna veya emir tuşuna basılıp basılmasığını kontroll ederke Boolean veri Türünde sonucu geriye döndürür
+function ornek3(){
+	var penceretus = event.metaKey;
+	document.getElementById("yaz5").innerHTML += penceretus + " ";
+}
+
+
+//onvolumechange: Medya elemanın Ses seviyesi değiştiğinde belirtilecek olan fonksiyon çalışır
+
+
+//onload: Sayfanın veya herhangi bir HTML elemanın yüklenmesi tamamlandığnda belirtilecek olan fonksiyon çalışır
+function ornek4(){
+	alert("Sayfa Yuklendi");
+}
+
+
+//onunload: Sayfanın veya herhangi bir HTML elemanın kapatıldığnda yada kaldırıldığnda belirtilecek olan fonksiyon çalışır
+function ornek5(){
+	alert("Sayfa Kapatıldı");
+}
+
+
+//onbeforeunload: Sayfanın Kullanıcı tarafında yenileme veya kapatılma isteklerinde işlem gerçekleştirilmeden belirtilecek olan fonksiyon çalışır
+function ornek6(){
+	return " ";
+}
+
+
+//onhashchange: Sayfa URL'inin bağlantı bölümünde değişiklik olur ise belirtilecek fonksiyon çalışır
+function ornek7(){
+	location.hash = "YeniSayfa";
+	var deger     = location.hash;
+	document.getElementById("yaz5").innerHTML = "Hash Degeri Degisti"+"</br>"+"Yeni Hash Degeri: "+deger;
+}
+
+
+//oldURL: Sayfa URL'inin bağlantı bölümünde değişiklik olduğndaki eski URL adresini geriye döndürür
+//newURL: Sayfa URL'inin bağlantı bölümünde değişiklik olur ise belirtilecek fonksiyon çalışır
+function ornek7(){
+	location.hash = "YeniSayfa";
+}
+
+function ornek8(){
+	var eskiurl = event.oldURL;
+	var yeniurl = event.newURL;
+	document.getElementById("yaz5").innerHTML = "Eski URL: "+eskiurl+"</br>"+"Yeni URL: "+yeniurl
+}
+
+
+//onpageshow: Sayfa kullanıcı tarafında görüntülünebiliyorsa belirtilecek olan fonksiyon çalışır
+//onpagehide: Sayfa kullanıcı tarafında görüntülünemiyorsa belirtilecek olan fonksiyon çalışır
+function ornek9(){
+	var mesaj1 = "Sayfamiza Hosgeldiniz";
+	document.getElementById("yaz5").innerHTML = mesaj1;
+}
+function ornek10(){
+	var mesaj2 = "Sayfa Goruntulenemiyor";
+	document.getElementById("yaz5").innerHTML = mesaj2;
+}
+
+
+//ononline: Browser Sayfayı Çevrimdişi Modda çalıştırırken, Çevrimiçi öodda çalıştırmaya başladığnda belirtilecek olan Fonksiyon çalışır
+//onoffline: Browser Sayfayı Çevrimişi Modda çalıştırırken, Çevrimdışı öodda çalıştırmaya başladığnda belirtilecek olan Fonksiyon çalışır
+function ornek11(){
+	document.getElementById("yaz5").innerHTML = "Sayfa Çevrimiçi Modda Çalıştırılmaya başladı";
+}
+function ornek12(){
+	document.getElementById("yaz5").innerHTML = "Sayfa Çevrimdışı Modda Çalıştırılmaya başladı";
+}
+
+
+//onresize: Kullanıcı Tarafından Browserin Sayfa Boyutu değiştirilmek istendiğinde belirtilecek olan Fonksiyon
+function ornek13(){
+	document.getElementById("yaz5").innerHTML = "Sayfa Boyutu degistirildi";
+}
+
+
+//onscroll: Sayfanın veya herhangi bir HTML elemanın kaydırma çubuğu yukar veya aşşağa kaydırıldığnda belirtilecek olan Fonksiyon çalışır
+function ornek14(){
+	document.getElementById("yaz5").innerHTML = "Kaydirma islemi gerceklesti";
+}
+
+
+//ontoggle: Belge içerisindeki HTML details elemanın içeriği açıldığnda veya kapandığnda belirtilecek fonksiyon çalışır
+function ornek15(){
+	alert("Olay gerceklestirildi");
+}
+
+
+//oncanplay: Medya elemanı yürütülmeye hazır olduğnda belirtilecek olan Fonksiyon çalışır
+//onplay: Medya elemanı yürütülmeye başlandığnda belirtilecek olan Fonksiyon çalışır
+//onpause: Medya elemanı yürütülmesi durdurulduğnda belirtilecek olan Fonksiyon çalışır
+//onratechange: Medya elemanının yürütüme hızı değiştirildiğinde belirtilecek olan Fonksiyon çalışır
+//onseeked: Medya elemanının yürütüme konumu kullanıcı tarafında yeni konuma getirildiğinde belirtilecek olan Fonksiyon çalışır
+//onseeking: Medya elemanının yürütüme konumu kullanıcı tarafından hareket ettirildiğinde belirtilecek olan Fonksiyon çalışır
+//ontimeupdate: Medya elemanının yürütüme konumu tarayıcı veya kullanıcı tarafından değiştirildiğinde belirtilecek olan Fonksiyon çalışır
+//onended: Medya elemanının oynatma süresü büttüğnde belirtilecek olan Fonksiyon çalışır
+//onloadstart: Medya elemanı verisi browser tarafından aranmaya başlandığnda belirtilecek olan Fonksiyon çalışır
+//onprogress: Browser Medya verisini indirirken belirtilecek olan Fonksiyon çalışır
+//onloadedmetadata: Medya elemanı Meta bilgileri verisi yüklendiğinde belirtilecek olan fonksiyon çalışır
+//onloadeddata: Medya elemanı verisi yüklendiğinde belirtilecek olan fonksiyon çalışır
+//oncanplaythrough: Medya elemanı verisi tamamıyla ara belleğe yüklendiğnde ve oynatma hazır olduğnda belirtilecek olan fonksiyon çalışır
+//onwaiting: Medya elemanın yürütülmesi ara belleğe daha fazla veri yüklenmesi için duraktalıdığnda ve devam etmesi beklendiğinde belirtilecek olan fonksiyon çalışır
+//onplaying: Medya elemanın yürütülmeye baslandığnda ve yürütme işlemi arabelleğe yükleme vs gibi işlemler için durup başlayınca belirtilecek olan fonksiyon çalışır
+//onsuspend: Browser medya elemanı verisini bilerek indirmediğinde berlirtilecek olan Fonksiyon çalışır
+//onerror: Sayfanın, Html elemanın veya medya verisinin yüklenmesi browser tarafından durdurulduğnda veya hata oluştuğnda berlirtilecek olan fonksiyon çalışır
+//onemptied: Medya elemanı kullanılamaz duruma geldiğinde (aniden erişilemediğnde / bağlantı kesildiğinde) berlirtilecek olan fonksiyon çalışır
+//onstalled: Browser Medya elemanı verisini indirmeye çalılşırken medya verisni alamıyorsa berlirtilecek olan fonksiyon çalışır
+//onabort: Sayfanın, Html elemanın veya medya verisinin yüklenmesi durdurulduğnda veya iptal edildiğinde berlirtilecek olan fonksiyon çalışır
+//ondurationchange: Medya elemanının nesnesinin süresi değiştirildiğinde belirtilecek olan Fonksiyon çalışır
+
+
+//onfocus: Form içerisindeki bir elemana odaklanıldığnda belirtilecek olan Fonksiyon çalışır
+function ornek16(parametre){
+	parametre.style.backgroundColor = "#F1F1F1";
+}
+
+
+//onblur: Form içerisindeki bir elemanın odağından çıkıldığnda belirtilecek olan Fonksiyon çalışır
+function ornek17(parametre){
+	parametre.style.backgroundColor = "white";
+}
+
+
+//onfocusin: Form içerisindeki bir elemana odaklanılmak üzereyken belirtilecek olan Fonksiyon çalışır
+function ornek18(parametre){
+	parametre.style.backgroundColor = "#F1F1F1";
+}
+
+
+//onfocusout: Form içerisindeki bir elemanın odağından çıkılmak üzereyken belirtilecek olan Fonksiyon çalışır
+function ornek19(parametre){
+	parametre.style.backgroundColor = "white";
+}
+
+
+//onchange: Form içerisindeki bir elemanın değeri veya seçimi değiştirildiğinde belirtilecek olan Fonksiyon çalışır
+function ornek20(){
+	var deger = document.getElementById("yaz6").value;
+	document.getElementById("yaz5").innerHTML = "Secilen Renk: " + deger;
+}
+
+
+//oninput: Form içerisindeki bir elemanın değeri veya seçimi değiştirilirken belirtilecek olan Fonksiyon çalışır
+function ornek21(){
+	var deger = document.getElementById("yaz6").value;
+	document.getElementById("yaz5").innerHTML = "Secilen Renk: " + deger;
+}
+
+
+//oninvalid: Form içerisindeki bir elemanın değeri geçersiz ise belirtilecek olan Fonksiyon çalışır
+function ornek22(){
+	alert("Lütfen ilgili alanı boş bırakmayınız");
+}
+
+
+//onsearch: Form içerisindeki arama alanı işleme alındığnda belirtilecek olan Fonksiyon çalışır
+function ornek23(){
+	alert("Arama Kutusu devreye girdi");
+}
+
+
+//onsubmitt: Belge içerisindeki Form gönderilmek istenirse belirtilecek olan Fonksiyon çalışır
+function ornek24(){
+	alert("Form gönderilmek üzere");
+}
+
+
+//onreset: Belge içerisindeki Form sıfırlanmak istenirse belirtilecek olan Fonksiyon çalışır
+function ornek25(){
+	alert("Form Sifirlaniyor");
+}
+
+
+//onselect: Form içerisindeki bir elemanın metni seçilirse belirtilecek olan Fonksiyon çalışır
+function ornek26(){
+	alert("Secim islemi gerceklesti");
+}
+
+
+//oncopy: Form veya Belge içerisindeki bir elemanın metni içeriği kullanıcı tarafından kopyalandığnda belirtilecek olan Fonksiyon çalışır
+function ornek27(){
+	alert("Metin icerigi Kopyalandi");
+}
+
+
+//oncut: Form veya Belge içerisindeki bir elemanın metni içeriği kullanıcı tarafından kesildğinde belirtilecek olan Fonksiyon çalışır
+function ornek28(){
+	alert("Metin icerigi Kesildi");
+}
+
+
+//onpaste: Form veya Belge içerisindeki bir elemanın metni içeriğine kullanıcı tarafından yapıştırıldığnda belirtilecek olan Fonksiyon çalışır
+function ornek29(){
+	alert("Metin icerigi yapistirildi");
+}
+
+
+//ondrag: Form veya Belge içerisindeki herhangi bir elemanın sürüklendiğnde belirtilecek olan Fonksiyon çalışır
+function ornek30(){
+	document.getElementById("yaz7").innerHTML = "Nesne Surukleniyor ";
+}
+
+
+//ondragstart: Form veya Belge içerisindeki herhangi bir elemanın sürüklenmesi başlatıldığnda belirtilecek olan Fonksiyon çalışır
+function ornek31(){
+	document.getElementById("yaz7").innerHTML += "Nesne Suruklenmeye basladi ";
+}
+
+
+//ondragend: Form veya Belge içerisindeki herhangi bir elemanın sürüklenmesi bittiğnde belirtilecek olan Fonksiyon çalışır
+function ornek32(){
+	document.getElementById("yaz7").innerHTML += "Nesnenin Suruklenmesi bitti ";
+}
+
+
+//ondragenter: Form veya Belge içerisindeki herhangi bir elemanın hedef kapsama alanı üzerine giriş yaptığnda belirtilecek olan Fonksiyon çalışır
+function ornek33(){
+	alert("Hedef Kapsama Alanina girildi ");
+}
+
+
+//ondragleave: Form veya Belge içerisindeki herhangi bir elemanın hedef kapsama alanından çıkış yaptığnda belirtilecek olan Fonksiyon çalışır
+function ornek34(){
+	alert("Hedef Kapsama Alanindan cikildi ");
+}
+
+
+//ondragover: Form veya Belge içerisindeki herhangi bir elemanın hedef kapsama alanı üzerindeyken belirtilecek olan Fonksiyon çalışır
+function ornek35(){
+	alert("Hedef Kapsama Alani uzerindesiniz ");
+}
+
+
+//ondrop: Form veya Belge içerisindeki herhangi bir elemanın hedef kapsama alanı üzerine bırakıldığnda belirtilecek olan Fonksiyon çalışır
+function ornek36(){
+	alert("Hedef Kapsama Alani uzerine bırakildi ");
+}
+
+
+//onbeforeprint: Belge içeriği Kullanıcı tarafından yazdırılımak istenildiğinde yazdırma işlemi başlamadan belirtilecek olan Fonksiyon çalışır
+function ornek37(){
+	alert("Yazdırma işlemi birazdan başlıyacak");
+}
+
+
+//onafterprint: Belge içeriği Kullanıcı tarafından yazdırılımak istenildiğinde yazdırma işlemi başladıktan sonra belirtilecek olan Fonksiyon çalışır
+function ornek38(){
+	alert("Yazdırma işlemi başladı");
+}
+
+
+//type: Belge içerisinde herhangi bir event türü adının referansını elde etmek için kullanılır belirtilecek olan Fonksiyon çalışır
+function ornek39(event){
+	var tur = event.type;
+	document.getElementById("yaz7").innerHTML = "Event Turu: "+tur;
+}
+
+
+//currentTarget: Belge içerisinde tanımlı eventı tetikleyen herhangi bir HTML elemanı event işaretleyicileri tarafından tag adı referansını elde etmek için kullanılır
+function ornek39(event){
+	var tur2 = event.currentTarget.nodeName;
+	document.getElementById("yaz7").innerHTML = "Event isaretleyici: "+tur2;
+}
+
+
+//target: Belge içerisinde tanımlı eventı tetikleyen herhangi bir HTML elemanın tag adı referansını elde etmek için kullanılır
+function ornek39(event){
+	var tur3 = event.target.nodeName;
+	document.getElementById("yaz7").innerHTML = "Event isaretleyici: "+tur3;
+}
+
+
+//timeStamp: Belge içerisinde tanımlı eventın oluşturulduğu zaman ile çalıştırıldığı zaman arasındakı fark süresini mikrosaniye olarak referansını elde etmek için kullanılır
+function ornek39(event){
+	var zamanfarki = event.timeStamp;
+	document.getElementById("yaz7").innerHTML = zamanfarki;
+}
+
+
+//cancelable: Belge içerisinde tanımlı eventın iptal edilebilir olup olmadığını kontroll ederek boolean veri tipi sonucu geri çevirir
+function ornek39(event){
+	var iptal = event.cancelable;
+	document.getElementById("yaz7").innerHTML = iptal;
+}
+
+
+//preventDefault(): Belge içerisinde tanımlı eventın işlevini kaldırmak veya iptal etmek için kullanılır
+function ornek40(event){
+	event.preventDefault();
+}
+
+
+//defaultPrevented(): Belge içerisinde tanımlı event için preventDefault metodunun çağırılığ çağrılmadığını kontroll ederek Boolean veri tipinde sonucu geriye döndürür
+function ornek40(event){
+	var islem = event.defaultPrevented();
+	alert(islem);
+}
+
+
+</script>
+</body>
+</html>
