@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr-Tr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>BOM</title>
+</head>
+<body>
+
+
+<button onclick="pencereAc()">Pencere Aç</button>
+<button onclick="pencereKapat()">Pencereyi Kapat</button>
+<button onclick="pencerekontrol()">Pencereyi Kontrol et</button>
+<button onclick="ornek()">Tıklayınız</button>
+<button onclick="ornek2()">Çöz</button>
+<button onclick="yazdir()">Yazdırmak için Tıklayınız</button></br></br>
+
+<button onclick="geri()">Geri git</button>
+<button onclick="ileri()">İleri git</button>
+<button onclick="ikigeri()">2 Sayfa Geri git</button>
+<button onclick="ikiileri()">2 Sayfa ileri git</button></br></br>
+<button onclick="hesapla()" style="position:fixed;">Hesapla</button></br></br>
+
+<iframe style="background-color:#F1F1F1"></iframe></br></br>
+<a href="https:www.google.com.tr">Google Git</a>
+<a href="https:www.yandex.com.tr">Yandexe Git</a>
+<a href="https:www.youtube.com.tr">Youtube Git</a>
+
+<div id="ornek1" style="background-color:#F1F1F1; width:3000px; height:3000px"></div>
+
+
+<script type="text/javascript" language="javascript">
+
+// Bom Windows üzerinden open() metodu:  Yeni tarayıcı pencerisi açmak için kullanılır
+/*
+1. Parametre : URL (Pencerenin adresi)
+2. Parametre : Pencerenin adı
+3. Parametre : Pencerenin özellikleri
+4. Parametre : Pencerenin geçmiş bilgisi
+*/
+/*
+width       : Açılacak olan pencerenin genişliğini ayarlamak için kullanılır. 
+height      : Açılacak olan pencerenin yüksekliğini ayarlamak için kullanılır. 
+left        : Açılacak olan pencerenin yatay konumunu ayarlamak için kullanılır. 
+top         : Açılacak olan pencerenin dikey konumunu ayarlamak için kullanılır. 
+
+Bu Ayarlar Tarayıcılarda Farklı Çalışabilir
+fullscreen  : Açılacak pencerenin tam ekran modunda gösterilip gösterilmeyeceğini ayarlamak için kullanılır. (yes & no)
+location    : Açılacak olan pencerede adress çububuğunun gösterilip gösterilmeyeceğini ayarlamak için kullanılır. (yes & no)
+menubar     : Açılacak olan pencerede menü çubuğu gösterilip gösterilmeyeceğini ayarlamak için kullanılır. (yes & no)
+scrollbars  : Açılacak olan pencerede kaydırma çubuğunu gösterilip gösterilmeyeceğini ayarlamak için kullanılır. (yes & no)
+status      : Açılacak olan pencerede durum çubuğunu gösterilip gösterilmeyeceğini ayarlamak için kullanılır. (yes & no)
+toolbar     : Açılacak olan pencerede navigasyon araç çubuğu gösterilip gösterilmeyeceğini ayarlamak için kullanılır. (yes & no)
+titlebar    : Açılacak olan pencerede başlık çubuğunu gösterilip gösterilmeyeceğini ayarlamak için kullanılır. (yes & no)
+resizable   : Açılacak olan pencerenin boyutlanabilir olup olmadığını ayarlamak için kullanılır. (yes & no)
+*/
+/*
+function pencereAc(){
+    //var pencere = window.open("","Yeni Pencere","width=500, height=300, left=250, top=250");
+    var pencere = window.open("","Yeni Pencere","fullscreen=yes, location=yes, menubar=yes, scrollbars=yes, status=yes, toolbar=yes, titelbar=yes, resizable=yes");
+}
+
+
+// Bom Windows üzerinden opener() metodu: Yeni pencereyi oluşturan pencereye belirtilecek olan referans değerini döndürür 
+function pencereAc(){
+    //var pencere = window.open("","Yeni Pencere","width=500, height=300, left=250, top=250");
+    var pencere = window.open("https:www.google.com.tr//","Google","width=1000, height=750, left=500",true);
+    pencere.opener.document.write("Google Sayfası penceresi Başarıyla açıldı")
+}
+
+
+// Bom Windows üzerinden close() metodu: Geçerli Pencereyi kapatmak için kullanılır
+var pencere
+function pencereAc(){
+    pencere = window.open("https:www.google.com.tr","Yeni Pencere","width=850, height=750, left=500",true);
+}
+
+function pencereKapat(){
+    pencere.close();
+}
+
+
+// Bom Windows üzerinden closed metodu: Bir pencerenin kapıtılıp kapatılmadığını kontroll ederek boolean veri türünde sonucu geriye döndürür
+var pencere
+function pencereAc(){
+    pencere = window.open("https:www.google.com.tr","Yeni Pencere","width=850, height=750, left=500",true);
+}
+
+function pencereKapat(){
+    pencere.close();
+}
+
+function pencerekontrol(){
+    document.write(pencere.closed)  
+}
+
+
+// Bom Windows üzerinden name metodu: Pencere adını referansını elde etmek veya ayarlamak için kullanılır 
+function pencereAc(){
+    var pencere   = window.open("https:www.google.com.tr","","width=850, height=750, left=500",true);
+    var penceread = pencere.name;
+    penceread     = "Google"
+    pencere.document.write("Pencerenizin Adı: " + penceread); //Pencerenizin Adı: Google
+}
+
+
+// Bom Windows üzerinden length metodu: Pencere içerisindeki tüm çerçevelerin sayısını elde etmek için kullanılır 
+var sayi = window.length;
+document.write("Pencere içerisindeki çerçeve Sayısı: "+sayi);
+
+
+// Bom Windows üzerinden frames metodu: Pencere içerisindeki tüm çerçevelerin referansını elde etmek veya ayarlamak için kullanılır 
+var referans    = window.frames;
+var refuzunluk  = referans.length
+document.write("Referans değeri: "+referans+"</br>");
+document.write("Pencere içerisindeki çerçeve Sayısı: "+refuzunluk);
+
+
+// Bom Windows üzerinden parent metodu: Geçerli çerçevenin üst penceresini elde etmek veya ayarlamak için kullanılır 
+function ornek(){
+    parent.document.body.style.backgroundColor="red";
+}
+
+
+// Bom Windows üzerinden top  self metodu: İçinde bulunula pencerenin en üst seviye pemcere olup olmadığını kontroll ederek boolean ver türünde sonucu geriye döndürür 
+function ornek(){
+    if(window.top === window.self){
+        document.write("Burası en üst seviye pencere");
+    }else{
+        document.write("Burası iç pencere");
+    }
+}
+
+
+// Bom Windows üzerinden stop() metodu: Pencerenin yüklenmesini durdurmak için kullanılır  
+ function ornek(){
+    window.stop();
+}   
+ 
+
+// Bom Windows üzerinden print() metodu: Pencere içeriğini yazdırmak için kullanılır  
+ function yazdir(){
+    window.print();
+}  
+
+
+// Bom Windows üzerinden history metodu: Pencerenin geçmiş nesnesine erişim için kullanılır  özellikleri sayesinde geçmiş işlemleri yapılabilir
+/*
+length() : Sayfa geçmişini Sayısını bulur 
+back() : Sayfa geçmişinde 1 geri gider
+forward() : Sayfa geçmişinde 1 ileri gider
+go() : Sayfa geçmişinde berlirtilen değer kadar ileri veya geri gider
+
+
+function geri(){
+    window.history.back();  
+}
+
+function ileri(){
+    window.history.forward();  
+}
+
+function ikigeri(){
+    window.history.go(-2);  
+}
+
+function ikiileri(){
+    window.history.back(2) 
+}
+
+
+// Bom Windows üzerinden confirm() metodu: Kullanıcı işlermerinde onay penceresi oluşturmak için kullanılır 
+ function yazdir(){
+    var onay = confirm("Sayfa yazdırılacaktır, devam etmek istermiyormusunuz")
+    if(onay == true){
+        window.print();
+        document.write("Yazdırma işlemi onaylandı")
+    }else{
+        document.write("Yazdırma işlemi iptal edidldi")
+    }
+}  
+
+
+// Bom Windows üzerinden prompt() metodu: Kullanıcıdan Bilgi talep etmek için girdi penceresi oluşturmak için kullanılır
+ function ornek(){
+      var veri = prompt("Merhaba sayfa arka planı hangi renk olsun (siyah,kırmızı,sarı,beyaz)");
+      if(veri == "kırmızı"){
+            document.body.style.backgroundColor = "red";
+      }else if(veri == "sarı"){
+            document.body.style.backgroundColor = "yellow";
+      }else if(veri == "siyah"){
+            document.body.style.backgroundColor = "black";
+      }else if(veri == "beyaz"){
+            document.body.style.backgroundColor = "white";
+      }else{
+            alert("Lütfen siyah,kırmızı,sarı,beyaz arasından bir renk seçin");
+            ornek();
+      }
+}
+
+
+// Bom Windows üzerinden btoa() metodu: Pencere içerisindeki bir metnin tüm karakterlerini base64 kodlamasına dönüştürerek oluşturduğu değeri geriye döndürür
+function ornek(){
+    var donusdeger  = window.btoa("Emre Yalcin");
+    document.getElementById("ornek1").innerHTML = donusdeger; //RW1yZSBZYWxjaW4=
+}
+
+
+// Bom Windows üzerinden atob() metodu: Pencere içerisindeki herhangi bir metnin base64 kodlamasına dönüştürülmüş karakterlerini çözerek değeri geriye döndürür
+function ornek(){
+    var donusdeger   = window.btoa("Hasan Ali");
+    document.getElementById("ornek1").innerHTML = donusdeger; //SGFzYW4gQWxp=
+}
+function ornek2(){
+    var normdeger    = document.getElementById("ornek1").innerHTML
+    var donusdeger2  = window.atob(normdeger);
+    document.getElementById("ornek1").innerHTML = donusdeger2; //Hasan Ali
+}
+
+
+// Bom Windows üzerinden screenX  metodu: Pencerenin bilgisayar ekranına göre yatak konum koordinatını değerini geriye döndürür 
+// Bom Windows üzerinden screenY  metodu: Pencerenin bilgisayar ekranına göre dikey konum koordinatını değerini geriye döndürür 
+function pencereAc(){
+    var pencere = window.open("","Yeni Pencere","width=500, height=250, left=250, top=350");
+    var yataykoordinat = pencere.screenX;
+    var dikeykoordinat = pencere.screenY;
+    pencere.document.write("Pencerenin Yatay Koordinat konumu: " + yataykoordinat + "</br>"); //Pencerenin Yatay Koordinat konumu: 250
+    pencere.document.write("Pencerenin Dikey Koordinat konumu: " + dikeykoordinat); //Pencerenin Dikey Koordinat konumu: 350
+}
+
+
+// Bom Windows üzerinden screenLeft  metodu: Pencerenin bilgisayar ekranına göre yatak konum koordinatını değerini geriye döndürür 
+// Bom Windows üzerinden screenTop  metodu: Pencerenin bilgisayar ekranına göre dikey konum koordinatını değerini geriye döndürür 
+function pencereAc(){
+    var pencere = window.open("","Yeni Pencere","width=500, height=250, left=250, top=350");
+    var yataykoordinat = pencere.screenLeft;
+    var dikeykoordinat = pencere.screenTop;
+    pencere.document.write("Pencerenin Yatay Koordinat konumu: " + yataykoordinat + "</br>"); //Pencerenin Yatay Koordinat konumu: 250
+    pencere.document.write("Pencerenin Dikey Koordinat konumu: " + dikeykoordinat); //Pencerenin Dikey Koordinat konumu: 350
+}
+
+
+// Bom Windows üzerinden innerWidth  metodu: Pencere içerik alanının genişlik değerini elde etmek için kullanılır 
+// Bom Windows üzerinden innerHeight  metodu: Pencere içerik alanının yükseklik değerini elde etmek için kullanılır 
+    var genislik = window.innerWidth
+    var yukseklik = window.innerHeight;
+    document.write("Genişlik degeri: " + genislik + "</br>"); //Genişlik degeri: 1162
+    document.write("Yükseklik degeri: " + yukseklik); //Yükseklik degeri: 969
+
+
+// Bom Windows üzerinden outerWidth  metodu: Pencere tüm alanının genişlik değerini elde etmek için kullanılır 
+// Bom Windows üzerinden outerHeight  metodu: Pencere tüm alanının yükseklik değerini elde etmek için kullanılır 
+    var genislik = window.outerWidth
+    var yukseklik = window.outerHeight;
+    document.write("Tüm Alan Genişlik degeri: " + genislik + "</br>"); //Tüm Alan Genişlik degeri:1920
+    document.write("Tüm Alan Yükseklik degeri: " + yukseklik); //Tüm Alan Yükseklik degeri: 1040
+
+
+// Bom Windows üzerinden pageXOffset  metodu: Belge içeriğini yatak kaydırma değerini elde etmek için kullanılır 
+// Bom Windows üzerinden pageYOffset  metodu: Belge içeriğini dikey kaydırma değerini elde etmek için kullanılır 
+function hesapla(){
+    var yatay = window.pageXOffset;
+    var dikey = window.pageYOffset;
+    var sonuc = "Yatay Kaydırma Konumu: " + yatay + ", Dikey Kaydırma Konumu: " + dikey;
+    alert(sonuc);
+}
+
+
+// Bom Windows üzerinden scrollX  metodu: Belge içeriğini yatak kaydırma değerini elde etmek için kullanılır 
+// Bom Windows üzerinden scrollY  metodu: Belge içeriğini dikey kaydırma değerini elde etmek için kullanılır 
+function hesapla(){
+    var yatay = window.scrollX;
+    var dikey = window.scrollY;
+    var sonuc = "Yatay Kaydırma Konumu: " + yatay + ", Dikey Kaydırma Konumu: " + dikey;
+    alert(sonuc);
+}
+
+
+// Bom Windows üzerinden resizeBy  metodu: Pencerenin mevcut genişlik ve yükseklik değerini berlirtilen pixelere göre Yeniden boyutlandırmak için kullanılır
+var pencere;
+function pencereAc(){
+    pencere = window.open("","Yeni Sayfa", "width=500, height=500");
+}
+function ornek(){
+    pencere.resizeBy(100,100); // Açılan Sayfayı Büyültür
+    pencere.resizeBy(-100,-100); // Açılan Sayfayı Küçültür
+}
+
+
+// Bom Windows üzerinden resizeTo  metodu: Pencerenin mevcut genişlik ve yükseklik değerini berlirtilen pixelere göre Yeniden boyutlandırmak için kullanılır
+var pencere;
+function pencereAc(){
+    pencere = window.open("","Yeni Sayfa", "width=500, height=500");
+}
+function ornek(){
+    pencere.resizeTo(200,200); // İstenilen deger verilir
+}
+
+
+// Bom Windows üzerinden moveBy()  metodu: Pencerenin sol üst köşe koordinatı baz alınarak Bilgisayar Ekranına göre belirtilen Konuma taşımak için kullanılır
+var pencere;
+function pencereAc(){
+    pencere = window.open("","Yeni Sayfa", "width=500, height=500");
+}
+function ornek(){
+    pencere.moveBy(100,100); 
+}
+
+
+// Bom Windows üzerinden moveTo()  metodu: Pencerenin sol üst köşe koordinatı baz alınarak Bilgisayar Ekranına göre belirtilen Konuma taşımak için kullanılır
+var pencere;
+function pencereAc(){
+    pencere = window.open("","Yeni Sayfa", "width=500, height=500");
+}
+function ornek(){
+    pencere.moveTo(200,200); Sabit bir Kaydırma yapar
+}
+
+
+// Bom Windows üzerinden scrollBy()  metodu: Belge içeriğini belirtilen değere göre kaydırmak için kullanılır
+function hesapla(){
+    window.scrollBy(100,100);
+}
+
+
+// Bom Windows üzerinden scrollTo()  metodu: Belge içeriğini belirtilen değere göre kaydırmak için kullanılır
+function hesapla(){
+    window.scrollTo(300,100); // Sabit bir Kaydırma yapar
+}
+
+
+// Bom Screen üzerinden width  metodu : Kullanıcın Toplam ekran genişliği değerini elde etmek için kullanılır
+// Bom Screen üzerinden height  metodu: Kullanıcın Toplam ekran yüksekliği değerini elde etmek için kullanılır
+var genislik = screen.width;
+var yukseklik = screen.height;
+document.write("Genişlik: "+ genislik + "</br>") //Genişlik: 1920
+document.write("Yükseklik: "+ yukseklik) //Yükseklik: 1080
+
+
+// Bom Screen üzerinden availWidth  metodu : Kullanıcın windows görev çubuğu haric ekranın genişliği değerini elde etmek için kullanılır
+// Bom Screen üzerinden availHeight  metodu: Kullanıcın windows görev çubuğu haric ekranın yüksekliği değerini elde etmek için kullanılır
+var genislik = screen.availWidth;
+var yukseklik = screen.availHeight;
+document.write("Genişlik: "+ genislik + "</br>") //Genişlik: 1920
+document.write("Yükseklik: "+ yukseklik) //Yükseklik: 1040
+
+
+// Bom Screen üzerinden colorDepth  metodu : Kullanıcını ekran için tanımlanmış olan renk kalitesi değerini elde etmek için kullanılır
+var renkderinlik = screen.colorDepth;
+document.write("Ekran Derinlik değeri: "+ renkderinlik + "</br>") //Genişlik: 24
+
+
+// Bom Screen üzerinden pixelDepth  metodu : Kullanıcının ekran çözünürlüğü için tanımlanmış olan her pixel başına düşen bit değerin elde etmek için kullanılır
+var pixelbit = screen.pixelDepth;
+document.write("Pixel başina düşen bit değeri: "+ pixelbit + "</br>") //Pixel başina düşen bit değeri: 24
+
+
+// Bom Navigator üzerinden appCodeName  metodu : Tarayıcının Kod adı referansını elde etmek için kullanılır 
+var kodad = navigator.appCodeName;
+document.write("Kod Adı Ref. değeri: "+ kodad + "</br>") //Kod Adı Ref. değeri: Mozilla
+
+
+// Bom Navigator üzerinden appName  metodu : Tarayıcı adı referansını elde etmek için kullanılır 
+var ad = navigator.appName;
+document.write("Tarayıcı Adı Ref. değeri: "+ ad + "</br>") //Kod Adı Ref. değeri: Netscape
+
+
+// Bom Navigator üzerinden appVersion  metodu : Tarayıcı sürüm Bilgisi referansını elde etmek için kullanılır 
+var surumref = navigator.appVersion;
+document.write("Tarayıcı sürüm Bilgisi Ref. değeri: "+ surumref + "</br>") //Tarayıcı sürüm Bilgisi Ref. değeri: 5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+
+
+// Bom Navigator üzerinden language  metodu : Tarayıcı Dil Bilgisi referansını elde etmek için kullanılır 
+var dil = navigator.language;
+document.write("Tarayıcının Dil Bilgisi Ref. değeri: "+ dil + "</br>") //Tarayıcının Dil Bilgisi Ref. değeri: tr-TR
+
+
+// Bom Navigator üzerinden product  metodu : Tarayıcının hangi görüntüleme Motorunu kullandığı Bilgisini elde etmek için kullanılır 
+var gorunteleme = navigator.product;
+document.write("Tarayıcının görüntüleme Motor Bilgisi değeri: "+ gorunteleme + "</br>") //Tarayıcının görüntüleme Motor Bilgisi değeri: Gecko
+
+
+// Bom Navigator üzerinden userAgent  metodu : Browserin tam Model referansını elde etmek için kullanılır 
+var tamref = navigator.userAgent;
+document.write("Tam Model Ref. Bilgisi: "+ tamref + "</br>") //Tam Model Ref. Bilgisi: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+
+
+// Bom Navigator üzerinden platform  metodu : Browserin hangi platform üzerinden çalıştırıldığı Bilgisi referansını elde etmek için kullanılır 
+var platf = navigator.platform;
+document.write(platf + "</br>") //Win32
+
+
+// Bom Navigator üzerinden onLine  metodu : Browserin çevrimiçi modda çalışıp çalışmadığını kontroll eder. Boolean veri türünde sonucu geriye döndürür 
+var kontrolet = navigator.onLine;
+document.write(kontrolet + "</br>") //true
+
+
+// Bom Navigator üzerinden cookieEnabled  metodu : Browserin cookie (çerez) Kullanımı destekleyip desteklemediğini kontroll ederek. Boolean veri türünde sonucu geriye döndürür 
+var kontrolet = navigator.cookieEnabled;
+document.write(kontrolet + "</br>") //true
+
+
+// Bom Navigator üzerinden javaEnabled()  metodu : Browserin java kodların etkinlik  durmunu kontroll ederek. Boolean veri türünde sonucu geriye döndürür 
+var kontrolet = navigator.javaEnabled();
+document.write(kontrolet + "</br>") //false
+
+
+// Bom location üzerinden pathname  metodu : Bir Urlin path (yol) bilgisi referansını elde etmek veya ayarlamak için kullanılır
+var yol = location.pathname;
+document.write(yol + "</br>") ///C:/Users/PC/Desktop/Emre/Javascript/Dosyalar/browserObjectModel/browserObjectModel/browserObjectModel.html
+
+
+// Bom location üzerinden search  metodu : Bir Urlin sorgu dizisi bilgisi referansını elde etmek veya ayarlamak için kullanılır
+var ara = location.search;
+document.write(ara + "</br>") 
+
+
+// Bom location üzerinden protocol  metodu : Bir Urlin protocol adı referansını elde etmek veya ayarlamak için kullanılır
+var ad = location.protocol;
+document.write(ad + "</br>") // file:
+
+
+// Bom location üzerinden assign()  metodu : Tarayıcı penceresine yeni bir Sayfa yüklemek için kullanılır
+function ornek(){
+    location.assign("http://google.com.tr");
+}
+
+
+// Bom location üzerinden replace()  metodu : Tarayıcı penceresinede bulunan sayfayı yeni bir Sayfa ile değiştirmek için kullanılır
+function ornek(){
+    location.replace("http://google.com.tr");// Eski sayfa hafızadan kaldırılır
+}
+
+
+// Bom location üzerinden reload()  metodu : Tarayıcı penceresinede bulunan sayfayı yenilemek için kullanılır
+function ornek(){
+    location.reload();
+}
+*/
+
+</script>
+</body>
+</html>
