@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr-TR">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Zamanlayıcılar</title>
+</head>
+<body>
+
+<script type="text/javascript" language="Javascript">
+
+// setTimeout(): Belge içerisinde tanımlanan herhangi bir kodlamayı belirtilen süre sonunda sadece bir defa olmak üzere çalıştırmak için kullanır
+// Süre Değeri : Milisaniye = 1000ms = 1s
+/*
+setTimeout(function(){
+    alert("5 Saniye Süreniz Doldu")
+},5000);
+
+function ornek1(){
+    alert("10 Saniye Süreniz Doldu")
+}
+
+function ornek2(){
+    alert("15 Saniye Süreniz Doldu")
+}
+
+setTimeout(ornek1,10000);
+setTimeout(ornek2,15000);
+
+
+// clearTimeout(): setTimeout metodu kullanılarak oluşturulmuş olan zamanlayıcıyı kaldırmak, iptal etmek veya geçersiz kılmak için kullanılır
+var islem = setTimeout(function(){
+    alert("5 Saniye Süreniz Doldu")
+},5000);
+
+clearTimeout(islem);
+
+
+// setInterval(): Belge içerisinde tanımlanan herhangi bir kodlamayı belirtilen süre aralıkalrında tekrar tekrar çalıştırmak için kullanır
+// Süre Değeri : Milisaniye = 1000ms = 1s
+var islem = setInterval(function(){
+    alert("5 Saniye Süreniz Doldu")
+},5000);
+*/
+
+// clearInterval(): setInterval metodu kullanılarak oluşturulmuş olan zamanlayıcıyı kaldırmak, iptal etmek veya geçersiz kılmak için kullanılır
+var islem = setTimeout(function(){
+    alert("5 Saniye Süreniz Doldu")
+},5000);
+
+clearInterval(islem);
+
+
+</script>
+</body>
+</html>
