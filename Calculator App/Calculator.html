@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="tr-TR">
+    <head>
+        <meta http-equiv"content-type" content"text/html; charset=utf-8" />
+        <title></title>
+        <style>
+            .number{
+                width: 100%;
+            }
+
+            .islem{
+                width: 100%;
+                background-color: #939191;
+            }
+        </style>
+        <script src="calculator.js"></script>   
+    </head>
+    <body>
+        <form id="calculator">
+            <table>
+                <tr>
+                    <th colspan="4"><input id="ekran" type="text" name="ekran"></th>
+                </tr>
+                <tr>
+                    <td><button type="button" class="number" onclick="sayi7()">7</button></td>
+                    <td><button type="button" class="number" onclick="sayi8()">8</button></td>
+                    <td><button type="button" class="number" onclick="sayi9()">9</button></td>
+                    <td><button type="button" class="islem" onclick="carpi()">*</button><br></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="number" onclick="sayi4()">4</button></td>
+                    <td><button type="button" class="number" onclick="sayi5()">5</button></td>
+                    <td><button type="button" class="number" onclick="sayi6()">6</button></td>
+                    <td><button type="button" class="islem" onclick="eksi()">-</button><br></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="number" onclick="sayi1()">1</button></td>
+                    <td><button type="button" class="number" onclick="sayi2()">2</button></td>
+                    <td><button type="button" class="number" onclick="sayi3()">3</button></td>
+                    <td><button type="button" class="islem" onclick="arti()">+</button><br></td>
+                </tr> 
+                <tr>
+                    <td><button type="button" class="islem" onclick="sifirla()">C</button></td>
+                    <td><button type="button" class="number" onclick="sayi0()">0</button></td>
+                    <td><button type="button" class="number" onclick="virgul()">,</button></td>
+                    <td><button type="button" class="islem" onclick="esit()">=</button><br></td>
+                </tr>                
+            </table>
+        </form>
+    </body>
+</html>
